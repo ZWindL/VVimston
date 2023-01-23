@@ -90,12 +90,13 @@ cmp.setup({
                                     true), "")
             else
                 -- work with copilot
-                local copilot_keys = vim.fn["copilot#Accept"]("")
-                if copilot_keys ~= "" then
-                    vim.api.nvim_feedkeys(copilot_keys, "i", true)
-                else
-                    fallback()
-                end
+                -- local copilot_keys = vim.fn["copilot#Accept"]("")
+                -- if copilot_keys ~= "" then
+                --     vim.api.nvim_feedkeys(copilot_keys, "i", true)
+                -- else
+                --     fallback()
+                -- end
+                fallback()
             end
         end,
         ["<S-Tab>"] = function(fallback)

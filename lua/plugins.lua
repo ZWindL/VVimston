@@ -1,15 +1,35 @@
-vim.cmd [[packadd packer.nvim]]
-
+-- vim.cmd [[packadd packer.nvim]]
 function get_config(name)
     return string.format("require(\"plugconfs/%s\")", name)
 end
 
-require("packer").startup(function()
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath("data")
+                             .. "/site/pack/packer/start/packer.nvim"
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({
+            "git", "clone", "--depth", "1",
+            "https://github.com/wbthomason/packer.nvim", install_path
+        })
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
+end
+
+local packer_bootstrap = ensure_packer()
+
+return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
     -------------------------------------------------------------- lsp related --------------------------------------------------------------------------------
-    use {"neovim/nvim-lspconfig", config = get_config("lspconfig")}
     use {"williamboman/mason.nvim", config = get_config("mason")}
+    use {
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+        config = get_config("lspconfig")
+    }
     use {"onsails/lspkind-nvim", requires = {"famiu/bufdelete.nvim"}}
     use {
         "glepnir/lspsaga.nvim",
@@ -39,6 +59,15 @@ require("packer").startup(function()
     use {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         config = get_config("lsp-lines")
+    }
+    -- use {"Exafunction/codeium.vim", config = get_config("codeium")} -- why it doesn't work?
+    use {
+        "Exafunction/codeium.vim",
+        config = function()
+            vim.keymap.set("i", "<C-,>", function()
+                return vim.fn["codeium#Accept"]()
+            end, {expr = true})
+        end
     }
     -- fold/unfold
     use {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"}
@@ -230,6 +259,9 @@ require("packer").startup(function()
     -- TODO https://github.com/glepnir/dashboard-nvim
     -- TODO use { "smjonas/live-command.nvim" }
 
+    if packer_bootstrap then
+        require("packer").sync()
+    end
 end)
 
 -- raw comands

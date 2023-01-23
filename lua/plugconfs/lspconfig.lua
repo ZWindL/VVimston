@@ -1,6 +1,14 @@
-local a = vim.api
+local servers = {
+    "ccls", "ansiblels", "asm_lsp", "bashls", "gopls", "hls", "rust_analyzer",
+    "pyright", "cmake", "yamlls"
+}
+
+local mason_lsp = require("mason-lspconfig")
+mason_lsp.setup({ensure_installed = servers})
+
 local k = vim.keymap
 local lsp = require("lspconfig")
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp
                                                                       .protocol
                                                                       .make_client_capabilities())
@@ -9,11 +17,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
-}
-
-local servers = {
-    "ccls", "ansiblels", "asm_lsp", "bashls", "gopls", "hls", "rust_analyzer",
-    "pyright", "cmake", "yamlls"
 }
 
 local on_attach = function(client, bufnr)
@@ -31,8 +34,8 @@ local on_attach = function(client, bufnr)
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    k.set("n", "gD", vim.lsp.buf.declaration, opts)
-    k.set("n", "gd", vim.lsp.buf.definition, opts)
+    -- k.set("n", "gD", vim.lsp.buf.declaration, opts)
+    -- k.set("n", "gd", vim.lsp.buf.definition, opts)
     -- a.nvim_buf_set_keymap(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>",
     --                       opts)
     k.set("n", "gi", vim.lsp.buf.implementation, opts)
