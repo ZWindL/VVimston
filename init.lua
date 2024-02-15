@@ -1,17 +1,17 @@
 -- load plugins
-require('plugins')
+require("core.init-plugins")
 
 -- options
-require('options')
+require("options")
 
 -- mappings
-require('mappings')
+require("mappings")
 
 -- autocmd
-require('autocmd')
+require("autocmd")
 
--- autocmd
-require('neovide_options')
+-- neovide
+require("neovide_options")
 
 -- raw comands
 vim.api.nvim_exec([[

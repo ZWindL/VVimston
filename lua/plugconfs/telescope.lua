@@ -55,7 +55,7 @@ telescope.load_extension("zoxide")
 telescope.load_extension("heading")
 telescope.load_extension("file_browser")
 telescope.load_extension("frecency")
-telescope.load_extension("software-licenses")
+-- telescope.load_extension("software-licenses")
 telescope.load_extension("goimpl")
 telescope.load_extension("hoogle")
 
