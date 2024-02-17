@@ -1,4 +1,4 @@
-# Winston's bromide Neovim configuration in Lua
+# My bromide Neovim configuration in Lua
 
 TODO: screenshots here
 

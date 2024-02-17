@@ -1,8 +1,11 @@
--- load plugins
-require("core.init-plugins")
+local utils = require("core.utils")
 
--- options
-require("options")
+require("core.options")
+
+-- we don't use plugins as root
+if not utils.is_root() then
+  require("core.lazyplug")
+end
 
 -- mappings
 require("mappings")
@@ -12,8 +15,3 @@ require("autocmd")
 
 -- neovide
 require("neovide_options")
-
--- raw comands
-vim.api.nvim_exec([[
-    set nocompatible
-]], true)

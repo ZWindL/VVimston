@@ -1,3 +1,5 @@
+local utils = require("core.utils")
+
 if vim.fn.has("nvim-0.9.0") == 0 then
   vim.api.nvim_echo({
     { "VVimston requires Neovim >= 0.9.0\n", "ErrorMsg" },
@@ -28,7 +30,7 @@ local opts = {
   },
   dev = {
     ---@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
-    path = "~/projects",
+    path = utils.DEV_DIR,
     ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
     patterns = {}, -- For example {"folke"}
     fallback = false, -- Fallback to git when local plugin doesn't exist

@@ -1,6 +1,7 @@
 # Tasks
 
 - [x] Migrate from Packer to Lazy.nvim
+- [x] Migrate options
 - [ ] LSP plugins
     * [ ] Mason
     * [ ] lspconfig
