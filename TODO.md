@@ -1,18 +1,28 @@
 # Tasks
 
 - [x] Migrate from Packer to Lazy.nvim
+- [x] Keymaps.lua
 - [x] Migrate options
 - [ ] LSP plugins
     * [ ] Mason
     * [ ] lspconfig
+    * [ ] lspsaga
 - [ ] UI tweaks
     * [ ] Barbar
     * [ ] color schemes
     * [ ] lualine
+    * [x] Dashboard
+    * [ ] Adjust the icons https://github.com/nvim-tree/nvim-web-devicons
 - [ ] Tools
+    * [x] hlsearch.vim
     * [ ] telescope
     * [ ] which key
-- [ ]
+    * [ ] template.nvim https://github.com/nvimdev/template.nvim
+- [ ] Devs
+    * [ ] rust https://github.com/mrcjkb/rustaceanvim
+- [x] Keybindings
+    * [x] quickfix
+    * [x] vim mode for built-in terminal
 
 # Old configurations
 

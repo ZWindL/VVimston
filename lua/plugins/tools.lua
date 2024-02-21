@@ -1,0 +1,3 @@
+return {
+    "nvimdev/hlsearch.nvim"
+}

@@ -38,4 +38,56 @@ function M.is_root()
   return not M.IS_WINDOWS and vim.loop.getuid() == 0
 end
 
+-- @author LazyVim
+-- @ref https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/util/init.lua
+-- Wrapper around vim.keymap.set that will
+-- not create a keymap if a lazy key handler exists.
+-- It will also set `silent` to true by default.
+function M.safe_keymap_set(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  local modes = type(mode) == "string" and { mode } or mode
+
+  ---@param m string
+  modes = vim.tbl_filter(function(m)
+    return not (keys.have and keys:have(lhs, m))
+  end, modes)
+
+  -- do not create the keymap if a lazy keys handler exists
+  if #modes > 0 then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    if opts.remap and not vim.g.vscode then
+      ---@diagnostic disable-next-line: no-unknown
+      opts.remap = nil
+    end
+    vim.keymap.set(modes, lhs, rhs, opts)
+  end
+end
+
+
+-- @author Allaman
+-- @ref https://github.com/Allaman/nvim/blob/main/lua/utils/functions.lua
+-- move over a closing element in insert mode
+M.escapePair = function()
+  local closers = { ")", "]", "}", ">", "'", '"', "`", "," }
+  local line = vim.api.nvim_get_current_line()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local after = line:sub(col + 1, -1)
+  local closer_col = #after + 1
+  local closer_i = nil
+  for i, closer in ipairs(closers) do
+    local cur_index, _ = after:find(closer)
+    if cur_index and (cur_index < closer_col) then
+      closer_col = cur_index
+      closer_i = i
+    end
+  end
+  if closer_i then
+    vim.api.nvim_win_set_cursor(0, { row, col + closer_col })
+  else
+    vim.api.nvim_win_set_cursor(0, { row, col + 1 })
+  end
+end
+
 return M

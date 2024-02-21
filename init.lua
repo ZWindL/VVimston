@@ -7,8 +7,8 @@ if not utils.is_root() then
   require("core.lazyplug")
 end
 
--- mappings
-require("mappings")
+require("core.keymaps")
+
 
 -- autocmd
 require("autocmd")
