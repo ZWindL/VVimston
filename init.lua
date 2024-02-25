@@ -9,9 +9,8 @@ end
 
 require("core.keymaps")
 
-
 -- autocmd
-require("autocmd")
+require("core.autocmds")
 
 -- neovide
 require("neovide_options")

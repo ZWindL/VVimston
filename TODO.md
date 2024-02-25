@@ -3,6 +3,7 @@
 - [x] Migrate from Packer to Lazy.nvim
 - [x] Keymaps.lua
 - [x] Migrate options
+- [x] Autocmd config
 - [ ] LSP plugins
     * [ ] Mason
     * [ ] lspconfig
