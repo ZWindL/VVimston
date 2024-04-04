@@ -102,6 +102,7 @@ if vim.fn.executable("rg") == 1 then
   o.grepformat = "%f:%l:%c:%m"
 end
 
+-- NOTE: It doesn't work properly either by modifying vim.opt or by using autocmd
 -- c: auto-wrap comments using textwidth
 -- r: auto-insert the current comment leader after hitting <Enter>
 -- o: auto-insert the current comment leader after hitting 'o' or 'O'
@@ -112,18 +113,20 @@ end
 -- this gets overwritten by ftplugins (:verb set fo)
 -- we use autocmd to remove 'o' in '/lua/autocmd.lua'
 -- borrowed from tjdevries
-o.formatoptions    = o.formatoptions
-    - "a"                                   -- Auto formatting is BAD.
-    - "t"                                   -- Don't auto format my code. I got linters for that.
-    + "c"                                   -- In general, I like it when comments respect textwidth
-    + "q"                                   -- Allow formatting comments w/ gq
-    - "o"                                   -- O and o, don't continue comments
-    + "r"                                   -- But do continue when pressing enter.
-    + "n"                                   -- Indent past the formatlistpat, not underneath it.
-    + "j"                                   -- Auto-remove comments if possible.
-    - "2"                                   -- I'm not in gradeschool anymore
+-- o.formatoptions    = "l"
+-- o.formatoptions    = o.formatoptions
+--     - "a"                                   -- Auto formatting is BAD.
+--     - "t"                                   -- Don't auto format my code. I got linters for that.
+--     + "c"                                   -- In general, I like it when comments respect textwidth
+--     + "q"                                   -- Allow formatting comments w/ gq
+--     - "o"                                   -- O and o, don't continue comments
+--     + "r"                                   -- But do continue when pressing enter.
+--     + "n"                                   -- Indent past the formatlistpat, not underneath it.
+--     + "j"                                   -- Auto-remove comments if possible.
+--     - "2"                                   -- I'm not in gradeschool anymore
+vim.opt.formatoptions = "cqrnjl1"
 
-vim.o.cpoptions = vim.o.cpoptions .. "x" -- stay on search item when <esc>
+vim.opt.cpoptions:append("x")   -- stay on search item when <esc>
 
 -- Set mapleader to <space>
 g.mapleader      = " "

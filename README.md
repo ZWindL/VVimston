@@ -4,10 +4,10 @@ TODO: screenshots here
 
 ## Introduction
 A configuration inspired by [LazyVim](https://github.com/LazyVim/LazyVim) and [Sergio's config](https://bitbucket.org/sergio/mylazy-nvim).
-Also has flavors from [Allaman's Nvim config](https://github.com/Allaman/nvim/tree/main)
+Also mixed with flavors from [Allaman's Nvim config](https://github.com/Allaman/nvim/tree/main).
 
 - Modern: Using Lua as the config language, and adopting as much fancy features in the new version of Neovim as possible.
-- Modular: The config of different aspect are splitted into different files.
+- Modular: The configs of different aspects are splitted into different files.
 - Documented: The goal is to eaily recall what this line/file does.
 
 **This config requires Neovim >= 0.9**
@@ -20,24 +20,20 @@ Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
 ```
 .
 ├── init.lua
+├── lazy-lock.json
 ├── lua
-│   ├── autocmd.lua
-│   ├── mappings.lua
+│   ├── core
+│   │   ├── autocmds.lua
+│   │   ├── keymaps.lua
+│   │   ├── lazyplug.lua
+│   │   ├── options.lua
+│   │   └── utils.lua
 │   ├── neovide_options.lua
-│   ├── options.lua
-│   ├── plugconfs
-│   │   ├── autopairs.lua
-│   │   ├── blankline.lua
-│   │   ├── bufferline.lua
-│   │   ├── cheatsheet.lua
-│   │   ├── cmp.lua
-│   │   ├── vim-table.lua
-│   │   ├── which.lua
-│   │   └── zen-mode.lua
-│   └── plugins.lua
-├── README.md
-├── settings.json
-└── snippets
+│   └── plugins
+│       ├── dashboard.lua
+│       ├── lsp.lua
+│       └── tools.lua
+│       └── ...
 ```
 
 ## Features
@@ -57,10 +53,15 @@ Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
 
 ## Dependencies
 
-## Todos
-- https://github.com/simrat39/rust-tools.nvim/
-
 ## Known issues
+### formatoptions
+I want nvim not to auto-insert comment lead characters after pressing `o` or `O`, but does after hitting enter.
+This can be configured via `vim.opt.formatoptions`, however it won't set `"r"` by operating directly on this
+option as `vim.opt.formatoptions += "r"`, because options are table type. And if modify it by using
+`vim.opt.formatoptions:append { "c", "q", "j", "r" }` inside `autoCmd` blocks, nvim reports "illegal character"
+error. The workaround is to hardcode the value of `formatoptions` and remove the unwanted options by
+`formatoptions:remove` inside`autoCmd`, although it's not recommended, see `:help formatoptions`.
+
 ### copilot
 It needs an older version of node.js to run.
 

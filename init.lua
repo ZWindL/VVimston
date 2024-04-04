@@ -13,4 +13,4 @@ require("core.keymaps")
 require("core.autocmds")
 
 -- neovide
-require("neovide_options")
+require("core.neovide_options")
