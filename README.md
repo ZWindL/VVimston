@@ -67,11 +67,15 @@ leader key: `<space>`
 `<c-c>`: exit to normal edit
 
 **nvim-cmp**
-`<c-b>`: completion doc scroll back
-`<c-f>`: completion doc scroll forward
+`<c-u>`: completion doc scroll back
+`<c-d>`: completion doc scroll forward
+`<c-f>`: snippet jump to next node
+`<c-b>`: snippet jump to prev node
+`<c-e>`: snippet switch choices
 `<c-spc>`: trigger complete
 `<c-c>`: abort complete
 `<enter>`: confirm completion
+  **Proposal**
 
 ### Misc
 `q`, `n`: close help/dap/man... window.
