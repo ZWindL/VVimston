@@ -12,17 +12,18 @@
     * [x] Compeletion tool: coq
     * [x] Compeletion tool: nvim-cmp
     * [x] lspconfig
+    * [x] luasnip
+    * [x] inlay hints
     * [ ] lspsaga
     * [ ] nvim-dap https://github.com/mfussenegger/nvim-dap
     * [ ] nvim-dap-ui https://github.com/rcarriga/nvim-dap-ui
     * [ ] nvim-lint https://github.com/mfussenegger/nvim-lint
     * [ ] formatter.nvim https://github.com/mhartington/formatter.nvim
     * [ ] lsp_signature https://github.com/ray-x/lsp_signature.nvim
-    * [ ] inlay hints
     * [ ] nvim-cmp works with gopls and rust.nvim https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples
-    * [ ] luasnip
     * [ ] luasnip highlights https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#ext_opts
     * [ ] maybe this cleanup can stop jumping to snippets https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#cleanup
+    * [ ] https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
 - [ ] UI tweaks
     * [ ] Barbar
     * [ ] color schemes
@@ -38,13 +39,14 @@
     * [ ] https://github.com/windwp/nvim-autopairs
     * [ ] https://github.com/nvim-orgmode/orgmode
     * [ ] Database https://github.com/kristijanhusak/vim-dadbod-completion?tab=readme-ov-file
+    * [ ] oil.nvim file manager
+    * [ ] https://github.com/keaising/im-select.nvim
 - [ ] Devs
     * [ ] rust https://github.com/mrcjkb/rustaceanvim
     * [ ] rust crate https://github.com/Saecki/crates.nvim
     * [ ] formatter
 - [ ] Issues
     * [x] treesitter error blocks lsp settings
-    * [ ] Handle large files for cmp: https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques
     * [ ] tree-sitter auto install missing filetypes
     * [ ] saving lua files failed because of the lsp-config
 - [ ] Compeletion sources

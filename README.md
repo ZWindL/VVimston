@@ -58,6 +58,7 @@ Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
 ## Keybindings
 ### Global
 leader key: `<space>`
+*TODO: other mappings*
 
 ### Plugins
 **coq**
@@ -75,7 +76,9 @@ leader key: `<space>`
 `<c-spc>`: trigger complete
 `<c-c>`: abort complete
 `<enter>`: confirm completion
-  **Proposal**
+
+**lsp raw keybindings**
+
 
 ### Misc
 `q`, `n`: close help/dap/man... window.

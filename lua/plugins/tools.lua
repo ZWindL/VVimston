@@ -24,5 +24,16 @@ return {
                 map_c_w = false, -- map <c-w> to delete a pair if possible
             })
         end,
+    },
+
+    {
+        "keaising/im-select.nvim",
+        config = function()
+            require("im_select").setup({
+                default_im_select  = "keyboard-us",
+                default_command = "fcitx5-remote",
+                async_switch_im = true,
+            })
+        end,
     }
 }
