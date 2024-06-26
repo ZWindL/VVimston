@@ -1,4 +1,6 @@
 local utils = require("core.utils")
+local constants = require("core.constants")
+local lsp_servers = constants.lsp_servers
 
 return {
     {
@@ -72,28 +74,14 @@ return {
         dependencies = { "williamboman/mason.nvim" },
         config = function()
             require("mason-lspconfig").setup {
-                ensure_installed = {
-                    "lua_ls", "rust_analyzer",
-                    "angularls", "ansiblels", "bashls",
-                    "clangd", "neocmake",
-                    "cssmodules_ls", "dockerls", "dotls", "emmet_ls",
-                    "gopls", "grammarly", "html", "jsonls",
-                    "tsserver", "jqls", "ltex",
-                    "autotools_ls", "spectral", "pylsp",
-                    "robotframework_ls", "ruby_lsp", "sqls", "svls",
-                    "taplo", "vimls", "vuels", "yamlls", "zls",
-                    -- "ocaml-lsp",
-                    -- "java_language_server",
-                    -- "hls",
-                    -- "asm_lsp",
-                    -- "pkgbuild_language_server",
-                },
+                ensure_installed = lsp_servers,
                 -- or can be { exclude: string[] }
                 automatic_installation = true,
             }
         end,
     },
 
+    -- init language servers
     {
         "neovim/nvim-lspconfig",
         dependencies = {

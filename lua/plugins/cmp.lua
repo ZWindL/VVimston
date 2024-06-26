@@ -7,7 +7,6 @@ return {
 
     -- other sources
     "amarakon/nvim-cmp-buffer-lines", -- useful for C programming
-    "leading_whitespace",
     "kdheepak/cmp-latex-symbols",
 
     -- UI enhancement
@@ -45,17 +44,6 @@ return {
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
             local lspkind = require("lspkind")
             local ls = require("luasnip")
-
-            local has_words_before = function()
-                unpack = unpack or table.unpack
-                local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-                return col ~= 0 and
-                    vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-            end
-
-            local feedkey = function(key, mode)
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-            end
 
             cmp.setup({
                 snippet = {
