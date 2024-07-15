@@ -27,7 +27,7 @@
 - [ ] UI tweaks
     * [ ] Barbar
     * [ ] color schemes
-    * [ ] lualine
+    * [x] lualine
     * [x] Dashboard
     * [ ] Adjust the icons https://github.com/nvim-tree/nvim-web-devicons
     * [ ] notifications
@@ -47,8 +47,8 @@
     * [ ] formatter
 - [ ] Issues
     * [x] treesitter error blocks lsp settings
-    * [ ] tree-sitter auto install missing filetypes
-    * [ ] saving lua files failed because of the lsp-config
+    * [x] tree-sitter auto install missing filetypes
+    * [x] saving lua files failed because of the lsp-config
 - [ ] Compeletion sources
     * [ ] https://github.com/hrsh7th/cmp-omni
     * [ ] https://github.com/petertriho/cmp-git
