@@ -65,7 +65,6 @@ function M.safe_keymap_set(mode, lhs, rhs, opts)
   end
 end
 
-
 -- @author Allaman
 -- @ref https://github.com/Allaman/nvim/blob/main/lua/utils/functions.lua
 -- move over a closing element in insert mode

@@ -25,7 +25,7 @@
     * [ ] maybe this cleanup can stop jumping to snippets https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#cleanup
     * [ ] https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
 - [ ] UI tweaks
-    * [ ] Barbar
+    * [X] Barbar
     * [ ] color schemes
     * [x] lualine
     * [x] Dashboard
