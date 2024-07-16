@@ -41,6 +41,8 @@ Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
 
 ### UI Enhancement
 - Theming Nvim splash screen: [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
+- Tab bar: [barbar.nvim](https://github.com/romgrk/barbar.nvim)
+- Status line: lualine
 
 ### Tools
 - Auto remove incsearch highlight: [hlsearch](github.com/nvimdev/hlsearch.nvim)
@@ -58,6 +60,25 @@ Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
 ## Keybindings
 ### Global
 leader key: `<space>`
+
+#### Tabs/Buffers
+`]b`: Next buffer
+`[b`: Prev buffer
+`<a-{1..9}>`: Buffer 1 ~ 9
+`<a-0>`: Last buffer
+`<a-p>`: Buffer magic picker
+`<leader>bb`: Switch to the most recent buffer
+`<leader>bp`: Prev buffer
+`<leader>bn`: Next buffer
+`<leader>bD`: Close all but the current buffer
+`<leader>bd`: Close buffer
+`<leader>bf`: Buffer magic picker (finder)
+`<leader>bob`: Order buffers by buf number
+`<leader>bon`: Order buffers by name
+`<leader>bod`: Order buffers by directory
+`<leader>bol`: Order buffers by language
+`<leader>bow`: Order buffers by window number
+
 *TODO: other mappings*
 
 ### Plugins

@@ -38,6 +38,7 @@ return {
         spec = {
             mode = { "n", "v" },
             { "<leader>b", group = "Buffers" },
+            { "<leader>bo", group = "Order Buffers" },
             { "<leader>f", group = "Files" },
             { "<leader>l", group = "LSP" },
             { "<leader>m", group = "Misc" },
