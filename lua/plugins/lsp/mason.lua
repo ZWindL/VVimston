@@ -1,4 +1,3 @@
-local utils = require("core.utils")
 local constants = require("core.constants")
 local lsp_servers = constants.lsp_servers
 
@@ -79,17 +78,5 @@ return {
                 automatic_installation = true,
             }
         end,
-    },
-
-    -- init language servers
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            "williamboman/mason-lspconfig.nvim",
-            "williamboman/mason.nvim",
-        },
-        config = function ()
-            require("plugins.lsp.main")
-        end
     },
 }
