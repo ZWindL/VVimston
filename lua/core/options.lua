@@ -124,6 +124,7 @@ end
 --     + "n"                                   -- Indent past the formatlistpat, not underneath it.
 --     + "j"                                   -- Auto-remove comments if possible.
 --     - "2"                                   -- I'm not in gradeschool anymore
+-- So hardcode this option
 vim.opt.formatoptions = "cqrnjl1"
 
 vim.opt.cpoptions:append("x")   -- stay on search item when <esc>

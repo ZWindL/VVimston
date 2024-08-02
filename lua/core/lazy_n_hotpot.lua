@@ -1,5 +1,6 @@
 local utils = require("core.utils")
 
+-- Lazy requires nvim version >= 0.9.0
 if vim.fn.has("nvim-0.9.0") == 0 then
   vim.api.nvim_echo({
     { "VVimston requires Neovim >= 0.9.0\n", "ErrorMsg" },
@@ -10,6 +11,7 @@ if vim.fn.has("nvim-0.9.0") == 0 then
   return {}
 end
 
+-- install lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -21,9 +23,25 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-vim.opt.rtp:prepend(lazypath)
 
+-- install hotpot
+local hotpotpath = vim.fn.stdpath("data") .. "/lazy/hotpot.nvim"
+if not vim.loop.fs_stat(hotpotpath) then
+  vim.notify("Bootstrapping hotpot.nvim...", vim.log.levels.INFO)
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/rktjmp/hotpot.nvim.git",
+    hotpotpath,
+  })
+end
+
+vim.opt.rtp:prepend({hotpotpath, lazypath})
+
+-- lazy options
 local opts = {
+  spec = { import = "plugins" },
   defaults = {
     lazy = false,
     -- version = "*", -- enable this to try installing the latest stable versions of plugins
@@ -34,10 +52,6 @@ local opts = {
     ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
     patterns = {}, -- For example {"folke"}
     fallback = false, -- Fallback to git when local plugin doesn't exist
-  },
-  install = {
-    -- try to load one of these colorschemes when starting an installation during startup
-    colorscheme = { "tokyonight", "habamax" },
   },
   ui = {
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
@@ -74,4 +88,6 @@ local opts = {
   },
 }
 
-return require("lazy").setup("plugins", opts)
+require("hotpot")
+
+return require("lazy").setup(opts)

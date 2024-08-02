@@ -61,6 +61,9 @@ Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
 ### Global
 leader key: `<space>`
 
+### Plugin Manager (Lazy)
+`<leader>p`: Plugin manager
+
 #### Tabs/Buffers
 `]b`: Next buffer
 `[b`: Prev buffer
