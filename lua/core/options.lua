@@ -88,7 +88,8 @@ for k, v in pairs(opts) do
   if fn.has("nvim-0.10") == 1 then
     o.smoothscroll = true
     o.foldmethod = "expr"
-    o.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+    -- use foldexp provided by TS instead
+    -- o.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
   else
     o.foldmethod = "indent"
   end

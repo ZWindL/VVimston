@@ -14,6 +14,7 @@
     * [x] lspconfig
     * [x] luasnip
     * [x] inlay hints
+    * [x] luasnip highlights https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#ext_opts
     * [ ] lspsaga
     * [ ] nvim-dap https://github.com/mfussenegger/nvim-dap
     * [ ] nvim-dap-ui https://github.com/rcarriga/nvim-dap-ui
@@ -21,25 +22,23 @@
     * [ ] formatter.nvim https://github.com/mhartington/formatter.nvim
     * [ ] lsp_signature https://github.com/ray-x/lsp_signature.nvim
     * [ ] nvim-cmp works with gopls and rust.nvim https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples
-    * [ ] luasnip highlights https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#ext_opts
-    * [ ] maybe this cleanup can stop jumping to snippets https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#cleanup
     * [ ] https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
 - [ ] UI tweaks
-    * [X] Barbar
-    * [ ] color schemes
+    * [x] Barbar
+    * [x] color schemes
     * [x] lualine
     * [x] Dashboard
-    * [ ] Adjust the icons https://github.com/nvim-tree/nvim-web-devicons
+    * [x] Adjust the icons https://github.com/nvim-tree/nvim-web-devicons
     * [ ] notifications https://github.com/folke/noice.nvim
     * [ ] https://github.com/smjonas/inc-rename.nvim
     * [ ] https://github.com/smjonas/live-command.nvim
 - [ ] Tools
     * [x] hlsearch.vim
+    * [x] which key
+    * [x] https://github.com/windwp/nvim-autopairs
+    * [x] https://github.com/nvim-orgmode/orgmode
     * [ ] telescope
-    * [ ] which key
     * [ ] template.nvim https://github.com/nvimdev/template.nvim
-    * [ ] https://github.com/windwp/nvim-autopairs
-    * [ ] https://github.com/nvim-orgmode/orgmode
     * [ ] Database https://github.com/kristijanhusak/vim-dadbod-completion?tab=readme-ov-file
     * [ ] oil.nvim file manager
     * [ ] https://github.com/keaising/im-select.nvim
@@ -52,6 +51,9 @@
     * [x] treesitter error blocks lsp settings
     * [x] tree-sitter auto install missing filetypes
     * [x] saving lua files failed because of the lsp-config
+    * [ ] whicy-key icons have underscores
+    * [ ] which-key mini.icons
+    * [ ] 
 - [ ] Compeletion sources
     * [ ] https://github.com/hrsh7th/cmp-omni
     * [ ] https://github.com/petertriho/cmp-git
@@ -61,3 +63,8 @@
 
 # Save for later
 * file manager written by coq's author: https://github.com/ms-jpq/chadtree
+* lualine alternative: https://github.com/freddiehaddad/feline.nvim
+* barbar alternative: https://github.com/nanozuki/tabby.nvim
+* fold text: https://neovim.io/doc/user/fold.html#_foldtext
+    * https://github.com/anuvyklack/pretty-fold.nvim
+* Org like plugin https://github.com/nvim-neorg/neorg

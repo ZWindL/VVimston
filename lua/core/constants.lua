@@ -43,6 +43,21 @@ M.icons = {
         plusSquare = ' ',
         plus = '+',
     },
+    common = {
+        edit = "󰷉 ",
+        order = "󰈍 ",
+        file = " ",
+        lambda = "󰘧",
+        misc = " ",
+        magic = "󰁨 ",
+        replace = "󰬳 ",
+        search = " ",
+        toggle = " ",
+        window = " ",
+        spelling = "󰓆 ",
+        tab = "󰓩 ",
+        undo = "󰕍 ",
+    }
 }
 
 M.lsp_servers = {

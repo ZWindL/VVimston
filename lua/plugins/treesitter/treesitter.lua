@@ -1,7 +1,11 @@
+local utils = require("core.utils")
+local map_group = utils.add_keymap_group
+
 return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
-        vim.cmd [[:TSUpdate]]
+        vim.cmd("TSUpdate")
+        map_group("n", "gt", "TreeSitter Select", " ")
         require("nvim-treesitter.configs").setup {
             ensure_installed = {
                 "bash", "c", "c_sharp", "clojure", "cmake", "comment", "commonlisp",
@@ -15,6 +19,18 @@ return {
             },
             async_install = true,
             auto_install = true,
+
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "gts",
+                    node_incremental = "gtn",
+                    scope_incremental = "gts",
+                    node_decremental = "gtd",
+                }
+            }
         }
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
     end,
 }
