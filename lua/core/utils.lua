@@ -61,8 +61,25 @@ function M.safe_keymap_set(mode, lhs, rhs, opts)
       ---@diagnostic disable-next-line: no-unknown
       opts.remap = nil
     end
+    local icon = opts.icon
+    if icon then
+        opts.icon = nil
+    end
     vim.keymap.set(modes, lhs, rhs, opts)
+    if icon then
+        require("which-key").add({lhs, icon = icon})
+    end
   end
+end
+
+function M.add_keymap_group(mode, lhs, group, icon)
+    local g = {
+        lhs, group = group, mode = mode
+    }
+    if icon then
+        g.icon = icon
+    end
+    require("which-key").add(g)
 end
 
 -- @author Allaman
@@ -98,6 +115,18 @@ M.on_attach = function(on_attach)
       on_attach(client, buffer)
     end,
   })
+end
+
+-- To determine whether it's day or night
+-- for themes that has light/dark version
+-- and other plugins rely on that property
+M.day_or_night = function ()
+    local h = tonumber(os.date("%H"))
+    if h > 8 and h < 18 then
+        return "day"
+    else
+        return "night"
+    end
 end
 
 return M

@@ -85,7 +85,7 @@ map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Prev buffer" })
 map("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
 map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
-map("n", "<leader>bd", "<cmd>Bdelete<cr>", { desc = "Close buffer" })
+map("n", "<leader>bd", "<cmd>BufferDelete<cr>", { desc = "Close buffer" })
 map("n", "<leader>bf", "<cmd>BufferPick<cr>", { desc = "Buffer Picker (Find)" })
 -- Goto buffer in position...
 map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>')
