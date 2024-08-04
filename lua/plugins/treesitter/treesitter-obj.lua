@@ -274,5 +274,10 @@ return {
         map_group({"n", "x", "o"}, "]]", "Next nearest TS Object")
         map_group({"n", "x", "o"}, "[i", "Prev inner TS Object")
         map_group({"n", "x", "o"}, "]i", "Next inner TS Object")
+
+        map_group({"n", "x", "o"}, "]a", "Next assignment")
+        map_group({"n", "x", "o"}, "[a", "Prev assignment")
+        map_group({"n", "x", "o"}, "]/", "Next comment")
+        map_group({"n", "x", "o"}, "[/", "Prev comment")
     end,
 }

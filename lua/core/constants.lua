@@ -44,9 +44,11 @@ M.icons = {
         plus = '+',
     },
     common = {
+        colorscheme = " ",
         edit = "󰷉 ",
         order = "󰈍 ",
         file = " ",
+        git = " ",
         lambda = "󰘧",
         misc = " ",
         magic = "󰁨 ",
@@ -57,6 +59,7 @@ M.icons = {
         spelling = "󰓆 ",
         tab = "󰓩 ",
         undo = "󰕍 ",
+        notifi = "󱥁 ",
     }
 }
 

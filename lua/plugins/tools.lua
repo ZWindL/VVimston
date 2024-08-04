@@ -1,3 +1,5 @@
+-- Samll tools with succinct configuration
+
 return {
     "nvimdev/hlsearch.nvim",
 

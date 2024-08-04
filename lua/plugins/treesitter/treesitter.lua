@@ -12,7 +12,8 @@ return {
                 "cpp", "css", "cuda", "dart", "dockerfile", "dot", "erlang", "fennel",
                 "fish", "go", "gomod", "graphql", "haskell", "hcl", "html",
                 "http", "java", "javascript", "json", "json5", "jsonc", "julia",
-                "kotlin", "llvm", "lua", "make", "markdown", "ninja", "nix",
+                "kotlin", "llvm", "lua", "make", "markdown", "markdown_inline",
+                "ninja", "nix",
                 "ocaml", "pascal", "perl", "php", "phpdoc", "python",
                 "query", "r", "regex", "rst", "ruby", "rust", "scala", "scheme", "scss",
                 "toml", "typescript", "vala", "verilog", "vim", "vue", "yaml"
