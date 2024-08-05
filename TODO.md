@@ -54,6 +54,8 @@
     * [ ] whicy-key icons have underscores
     * [ ] which-key mini.icons
     * [ ] Show marks
+    * [ ] Lualines extensions
+    * [ ] Display outline with treesitter for files not supported by lsp yet (using aerial)
 - [ ] Compeletion sources
     * [ ] https://github.com/hrsh7th/cmp-omni
     * [ ] https://github.com/petertriho/cmp-git

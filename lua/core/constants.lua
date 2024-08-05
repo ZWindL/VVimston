@@ -48,6 +48,7 @@ M.icons = {
         edit = "󰷉 ",
         order = "󰈍 ",
         file = " ",
+        format = "󰸱 ",
         git = " ",
         lambda = "󰘧",
         misc = " ",

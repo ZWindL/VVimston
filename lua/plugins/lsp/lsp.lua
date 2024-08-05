@@ -2,6 +2,7 @@ local utils = require("core.utils")
 local constants = require("core.constants")
 local server_settings = require("plugins.lsp.lang_settings")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+local icons = constants.icons
 
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
@@ -43,11 +44,18 @@ end
 -- Common keybindings
 -- most can be replaced by plugins
 local function set_keymaps(client, bufnr)
-    -- local map = utils.safe_keymap_set
+    local map = utils.safe_keymap_set
 
     -- hover
     -- map({ "n", "v" }, "K", vim.lsp.buf.hover)
     -- map({ "n", "v" }, "<leader>lh", vim.lsp.buf.hover, { desc = "Hover" })
+
+    -- format
+    map({ "n", "v" }, "<leader>lf",
+        function()
+            vim.lsp.buf.format({ async = true })
+        end,
+        { desc = "Format", icon = icons.common.format })
 end
 
 --------------------------------------------------------------------------------
@@ -61,10 +69,10 @@ return {
         "williamboman/mason.nvim",
     },
 
-    config = function ()
+    config = function()
         local lspcfg = require("lspconfig")
 
-        utils.on_attach(function (client, buffer)
+        utils.on_attach(function(client, buffer)
             highlight_cursor(client, buffer)
             -- display_navic(client, buffer)
             set_keymaps(client, buffer)
