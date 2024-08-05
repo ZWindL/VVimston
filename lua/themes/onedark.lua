@@ -18,6 +18,5 @@ return {
         require("onedark").setup({
             style = style
         })
-        vim.cmd.colorscheme "onedark"
     end
 }
