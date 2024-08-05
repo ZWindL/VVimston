@@ -87,9 +87,9 @@ return {
         })
 
         -- call hierachy
-        map_group("n", "<leader>lc", "Lsp calls", icons.common.lambda)
-        map("n", "<leader>lci", "<cmd>Lspsaga incoming_calls<cr>", { desc = "Incoming calls" })
-        map("n", "<leader>lco", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "Outgoing calls" })
+        -- map_group("n", "<leader>lc", "Lsp calls", icons.common.lambda)
+        -- map("n", "<leader>lci", "<cmd>Lspsaga incoming_calls<cr>", { desc = "Incoming calls" })
+        -- map("n", "<leader>lco", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "Outgoing calls" })
 
         -- code action
         -- map_group("n", "<leader>la", "Lsp code action", icons.common.lambda)
