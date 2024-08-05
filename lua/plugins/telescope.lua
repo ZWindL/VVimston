@@ -18,9 +18,10 @@ return {
     config = function ()
         require("telescope").setup(options)
         require("telescope").load_extension("noice")
+        -- require("telescope").load_extension("aerial")
 
         -- keybindings
-        map("n", "<leader>tt", "<cmd>Telescope<cr>", { desc = "Telescope", })
+        map("n", "<leader>vt", "<cmd>Telescope<cr>", { desc = "Telescope", })
         local builtin = require('telescope.builtin')
 
         -- files

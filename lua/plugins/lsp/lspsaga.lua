@@ -53,10 +53,11 @@ return {
                 sign = true,
                 virtual_text = true,
             },
-            lightbulbs = {
-                enable = true,
-                sign = false,
+            lightbulb = {
+                enable = false,
+                sign = false,   -- Disable that so that the sign col aren't bouncing
                 virtual_text = true,
+                debounce = 100,
             },
             outline = {
                 win_position = 'right',
@@ -75,7 +76,7 @@ return {
                 auto_save = false,
                 keys = {
                     quit = '<C-c>',
-                    select = 'x',   -- select or cancel select item in `project_replace` float window
+                    select = 'x', -- select or cancel select item in `project_replace` float window
                 },
             },
         })
@@ -95,38 +96,38 @@ return {
         map("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "Code actions" })
 
         -- Goto/peek
-        map_group({ "n", "v" }, "gp", "Peek definition")
         map_group({ "n", "v" }, "gr", "Rename/References")
-        map({ "n", "v" }, "gpt",
-            "<cmd>Lspsaga peek_type_definition<cr>",
-            {desc = "Type definition"})
-        map({ "n", "v" }, "gpd",
-            "<cmd>Lspsaga peek_definition<cr>",
-            {desc = "Definition"})
-        map({ "n", "v" }, "gd",
-            "<cmd>Lspsaga goto_definition<cr>",
-            {desc = "Goto definition"})
-        map({ "n", "v" }, "gD",
-            "<cmd>Lspsaga goto_type_definition<cr>",
-            {desc = "Goto type definition"})
-        map({ "n", "v" }, "grr",
-            "<cmd>Lspsaga finder<cr>",
-            {desc = "Find references"})
+        -- map_group({ "n", "v" }, "gp", "Peek definition")
+        -- map({ "n", "v" }, "gpt",
+        --     "<cmd>Lspsaga peek_type_definition<cr>",
+        --     {desc = "Type definition"})
+        -- map({ "n", "v" }, "gpd",
+        --     "<cmd>Lspsaga peek_definition<cr>",
+        --     {desc = "Definition"})
+        -- map({ "n", "v" }, "gd",
+        --     "<cmd>Lspsaga goto_definition<cr>",
+        --     {desc = "Goto definition"})
+        -- map({ "n", "v" }, "gD",
+        --     "<cmd>Lspsaga goto_type_definition<cr>",
+        --     {desc = "Goto type definition"})
+        -- map({ "n", "v" }, "grr",
+        --     "<cmd>Lspsaga finder<cr>",
+        --     {desc = "Find references"})
 
         -- Hover
         map({ "n", "v" }, "K",
             "<cmd>Lspsaga hover_doc<cr>",
-            {desc = "hover"})
+            { desc = "hover" })
         map({ "n", "v" }, "<leader>lh",
             "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover" })
 
         -- Diagnostics
         map({ "n", "v" }, "]e",
             "<cmd>Lspsaga diagnostic_jump_next<cr>",
-            {desc = "Goto next diagnostic"})
+            { desc = "Goto next diagnostic" })
         map({ "n", "v" }, "[e",
             "<cmd>Lspsaga diagnostic_jump_prev<cr>",
-            {desc = "Goto prev diagnostic"})
+            { desc = "Goto prev diagnostic" })
         map({ "n", "v" }, "]E", function()
                 require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
             end,
@@ -138,12 +139,11 @@ return {
 
         -- Rename
         map({ "n", "v" }, "grn",
-        "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
+            "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
 
-        -- Rename
-        map({ "n", "v" }, "<leader>lo",
-        "<cmd>Lspsaga outline<cr>", { desc = "Outline" })
-
+        -- Outline
+        -- map({ "n", "v" }, "<leader>lo",
+        --     "<cmd>Lspsaga outline<cr>", { desc = "Outline" })
     end,
     dependencies = {
         "nvim-treesitter/nvim-treesitter",

@@ -22,7 +22,7 @@ api.nvim_create_autocmd("TextYankPost", {
 --  + "j"                                   -- Auto-remove comments if possible.
 --  - "2"                                   -- I'm not in gradeschool anymore
 --  + "l"
-vim.api.nvim_create_autocmd("BufEnter", {
+api.nvim_create_autocmd("BufEnter", {
   callback = function()
     vim.opt.formatoptions:remove { "a", "t", "o", "2" }
   end,
@@ -50,3 +50,24 @@ api.nvim_create_autocmd("FileType", {
   desc = "close certain windows with q",
 })
 api.nvim_create_autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
+
+api.nvim_create_autocmd('BufRead', {
+  callback = function(opts)
+    vim.api.nvim_create_autocmd('BufWinEnter', {
+      once = true,
+      buffer = opts.buf,
+      callback = function()
+        local ft = vim.bo[opts.buf].filetype
+        local last_known_line = vim.api.nvim_buf_get_mark(opts.buf, '"')[1]
+        if
+          not (ft:match('commit') and ft:match('rebase'))
+          and last_known_line > 1
+          and last_known_line <= vim.api.nvim_buf_line_count(opts.buf)
+        then
+          vim.api.nvim_feedkeys([[g`"]], 'nx', false)
+        end
+      end,
+    })
+  end,
+  desc = "Save cursor position"
+})

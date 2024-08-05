@@ -68,7 +68,7 @@ map("i", ".", ".<c-g>u")
 map("i", ";", ";<c-g>u")
 
 -- lazy
-map("n", "<leader>p", "<cmd>Lazy<cr>", { desc = "Plugins (Lazy)" })
+map("n", "<leader>vp", "<cmd>Lazy<cr>", { desc = "Plugins (Lazy)" })
 
 -- Don't use Ex mode, use Q for formatting
 map("", "Q", "gq", {})
