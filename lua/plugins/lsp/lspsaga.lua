@@ -104,15 +104,16 @@ return {
         -- map({ "n", "v" }, "gpd",
         --     "<cmd>Lspsaga peek_definition<cr>",
         --     {desc = "Definition"})
-        -- map({ "n", "v" }, "gd",
-        --     "<cmd>Lspsaga goto_definition<cr>",
-        --     {desc = "Goto definition"})
+        map({ "n", "v" }, "gd",
+            "<cmd>Lspsaga goto_definition<cr>",
+            {desc = "Goto definition"})
         -- map({ "n", "v" }, "gD",
         --     "<cmd>Lspsaga goto_type_definition<cr>",
         --     {desc = "Goto type definition"})
         -- map({ "n", "v" }, "grr",
-        --     "<cmd>Lspsaga finder<cr>",
-        --     {desc = "Find references"})
+        map({ "n", "v" }, "gD",
+            "<cmd>Lspsaga finder<cr>",
+            {desc = "Find references"})
 
         -- Hover
         map({ "n", "v" }, "K",

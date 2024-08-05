@@ -10,6 +10,5 @@ return {
         else
             vim.opt.background = "dark" -- set this to dark or light
         end
-        vim.cmd.colorscheme "oxocarbon"
     end
 }

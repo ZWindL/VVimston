@@ -41,7 +41,10 @@ vim.opt.rtp:prepend({hotpotpath, lazypath})
 
 -- lazy options
 local opts = {
-  spec = { import = "plugins" },
+  spec = {
+      { import = "plugins" },
+      { import = "themes" },
+  },
   defaults = {
     lazy = false,
     -- version = "*", -- enable this to try installing the latest stable versions of plugins

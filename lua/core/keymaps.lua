@@ -4,7 +4,6 @@
 
 local utils = require("core.utils")
 local map = utils.safe_keymap_set
-local g = vim.g
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -68,7 +67,7 @@ map("i", ".", ".<c-g>u")
 map("i", ";", ";<c-g>u")
 
 -- lazy
-map("n", "<leader>vp", "<cmd>Lazy<cr>", { desc = "Plugins (Lazy)" })
+map("n", "<leader><leader>p", "<cmd>Lazy<cr>", { desc = "Plugins (Lazy)" })
 
 -- Don't use Ex mode, use Q for formatting
 map("", "Q", "gq", {})

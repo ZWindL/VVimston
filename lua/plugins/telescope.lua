@@ -21,7 +21,7 @@ return {
         -- require("telescope").load_extension("aerial")
 
         -- keybindings
-        map("n", "<leader>vt", "<cmd>Telescope<cr>", { desc = "Telescope", })
+        map("n", "<leader><leader>t", "<cmd>Telescope<cr>", { desc = "Telescope", })
         local builtin = require('telescope.builtin')
 
         -- files
@@ -43,7 +43,7 @@ return {
         -- git
         map_group("n", "<leader>g", "Git ops", icons.common.git)
         map("n", "<leader>gf", builtin.git_files, { desc = "Git files" })
-        map("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
+        map("n", "<leader>gh", builtin.git_commits, { desc = "Git history" })
         map("n", "<leader>gr", builtin.git_bcommits_range, { desc = "Git commits range" })
         map("n", "<leader>gb", builtin.git_branches, { desc = "Git branches" })
         map("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
