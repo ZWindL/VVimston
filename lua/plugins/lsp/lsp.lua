@@ -10,27 +10,28 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 --                  Attached Functions Begins
 --------------------------------------------------------------------------------
 -- Highlight symbol under cursor
-local function highlight_cursor(client, bufnr)
-    -- Server capabilities spec:
-    -- https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#serverCapabilities
-    if client.server_capabilities.documentHighlightProvider then
-        vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-        vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
-        vim.api.nvim_create_autocmd("CursorHold", {
-            callback = vim.lsp.buf.document_highlight,
-            buffer = bufnr,
-            group = "lsp_document_highlight",
-            desc = "Document Highlight",
-        })
-        vim.api.nvim_create_autocmd("CursorMoved", {
-            callback = vim.lsp.buf.clear_references,
-            buffer = bufnr,
-            group = "lsp_document_highlight",
-            desc = "Clear All the References",
-        })
-    end
-end
-
+-- NOTE: Use illuminate.vim instead
+-- local function highlight_cursor(client, bufnr)
+--     -- Server capabilities spec:
+--     -- https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#serverCapabilities
+--     if client.server_capabilities.documentHighlightProvider then
+--         vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+--         vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
+--         vim.api.nvim_create_autocmd("CursorHold", {
+--             callback = vim.lsp.buf.document_highlight,
+--             buffer = bufnr,
+--             group = "lsp_document_highlight",
+--             desc = "Document Highlight",
+--         })
+--         vim.api.nvim_create_autocmd("CursorMoved", {
+--             callback = vim.lsp.buf.clear_references,
+--             buffer = bufnr,
+--             group = "lsp_document_highlight",
+--             desc = "Clear All the References",
+--         })
+--     end
+-- end
+--
 -- Display navic on topbar
 -- NOTE: Replaced by lspsaga
 -- local function display_navic(client, bufnr)
@@ -83,7 +84,7 @@ return {
         local lspcfg = require("lspconfig")
 
         utils.on_attach(function(client, buffer)
-            highlight_cursor(client, buffer)
+            -- highlight_cursor(client, buffer)
             -- display_navic(client, buffer)
             set_keymaps(client, buffer)
         end)
