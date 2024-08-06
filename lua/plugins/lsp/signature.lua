@@ -14,7 +14,7 @@ return {
             handler_opts = {
                 border = "rounded"
             },
-            transparency = 50,
+            transparency = 30,
             floating_window_above_cur_line = true,
             hint_enable = true,
             hint_prefix = "🐼 ",
