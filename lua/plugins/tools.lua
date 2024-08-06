@@ -45,5 +45,11 @@ return {
         config = function()
             require("nvim-surround").setup()
         end
-    }
+    },
+
+    {
+        "lewis6991/gitsigns.nvim",
+        config = true,
+    },
+
 }

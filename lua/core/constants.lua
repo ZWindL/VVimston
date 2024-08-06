@@ -61,8 +61,13 @@ M.icons = {
         tab = "󰓩 ",
         undo = "󰕍 ",
         notifi = "󱥁 ",
+        error = " ",
+        warn = " ",
+        info = " ",
+        hint = "󰌵",
     }
 }
+
 
 M.lsp_servers = {
     "lua_ls", "rust_analyzer",

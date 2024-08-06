@@ -9,6 +9,7 @@ local M = {
     require("plugins.lsp.glance"),
     require("plugins.lsp.inline-diag"),
     require("plugins.lsp.calltree"),
+    require("plugins.lsp.trouble"),
 }
 
 return M
