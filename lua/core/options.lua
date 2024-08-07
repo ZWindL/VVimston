@@ -25,11 +25,11 @@ local opts = {
     -- wild options
     wildignorecase = true, -- Ignored case when completing file names and directories
     wildmode = "longest:full,full",
-    wildoptions = "pum", -- Show completion items using the pop-up-menu (pum)
-    pumblend = 15,       -- Completion menu transparency
+    wildoptions = "pum",   -- Show completion items using the pop-up-menu (pum)
+    pumblend = 15,         -- Completion menu transparency
 
     -- autochdir = true, -- When this on, some plugins may not work
-    breakindent = true,                                -- Every wrapped line will continue visually indented
+    breakindent = true,                                  -- Every wrapped line will continue visually indented
     completeopt = { "noinsert", "menuone", "noselect" }, -- Show menu even for one item do not auto select/insert
     conceallevel = 3,
     copyindent = true,
@@ -48,7 +48,7 @@ local opts = {
         "i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
         "sm:block-blinkwait175-blinkoff150-blinkon175",
     },
-    history = 150,   -- Keep 150 lines of command line history
+    history = 150,     -- Keep 150 lines of command line history
     ignorecase = true,
     joinspaces = true, -- Add <space> after '.?!' when joining lines
     -- lazyredraw = true -- do not redraw screen while running macros
@@ -67,7 +67,7 @@ local opts = {
     mouse = "nv", -- Only enable mouse in normal and visual modes
     number = true,
     relativenumber = true,
-    scrolloff = 3,   -- Min number of lines to keep between cursor and screen edge
+    scrolloff = 3,     -- Min number of lines to keep between cursor and screen edge
     sidescrolloff = 5, -- Min number of cols to keep between cursor and screen edge
     showmatch = true,
     -- showmode = false
@@ -156,13 +156,19 @@ g.markdown_fenced_languages = {
     "json",
 }
 
-vim.fn.sign_define("DiagnosticSignError",
-    { text = icons.common.error, texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn",
-    { text = icons.common.warn, texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo",
-    { text = icons.common.info, texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint",
-    { text = icons.common.hint, texthl = "DiagnosticSignHint" })
+vim.diagnostic.config({
+    -- virtual_text = {
+    --     prefix = "●",
+    -- },
+    severity_sort = true,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = icons.common.error,
+            [vim.diagnostic.severity.WARN] = icons.common.warn,
+            [vim.diagnostic.severity.INFO] = icons.common.info,
+            [vim.diagnostic.severity.HINT] = icons.common.hint,
+        },
+    },
+})
 
 -- vim: tw=4 sw=4

@@ -22,7 +22,8 @@ return {
             auto_install = true,
 
             incremental_selection = {
-                enable = true,
+                -- Let leap.nvim finish the job
+                enable = false,
                 keymaps = {
                     init_selection = "gts",
                     node_incremental = "gtn",

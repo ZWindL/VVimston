@@ -1,5 +1,8 @@
 -- Samll tools with succinct configuration
 
+local utils = require("core.utils")
+local map = utils.safe_keymap_set
+
 return {
     "nvimdev/hlsearch.nvim",
 
@@ -47,4 +50,15 @@ return {
         end
     },
 
+    {
+        "folke/twilight.nvim",
+        config = function()
+            map({ "n", "v" }, "<leader>tw", "<cmd>Twilight<cr>", { desc = "Twilight mode" })
+        end
+    },
+
+    {
+        "chentoast/marks.nvim",
+        config = true,
+    },
 }
