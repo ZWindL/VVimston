@@ -14,6 +14,10 @@ end
 ]]
 --
 
+local codeium = function()
+	return vim.api.nvim_call_function("codeium#GetStatusString", {})
+end
+
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -64,6 +68,7 @@ return {
 						},
 					},
 					lualine_x = {
+						{ codeium },
 						{ "fancy_macro" },
 						{ "fancy_diagnostics" },
 						{ "fancy_searchcount" },

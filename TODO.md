@@ -74,3 +74,4 @@
 * https://github.com/letieu/harpoon-lualine
 * Database https://github.com/kristijanhusak/vim-dadbod-completion?tab=readme-ov-file
 * Some settings are resetted after the cmd floating window is invoked
+* https://github.com/olimorris/codecompanion.nvim

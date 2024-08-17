@@ -134,7 +134,7 @@ return {
 		map_group("n", "<leader>g", "Git ops", icons.common.git)
 		map("n", "<leader>gf", builtin.git_files, { desc = "Git files" })
 		map("n", "<leader>gh", builtin.git_commits, { desc = "Git history" })
-		map("n", "<leader>gr", builtin.git_bcommits_range, { desc = "Git commits range" })
+		map("n", "<leader>gr", builtin.git_bcommits, { desc = "Git commits range" })
 		map("n", "<leader>gb", builtin.git_branches, { desc = "Git branches" })
 		map("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
 		map("n", "<leader>gt", builtin.git_stash, { desc = "Git stash" })

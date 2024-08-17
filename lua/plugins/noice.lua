@@ -101,7 +101,7 @@ return {
             lsp_doc_border = false,       -- add a border to hover docs and signature help
         },
         routes = {
-            -- TODO: this block will enable 'recording' message to be displayed
+            -- NOTE: this block will enable 'recording' message to be displayed
             -- but also notify "INSERTING" all the time
             -- {
             --     view = "notify",
