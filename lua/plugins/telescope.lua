@@ -4,7 +4,8 @@ local map_group = utils.add_keymap_group
 local icons = require("core.constants").icons
 
 local open_with_trouble = require("trouble.sources.telescope").open
-local add_to_trouble = require("trouble.sources.telescope").add    -- Use this to add more results without clearing the trouble list
+local add_to_trouble = require("trouble.sources.telescope")
+    .add -- Use this to add more results without clearing the trouble list
 
 -- Leap integration
 -- NOTE: If you try to use this before entering any input, an error is thrown.
@@ -78,6 +79,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-ui-select.nvim",
+        "nvim-telescope/telescope-frecency.nvim",
         {
             "polirritmico/telescope-lazy-plugins.nvim",
             keys = {
@@ -90,6 +92,7 @@ return {
         require("telescope").load_extension("noice")
         require("telescope").load_extension("lazy_plugins")
         require("telescope").load_extension("ui-select")
+        require("telescope").load_extension("frecency")
         -- require("telescope").load_extension("aerial")
 
         -- keybindings
@@ -97,12 +100,24 @@ return {
         local builtin = require('telescope.builtin')
 
         -- files
-        map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+        -- map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+        -- map("n", "<leader>ff", function()
+        -- require("telescope").extensions.smart_open.smart_open()
+        -- map("n", "<leader>ff", function()
+        -- NOTE: The function call doesn't work
+        --     require("telescope").extensions.frecency.frecency {
+        --         workspace = "CWD",
+        --         path_display = { "shorten" },
+        --         theme = "ivy",
+        --     }
+        -- end, { desc = "Find files (freceny)" })
+        map("n", "<leader>ff",
+        "<cmd>Telescope frecency workspace=CWD path_display={\"shorten\"} theme=ivy<cr>",
+            { desc = "Find files (freceny)" })
         map("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
         map("n", "<leader>fs", builtin.grep_string, { desc = "Search string" })
         map("n", "<leader>fo", builtin.oldfiles, { desc = "Old files" })
         map("n", "<leader>fz", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find string" })
-
         -- lsp
         -- First 3 are replaced by other plugins
         -- map_group("n", "<leader>lc", "Lsp calls", icons.common.lambda)
