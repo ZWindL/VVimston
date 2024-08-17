@@ -1,5 +1,14 @@
 # Keybindings
 
+Every keybinding should do its best stick to the principles.
+
+1. Most often used functions are mapped to single key or `M-[x]`.
+3. `<F1>` ~ `<F12>` are mapped to functions like LSP, compiler, etc.
+2. Functions that are rather rarely used are mapped to `<leader>` groups.
+    1. `<leader>t` for Toggles.
+    2. `<leader>b` for Buffers.
+    3. `[` and `]` stand for `prev/next`.
+
 Keybindings are grouped into 3 types
 1. Keys under `leader` key.
 2. Keys following other keys.

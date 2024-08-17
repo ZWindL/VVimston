@@ -2,16 +2,17 @@
 
 ## Screenshots
 ![screenshot](./doc/assets/screenshot.png)
+colorscheme: `dayfox`
 
 ## Introduction
 A configuration inspired by [LazyVim](https://github.com/LazyVim/LazyVim) and [Sergio's config](https://bitbucket.org/sergio/mylazy-nvim).
 Also mixed with flavors from [Allaman's Nvim config](https://github.com/Allaman/nvim/tree/main).
 
-- Modern: Using Lua as the config language, and adopting as much fancy features in the new version of Neovim as possible.
-- Modular: The configs of different aspects are splitted into different files.
-- Documented: The goal is to eaily recall what this line/file does.
+- Modern: Using Lua as the config language, and adopting as many fancy features as possible in the nightly version of `Neovim`.
+- Modular: Each plugin has its dedicated config file.
+- Documented (TODO): The goal is to easily recall what this line/file does.
 
-**This config requires Neovim >= 0.10**
+**Neovim >= 0.10 is required**
 
 ## Installation
 Backup your existing config with `mv ~/.config/nvim{,.bak}`
