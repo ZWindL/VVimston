@@ -48,6 +48,7 @@
     * [ ] rust https://github.com/mrcjkb/rustaceanvim
     * [ ] rust crate https://github.com/Saecki/crates.nvim
     * [ ] formatter
+    * [ ] https://github.com/amitds1997/remote-nvim.nvim
 - [ ] Issues
     * [x] treesitter error blocks lsp settings
     * [x] tree-sitter auto install missing filetypes
@@ -74,4 +75,4 @@
     * https://github.com/anuvyklack/pretty-fold.nvim
 * Org like plugin https://github.com/nvim-neorg/neorg
 * Check out luarocks for nvim
-* add more combination keymaps for plugins that are used frequently
+* add more combination keymaps for plugins that are used frequently (`<M-l>` for lsp, `<M-g>`)
