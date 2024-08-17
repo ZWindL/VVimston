@@ -3,6 +3,9 @@ local map = utils.safe_keymap_set
 local map_group = utils.add_keymap_group
 local icons = require("core.constants").icons
 
+local open_with_trouble = require("trouble.sources.telescope").open
+local add_to_trouble = require("trouble.sources.telescope").add    -- Use this to add more results without clearing the trouble list
+
 local options = {
     defaults = {
         mappings = {
