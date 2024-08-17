@@ -70,7 +70,9 @@ M.icons = {
 
 
 M.lsp_servers = {
-    "lua_ls", "rust_analyzer",
+    -- use rustaceanvim
+    -- "rust_analyzer",
+    "lua_ls",
     "angularls", "ansiblels", "bashls",
     "clangd", "neocmake",
     "cssmodules_ls", "dockerls", "dotls", "emmet_ls",
