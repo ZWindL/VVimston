@@ -15,7 +15,7 @@ end
 --
 
 local codeium = function()
-	return vim.api.nvim_call_function("codeium#GetStatusString", {})
+	return "󰘦 " .. vim.api.nvim_call_function("codeium#GetStatusString", {})
 end
 
 return {
@@ -69,6 +69,7 @@ return {
 					},
 					lualine_x = {
 						{ codeium },
+						-- { "tabnine" },
 						{ "fancy_macro" },
 						{ "fancy_diagnostics" },
 						{ "fancy_searchcount" },

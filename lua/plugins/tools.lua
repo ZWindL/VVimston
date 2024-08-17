@@ -146,4 +146,6 @@ return {
 			-- or just leave it empty :)
 		},
 	},
+
+	{ "wakatime/vim-wakatime", lazy = false },
 }
