@@ -20,7 +20,7 @@ return {
                 ["?"] = "actions.show_help",
             },
         })
-        map({ "n", "v" }, "<leader>fm", "<cmd>Oil<cr>",
-            { desc = "File manager" })
+        -- map({ "n", "v" }, "<leader>fm", "<cmd>Oil<cr>",
+        --     { desc = "File manager" })
     end,
 }
