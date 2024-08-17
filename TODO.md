@@ -31,7 +31,7 @@
     * [x] Dashboard
     * [x] Adjust the icons https://github.com/nvim-tree/nvim-web-devicons
     * [x] notifications https://github.com/folke/noice.nvim
-- [ ] Tools
+- [x] Tools
     * [x] hlsearch.vim
     * [x] which key
     * [x] https://github.com/windwp/nvim-autopairs
@@ -41,14 +41,10 @@
     * [x] oil.nvim file manager
     * [x] template.nvim https://github.com/nvimdev/template.nvim
     * [x] mini.nvim (icons and others)
-    * [ ] Database https://github.com/kristijanhusak/vim-dadbod-completion?tab=readme-ov-file
-    * [ ] https://github.com/ThePrimeagen/harpoon/tree/harpoon2
-    * [ ] https://github.com/letieu/harpoon-lualine
 - [ ] Devs
     * [x] formatter
     * [ ] rust https://github.com/mrcjkb/rustaceanvim
     * [ ] rust crate https://github.com/Saecki/crates.nvim
-    * [ ] https://github.com/amitds1997/remote-nvim.nvim
 - [x] Issues
     * [x] treesitter error blocks lsp settings
     * [x] tree-sitter auto install missing filetypes
@@ -73,3 +69,8 @@
 * https://github.com/chipsenkbeil/distant.nvim
 * AI error explainer: https://github.com/piersolenski/wtf.nvim
 * https://github.com/AlejandroSuero/freeze-code.nvim
+* https://github.com/amitds1997/remote-nvim.nvim
+* https://github.com/ThePrimeagen/harpoon/tree/harpoon2
+* https://github.com/letieu/harpoon-lualine
+* Database https://github.com/kristijanhusak/vim-dadbod-completion?tab=readme-ov-file
+* Some settings are resetted after the cmd floating window is invoked
