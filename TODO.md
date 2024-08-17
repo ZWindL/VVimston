@@ -10,8 +10,8 @@
 - [ ] LSP plugins
     * [x] Mason
     * [x] Compeletion tool: coq
-    * [ ] Compeletion tool: nvim-cmp
-    * [ ] lspconfig
+    * [x] Compeletion tool: nvim-cmp
+    * [x] lspconfig
     * [ ] lspsaga
     * [ ] nvim-dap https://github.com/mfussenegger/nvim-dap
     * [ ] nvim-dap-ui https://github.com/rcarriga/nvim-dap-ui
@@ -20,6 +20,9 @@
     * [ ] lsp_signature https://github.com/ray-x/lsp_signature.nvim
     * [ ] inlay hints
     * [ ] nvim-cmp works with gopls and rust.nvim https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples
+    * [ ] luasnip
+    * [ ] luasnip highlights https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#ext_opts
+    * [ ] maybe this cleanup can stop jumping to snippets https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#cleanup
 - [ ] UI tweaks
     * [ ] Barbar
     * [ ] color schemes
@@ -43,6 +46,7 @@
     * [x] treesitter error blocks lsp settings
     * [ ] Handle large files for cmp: https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques
     * [ ] tree-sitter auto install missing filetypes
+    * [ ] saving lua files failed because of the lsp-config
 - [ ] Compeletion sources
     * [ ] https://github.com/hrsh7th/cmp-omni
     * [ ] https://github.com/petertriho/cmp-git
