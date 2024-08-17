@@ -6,9 +6,44 @@ local icons = require("core.constants").icons
 local open_with_trouble = require("trouble.sources.telescope").open
 local add_to_trouble = require("trouble.sources.telescope").add    -- Use this to add more results without clearing the trouble list
 
+-- Leap integration
+-- NOTE: If you try to use this before entering any input, an error is thrown.
+-- (Help would be appreciated, if someone knows a fix.)
+local function get_targets(buf)
+    local pick = require('telescope.actions.state').get_current_picker(buf)
+    local scroller = require('telescope.pickers.scroller')
+    local wininfo = vim.fn.getwininfo(pick.results_win)[1]
+    local top = math.max(
+        scroller.top(pick.sorting_strategy, pick.max_results, pick.manager:num_results()),
+        wininfo.topline - 1
+    )
+    local bottom = wininfo.botline - 2         -- skip the current row
+    local targets = {}
+    for lnum = bottom, top, -1 do              -- start labeling from the closest (bottom) row
+        table.insert(targets, { wininfo = wininfo, pos = { lnum + 1, 1 }, pick = pick, })
+    end
+    return targets
+end
+
+local function pick_with_leap(buf)
+    require('leap').leap {
+        targets = function() return get_targets(buf) end,
+        action = function(target)
+            target.pick:set_selection(target.pos[1] - 1)
+            require('telescope.actions').select_default(buf)
+        end,
+    }
+end
+
 local options = {
     defaults = {
         mappings = {
+            -- Leap integration
+            i = {
+                ['<a-p>'] = pick_with_leap,
+                ["<c-t>"] = open_with_trouble,
+            },
+            n = { ["<c-t>"] = open_with_trouble },
         }
     },
     pickers = {},
@@ -48,11 +83,11 @@ return {
         map("n", "<leader>fz", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find string" })
 
         -- lsp
-        -- First 3 are replaced by lspsaga
+        -- First 3 are replaced by other plugins
         -- map_group("n", "<leader>lc", "Lsp calls", icons.common.lambda)
         -- map("n", "<leader>lci", builtin.lsp_incoming_calls, { desc = "Incoming calls" })
         -- map("n", "<leader>lco", builtin.lsp_outgoing_calls, { desc = "Outgoing calls" })
-        map("n", "<leader>lr", builtin.lsp_references, { desc = "References" })
+        -- map("n", "<leader>lr", builtin.lsp_references, { desc = "References" })
         map("n", "<leader>ls", builtin.lsp_dynamic_workspace_symbols, { desc = "Symbols" })
         map("n", "<leader>ld", builtin.diagnostics, { desc = "Diagnostics" })
 
@@ -86,7 +121,7 @@ return {
 
         -- extensions
         map("n", "<leader><leader>c",
-         require("telescope").extensions.lazy_plugins.lazy_plugins,
+            require("telescope").extensions.lazy_plugins.lazy_plugins,
             { desc = "Plugin configurations" })
 
     end,

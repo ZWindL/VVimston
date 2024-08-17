@@ -18,10 +18,10 @@
     * [x] lspsaga
     * [x] formatter.nvim https://github.com/mhartington/formatter.nvim
     * [x] lsp_signature https://github.com/ray-x/lsp_signature.nvim
-    * [ ] nvim-dap https://github.com/mfussenegger/nvim-dap
-    * [ ] nvim-dap-ui https://github.com/rcarriga/nvim-dap-ui
-    * [ ] nvim-lint https://github.com/mfussenegger/nvim-lint
-    * [ ] https://github.com/niuiic/dap-utils.nvim
+    * [x] nvim-dap https://github.com/mfussenegger/nvim-dap
+    * [x] nvim-dap-ui https://github.com/rcarriga/nvim-dap-ui
+    * [x] nvim-lint https://github.com/mfussenegger/nvim-lint
+    * [x] https://github.com/niuiic/dap-utils.nvim
     * [ ] nvim-cmp works with gopls and rust.nvim https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples
     * [ ] https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
 - [x] UI tweaks
@@ -38,9 +38,9 @@
     * [x] https://github.com/nvim-orgmode/orgmode
     * [x] telescope
     * [x] https://github.com/keaising/im-select.nvim
+    * [x] oil.nvim file manager
     * [ ] template.nvim https://github.com/nvimdev/template.nvim
     * [ ] Database https://github.com/kristijanhusak/vim-dadbod-completion?tab=readme-ov-file
-    * [ ] oil.nvim file manager
     * [ ] mini.nvim (icons and others)
     * [ ] https://github.com/ThePrimeagen/harpoon/tree/harpoon2
     * [ ] https://github.com/letieu/harpoon-lualine
@@ -54,11 +54,11 @@
     * [x] tree-sitter auto install missing filetypes
     * [x] saving lua files failed because of the lsp-config
     * [x] whicy-key icons have underscores
+    * [x] Show marks
+    * [x] Highlight TODOs
     * [ ] which-key mini.icons
-    * [ ] Show marks
     * [ ] Lualines extensions
     * [ ] Display outline with treesitter for files not supported by lsp yet (using aerial)
-    * [ ] Highlight TODOs
     * [ ] toggle true/false yes/no under cursor
 - [ ] Compeletion sources
     * [ ] https://github.com/hrsh7th/cmp-omni

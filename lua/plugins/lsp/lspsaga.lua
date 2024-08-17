@@ -114,6 +114,9 @@ return {
         map({ "n", "v" }, "gD",
             "<cmd>Lspsaga finder<cr>",
             {desc = "Find references"})
+        map({ "n", "v" }, "lr",
+            "<cmd>Lspsaga finder<cr>",
+            {desc = "Find references"})
 
         -- Hover
         map({ "n", "v" }, "K",
