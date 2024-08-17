@@ -5,6 +5,10 @@ local map_group = utils.add_keymap_group
 
 return {
     "nvimdev/lspsaga.nvim",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+    },
     config = function()
         require("lspsaga").setup({
             symbol_in_winbar = {
@@ -60,6 +64,7 @@ return {
                 debounce = 100,
             },
             outline = {
+                enable = false,
                 win_position = 'right',
                 auto_preview = true,
                 detail = true,
@@ -72,6 +77,7 @@ return {
                 },
             },
             rename = {
+                enable = false,
                 in_select = true,
                 auto_save = false,
                 keys = {
@@ -142,15 +148,11 @@ return {
             { desc = "Goto prev error" })
 
         -- Rename
-        map({ "n", "v" }, "grn",
-            "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
+        -- map({ "n", "v" }, "grn",
+        --     "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
 
         -- Outline
         -- map({ "n", "v" }, "<leader>lo",
         --     "<cmd>Lspsaga outline<cr>", { desc = "Outline" })
     end,
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "nvim-tree/nvim-web-devicons",
-    }
 }

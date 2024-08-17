@@ -264,11 +264,12 @@ return {
         map({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
         -- add groups for keymaps
-        map_group({"n", "x", "o"}, "gs", "Swap TS Objects")
-        map_group({"n", "x", "o"}, "gs]", "Swap w/ next TS Object")
-        map_group({"n", "x", "o"}, "gs[", "Swap w/ prev TS Object")
-        map_group({"n", "x", "o"}, "gs]i", "Swap w/ next inner TS Object")
-        map_group({"n", "x", "o"}, "gs[i", "Swap w/ prev inner TS Object")
+        -- NOTE: Keymap is occupied by leap.nvim
+        -- map_group({"n", "x", "o"}, "gs", "Swap TS Objects")
+        -- map_group({"n", "x", "o"}, "gs]", "Swap w/ next TS Object")
+        -- map_group({"n", "x", "o"}, "gs[", "Swap w/ prev TS Object")
+        -- map_group({"n", "x", "o"}, "gs]i", "Swap w/ next inner TS Object")
+        -- map_group({"n", "x", "o"}, "gs[i", "Swap w/ prev inner TS Object")
 
         map_group({"n", "x", "o"}, "[[", "Prev nearest TS Object")
         map_group({"n", "x", "o"}, "]]", "Next nearest TS Object")
