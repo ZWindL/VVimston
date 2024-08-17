@@ -44,10 +44,6 @@ return {
             end,
             { desc = "Extra highlights" })
 
-        map({ "n", "v" }, "<leader>tgd",
-            "<cmd>Gitsigns toggle_deleted<cr>",
-            { desc = "Toggle deleted" })
-
         -- Git operations
         map({ "n", "v" }, "<leader>gB",
             "<cmd>Gitsigns blame<cr>",
@@ -61,6 +57,7 @@ return {
             "<cmd>Gitsigns refresh<cr>",
             { desc = "Refresh Gitsigns" })
 
+        --[[
         map({ "n", "v" }, "<leader>gS",
             "<cmd>Gitsigns stage_buffer<cr>",
             { desc = "Stage buffer" })
@@ -72,8 +69,10 @@ return {
         map({ "n", "v" }, "<leader>gd",
             "<cmd>Gitsigns diffthis<cr>",
             { desc = "Diff" })
+        ]]--
 
         -- Hunk operations
+        --[[
         map_group({ "n", "v" }, "<leader>gk", "Git Hunk")
         map({ "n", "v" }, "<leader>gkp",
             "<cmd>Gitsigns preview_hunk_inline<cr>",
@@ -86,9 +85,6 @@ return {
         map({ "n", "v" }, "<leader>gkr",
             "<cmd>Gitsigns reset_hunk<cr>",
             { desc = "Reset hunk" })
-        -- prev_hunk
-        -- next_hunk
-        -- setloclist
-        -- undo_stage_hunk
+        ]]--
     end,
 }

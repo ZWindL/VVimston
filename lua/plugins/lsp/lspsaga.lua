@@ -114,7 +114,7 @@ return {
         map({ "n", "v" }, "gD",
             "<cmd>Lspsaga finder<cr>",
             {desc = "Find references"})
-        map({ "n", "v" }, "lr",
+        map({ "n", "v" }, "<leader>lr",
             "<cmd>Lspsaga finder<cr>",
             {desc = "Find references"})
 

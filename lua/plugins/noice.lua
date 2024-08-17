@@ -1,7 +1,5 @@
 -- Notification
 
-
--- lazy.nvim
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -18,13 +16,56 @@ return {
     opts = {
         views = {
             cmdline_popup = {
+                relative = "editor",
                 position = {
-                    row = "50%",
+                    -- row = "38%",
+                    row = 12,
+                    col = "50%",
+                },
+                size = {
+                    min_width = 60,
+                    width = "auto",
+                    height = "auto",
+                },
+            },
+            cmdline_popupmenu = {
+                view = "popupmenu",
+                zindex = 200,
+                position = {
+                    -- row = "60%",
+                    row = 15,
                     col = "50%",
                 },
                 size = {
                     width = 60,
                     height = "auto",
+                    -- height = 15,
+                    max_height = 20,
+                },
+                border = {
+                    style = "rounded",
+                    padding = { 0, 1 },
+                },
+            },
+            popupmenu = {
+                relative = "editor",
+                zindex = 65,
+                position = {
+                    row = 30,
+                    col = "50%",
+                },
+                -- position = "auto",
+                size = {
+                    width = 60,
+                    height = "auto",
+                    max_height = 20,
+                },
+                border = {
+                    style = "rounded",
+                    padding = { 0, 1 },
+                },
+                win_options = {
+                    winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
                 },
             },
         },
