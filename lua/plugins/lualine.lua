@@ -1,3 +1,18 @@
+--[[
+-- TODO: show hydra status on lualine
+local hydra = require("hydra.statusline")
+
+local hydra_status = function()
+    if not hydra.is_active() then
+        return ""
+    end
+    local icon = " "
+    local name = hydra.get_name()
+    print(icon .. name)
+    return icon .. name
+end
+]]--
+
 return {
     {
         "nvim-lualine/lualine.nvim",
@@ -12,15 +27,15 @@ return {
                 options = {
                     icons_enabled = true,
                     theme = 'auto',
-                    component_separators = {left = '', right = ''},
-                    section_separators = {left = '', right = ''},
+                    component_separators = { left = '', right = '' },
+                    section_separators = { left = '', right = '' },
                     -- component_separators = {left = '', right = ''},
                     -- section_separators = {left = '', right = ''},
-                    disabled_filetypes = {statusline = {}, winbar = {}},
+                    disabled_filetypes = { statusline = {}, winbar = {} },
                     ignore_focus = {},
                     always_divide_middle = true,
                     globalstatus = true,
-                    refresh = {statusline = 1000, tabline = 1000, winbar = 1000}
+                    refresh = { statusline = 1000, tabline = 1000, winbar = 1000 }
                 },
                 sections = {
                     lualine_a = {
@@ -65,9 +80,9 @@ return {
                 },
                 inactive_sections = {
                     lualine_a = {},
-                    lualine_b = {"%f %y %m"},
-                    lualine_c = {'filename'},
-                    lualine_x = {'location'},
+                    lualine_b = { "%f %y %m" },
+                    lualine_c = { 'filename' },
+                    lualine_x = { 'location' },
                     lualine_y = {},
                     lualine_z = {}
                 },

@@ -8,7 +8,7 @@ return {
     config = function()
         require("lspsaga").setup({
             symbol_in_winbar = {
-                enable = true,
+                enable = false,
                 separator = icons.separators.rightArrow,
                 color_mode = true,
                 hide_keyword = true,

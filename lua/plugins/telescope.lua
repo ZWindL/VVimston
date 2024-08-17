@@ -17,9 +17,9 @@ local function get_targets(buf)
         scroller.top(pick.sorting_strategy, pick.max_results, pick.manager:num_results()),
         wininfo.topline - 1
     )
-    local bottom = wininfo.botline - 2         -- skip the current row
+    local bottom = wininfo.botline - 2 -- skip the current row
     local targets = {}
-    for lnum = bottom, top, -1 do              -- start labeling from the closest (bottom) row
+    for lnum = bottom, top, -1 do      -- start labeling from the closest (bottom) row
         table.insert(targets, { wininfo = wininfo, pos = { lnum + 1, 1 }, pick = pick, })
     end
     return targets
@@ -51,6 +51,25 @@ local options = {
         lazy_plugins = {
             lazy_config = vim.fn.stdpath("config") .. "/lua/core/lazy_n_hotpot.lua",
         },
+        ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+                -- even more opts
+            }
+
+            -- pseudo code / specification for writing custom displays, like the one
+            -- for "codeactions"
+            -- specific_opts = {
+            --   [kind] = {
+            --     make_indexed = function(items) -> indexed_items, width,
+            --     make_displayer = function(widths) -> displayer
+            --     make_display = function(displayer) -> function(e)
+            --     make_ordinal = function(e) -> string
+            --   },
+            --   -- for example to disable the custom builtin "codeactions" display
+            --      do the following
+            --   codeactions = false,
+            -- }
+        }
     },
 }
 
@@ -58,6 +77,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
         {
             "polirritmico/telescope-lazy-plugins.nvim",
             keys = {
@@ -69,6 +89,7 @@ return {
         require("telescope").setup(options)
         require("telescope").load_extension("noice")
         require("telescope").load_extension("lazy_plugins")
+        require("telescope").load_extension("ui-select")
         -- require("telescope").load_extension("aerial")
 
         -- keybindings
@@ -123,6 +144,5 @@ return {
         map("n", "<leader><leader>c",
             require("telescope").extensions.lazy_plugins.lazy_plugins,
             { desc = "Plugin configurations" })
-
     end,
 }
