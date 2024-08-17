@@ -1,6 +1,7 @@
-# My Neovim configuration in Lua
+# Winston's Neovim configuration in Lua
 
-TODO: screenshots here
+## Screenshots
+![screenshot](./doc/assets/screenshot.png)
 
 ## Introduction
 A configuration inspired by [LazyVim](https://github.com/LazyVim/LazyVim) and [Sergio's config](https://bitbucket.org/sergio/mylazy-nvim).
@@ -10,30 +11,49 @@ Also mixed with flavors from [Allaman's Nvim config](https://github.com/Allaman/
 - Modular: The configs of different aspects are splitted into different files.
 - Documented: The goal is to eaily recall what this line/file does.
 
-**This config requires Neovim >= 0.9**
+**This config requires Neovim >= 0.10**
 
 ## Installation
 Backup your existing config with `mv ~/.config/nvim{,.bak}`
-Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
+Run `git clone https://github.com/ZWindL/VVimston.git ~/.config/nvim`
 
 ## File Structure
 ```
-.
-├── init.lua
-├── lazy-lock.json
-├── lua
-│   ├── core
-│   │   ├── autocmds.lua
-│   │   ├── keymaps.lua
-│   │   ├── lazyplug.lua
-│   │   ├── options.lua
-│   │   └── utils.lua
-│   ├── neovide_options.lua
-│   └── plugins
-│       ├── dashboard.lua
-│       ├── lsp.lua
-│       └── tools.lua
-│       └── ...
+ .
+├──  init.lua                  # main config
+├──  lua
+│  ├──  core                   # core configurations don't rely on plugins
+│  │  ├──  autocmds.lua
+│  │  ├──  constants.lua       # icons, colors, etc
+│  │  ├──  keymaps.lua         # global keymaps
+│  │  ├──  lazy_n_hotpot.lua   # package managers
+│  │  ├──  neovide_options.lua # neovide specific options
+│  │  ├──  options.lua         # global options
+│  │  └──  utils.lua           # common utils like `map`, `map_group`
+│  ├──  plugins                # plugin configurations
+│  │  ├──  barbar.lua          # in general, each plugin has its own config
+│  │  ├──  which-key.lua
+│  │  ├── ...
+│  │  ├──  dap                 # configurations for debugging
+│  │  │  └── ...
+│  │  ├──  hydra               # hydra configurations
+│  │  │  └── ...
+│  │  ├──  lang                # language specific plugins
+│  │  │  └── ...
+│  │  ├──  lsp                 # language server protocol
+│  │  │  ├──  lang_settings    # language server settings for different languages
+│  │  │  │  └── ...
+│  │  │  ├──  init.lua
+│  │  │  ├──  lsp.lua          # language server configuration for lsp itself
+│  │  │  └── ...
+│  │  └──  treesitter          # treesitter configurations
+│  │     └── ...
+│  ├──  theme.lua
+│  └──  themes
+│     └── ...
+└──  templates                 # templates for templates.nvim plugin
+   └──  lua
+      └──  config.lua
 ```
 
 ## Features
@@ -60,7 +80,7 @@ Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
 
 
 ## Known issues
-### formatoptions
+### `vim.opt.formatoptions`
 I want nvim not to auto-insert comment lead characters after pressing `o` or `O`, but does after hitting enter.
 This can be configured via `vim.opt.formatoptions`, however it won't set `"r"` by operating directly on this
 option as `vim.opt.formatoptions += "r"`, because options are table type. And if modify it by using
@@ -68,7 +88,5 @@ option as `vim.opt.formatoptions += "r"`, because options are table type. And if
 error. The workaround is to hardcode the value of `formatoptions` and remove the unwanted options by
 `formatoptions:remove` inside`autoCmd`, although it's not recommended, see `:help formatoptions`.
 
-### copilot
-It needs an older version of node.js to run.
-
-The key `TAB` can't work properly, investigating.
+### `noice` `cmdline` popup window resets certain options
+Some options like custom icons for diagnosis will be reset to default after invoking `noice` `cmdline` popup window.
