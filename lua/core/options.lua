@@ -157,9 +157,9 @@ g.markdown_fenced_languages = {
 }
 
 vim.diagnostic.config({
-    -- virtual_text = {
-    --     prefix = "●",
-    -- },
+    virtual_text = {
+        prefix = "●",
+    },
     severity_sort = true,
     signs = {
         text = {

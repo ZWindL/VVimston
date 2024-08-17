@@ -72,3 +72,4 @@
 * https://github.com/esensar/nvim-dev-container
 * https://github.com/chipsenkbeil/distant.nvim
 * AI error explainer: https://github.com/piersolenski/wtf.nvim
+* https://github.com/AlejandroSuero/freeze-code.nvim

@@ -1,5 +1,6 @@
 local utils = require("core.utils")
 local map_group = utils.add_keymap_group
+local ts_src = require("core.constants").ts_src
 
 return {
     "nvim-treesitter/nvim-treesitter",
@@ -7,17 +8,7 @@ return {
         vim.cmd("TSUpdate")
         map_group("n", "gt", "TreeSitter Select", " ")
         require("nvim-treesitter.configs").setup {
-            ensure_installed = {
-                "bash", "c", "c_sharp", "clojure", "cmake", "comment", "commonlisp",
-                "cpp", "css", "cuda", "dart", "dockerfile", "dot", "erlang", "fennel",
-                "fish", "go", "gomod", "graphql", "haskell", "hcl", "html",
-                "http", "java", "javascript", "json", "json5", "jsonc", "julia",
-                "kotlin", "llvm", "lua", "make", "markdown", "markdown_inline",
-                "ninja", "nix",
-                "ocaml", "pascal", "perl", "php", "phpdoc", "python",
-                "query", "r", "regex", "rst", "ruby", "rust", "scala", "scheme", "scss",
-                "toml", "typescript", "vala", "verilog", "vim", "vue", "yaml"
-            },
+            ensure_installed = ts_src,
             async_install = true,
             auto_install = true,
 
