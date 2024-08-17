@@ -23,7 +23,8 @@ return {
                     sign = { name = { ".*" }, namespace = { ".*" }, maxwidth = 2, colwidth = 1, wrap = true, auto = true },
                     click = "v:lua.ScSa",
                 },
-                --{ text = { "│" }, condition = { builtin.not_empty } },
+                { text = { " " }, condition = { builtin.not_empty } },
+                -- { text = { "│" }, condition = { builtin.not_empty } },
             },
             clickmod = "c", -- modifier used for certain actions in the builtin clickhandlers:
             -- "a" for Alt, "c" for Ctrl and "m" for Meta.
