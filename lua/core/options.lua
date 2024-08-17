@@ -137,7 +137,7 @@ g.tex_flavor = "latex"
 -- https://vi.stackexchange.com/a/5318/7339
 g.matchparen_timeout = 20
 g.matchparen_insert_timeout = 20
-g.python3_host_prog = vim.loop.os_homedir() .. "/.virtualenvs/neovim/bin/python3"
+-- g.python3_host_prog = vim.loop.os_homedir() .. "/.virtualenvs/neovim/bin/python3"
 
 g.markdown_fenced_languages = {
   "vim",

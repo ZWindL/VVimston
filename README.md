@@ -52,6 +52,30 @@ Run `git clone https://github.com/ZWindL/.nvim.git ~/.config/nvim`
 #### Other useful tools
 
 ## Dependencies
+`fswatch` for better performance while watching files.
+`ttf-nerd-fonts-symbols` for symbols.
+
+## Keybindings
+### Global
+leader key: `<space>`
+
+### Plugins
+**coq**
+`<c-space>`: manual complete
+`<c-k>`: open preview in a bigger frame
+`<c-h>`: jump to next placeholder
+`<c-c>`: exit to normal edit
+
+**nvim-cmp**
+`<c-b>`: completion doc scroll back
+`<c-f>`: completion doc scroll forward
+`<c-spc>`: trigger complete
+`<c-c>`: abort complete
+`<enter>`: confirm completion
+
+### Misc
+`q`, `n`: close help/dap/man... window.
+
 
 ## Known issues
 ### formatoptions
