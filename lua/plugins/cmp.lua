@@ -174,6 +174,13 @@ return {
                             cmp.select_prev_item()
                         end
                     end, { "i", "s" }),
+
+                    --[[
+                    ["<Esc>"] = cmp.mapping({
+                        i = cmp.mapping.abort(),
+                        c = cmp.mapping.close(),
+                    }),
+                    ]]--
                 })
             })
 

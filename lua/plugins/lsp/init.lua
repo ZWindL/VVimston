@@ -8,6 +8,7 @@ local M = {
     require("plugins.lsp.symbolusage"),
     require("plugins.lsp.glance"),
     require("plugins.lsp.inline-diag"),
+    require("plugins.lsp.calltree"),
 }
 
 return M

@@ -1,5 +1,6 @@
 -- Notification
 
+
 -- lazy.nvim
 return {
     "folke/noice.nvim",
@@ -15,6 +16,18 @@ return {
         "nvim-telescope/telescope.nvim", -- picker
     },
     opts = {
+        views = {
+            cmdline_popup = {
+                position = {
+                    row = "50%",
+                    col = "50%",
+                },
+                size = {
+                    width = 60,
+                    height = "auto",
+                },
+            },
+        },
         cmdline = {
             format = {
                 search_down = {
@@ -24,6 +37,10 @@ return {
                     view = "cmdline",
                 },
             },
+        },
+        popupmenu = {
+            enabled = true,
+            backend = "nui",
         },
         lsp = {
             signature = {
@@ -36,19 +53,27 @@ return {
             }
         },
         presets = {
-            bottom_search = true, -- use a classic bottom cmdline for search
-            command_palette = true, -- position the cmdline and popupmenu together
+            bottom_search = true,         -- use a classic bottom cmdline for search
+            command_palette = true,       -- position the cmdline and popupmenu together
             long_message_to_split = true, -- long messages will be sent to a split
-            inc_rename = false, -- enables an input dialog for inc-rename.nvim
-            lsp_doc_border = false, -- add a border to hover docs and signature help
+            inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+            lsp_doc_border = false,       -- add a border to hover docs and signature help
+        },
+        routes = {
+            -- TODO: this block will enable 'recording' message to be displayed
+            -- but also notify "INSERTING" all the time
+            -- {
+            --     view = "notify",
+            --     filter = { event = "msg_showmode" },
+            -- },
         },
     },
     keys = {
-        { "<leader>nl", "<cmd>NoiceLast<cr>", desc = "Show last message" },
-        { "<leader>nd", "<cmd>NoiceDismiss<cr>", desc = "Dismiss" },
-        { "<leader>ne", "<cmd>NoiceErrors<cr>", desc = "Show errors" },
-        { "<leader>nm", "<cmd>NoiceDisable<cr>", desc = "Mute noice" },
-        { "<leader>no", "<cmd>NoiceEnable<cr>", desc = "Enable noice" },
+        { "<leader>nl", "<cmd>NoiceLast<cr>",      desc = "Show last message" },
+        { "<leader>nd", "<cmd>NoiceDismiss<cr>",   desc = "Dismiss" },
+        { "<leader>ne", "<cmd>NoiceErrors<cr>",    desc = "Show errors" },
+        { "<leader>nm", "<cmd>NoiceDisable<cr>",   desc = "Mute noice" },
+        { "<leader>no", "<cmd>NoiceEnable<cr>",    desc = "Enable noice" },
         { "<leader>nt", "<cmd>NoiceTelescope<cr>", desc = "Show message" },
         -- {
         --     "<leader>nl",

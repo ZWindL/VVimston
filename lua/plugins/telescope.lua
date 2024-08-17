@@ -9,15 +9,28 @@ local options = {
         }
     },
     pickers = {},
-    extensions = {},
+    extensions = {
+        lazy_plugins = {
+            lazy_config = vim.fn.stdpath("config") .. "/lua/core/lazy_n_hotpot.lua",
+        },
+    },
 }
 
 return {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function ()
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        {
+            "polirritmico/telescope-lazy-plugins.nvim",
+            keys = {
+                { "<leader>cp", "<Cmd>Telescope lazy_plugins<CR>", desc = "Telescope: Plugins configurations" },
+            },
+        },
+    },
+    config = function()
         require("telescope").setup(options)
         require("telescope").load_extension("noice")
+        require("telescope").load_extension("lazy_plugins")
         -- require("telescope").load_extension("aerial")
 
         -- keybindings
@@ -51,14 +64,14 @@ return {
 
         -- buffers
         map("n", "<leader>ba", builtin.buffers,
-        { desc = "All buffers", icon = icons.common.buffers})
+            { desc = "All buffers", icon = icons.common.buffers })
 
         -- miscs
         map("n", "<leader>m'", builtin.marks, { desc = "Marks" })
 
         -- colorschems
         map("n", "<leader>cc", builtin.colorscheme,
-        { desc = "Colorschems", icon = icons.common.colorscheme })
+            { desc = "Colorschems", icon = icons.common.colorscheme })
 
         -- quickfix
         map("n", "<leader>qq", builtin.quickfix, { desc = "Open quickfix" })
@@ -66,6 +79,12 @@ return {
 
         -- spelling
         map("n", "<leader>ss", builtin.spell_suggest,
-        { desc = "Spll suggests", icon = icons.common.spelling })
+            { desc = "Spll suggests", icon = icons.common.spelling })
+
+        -- extensions
+        map("n", "<leader><leader>c",
+         require("telescope").extensions.lazy_plugins.lazy_plugins,
+            { desc = "Plugin configurations" })
+
     end,
 }
