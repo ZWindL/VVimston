@@ -88,9 +88,10 @@ return {
         })
 
         -- Disable the default diagnostic text
-        vim.diagnostic.config({
-            virtual_text = false
-        })
+        -- Done in core.options
+        -- vim.diagnostic.config({
+        --     virtual_text = false
+        -- })
 
         -- call hierachy
         -- map_group("n", "<leader>lc", "Lsp calls", icons.common.lambda)

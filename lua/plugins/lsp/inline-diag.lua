@@ -5,7 +5,8 @@ return {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy",
     config = function()
-        vim.diagnostic.config({ virtual_text = false })
+        -- Disabled in core.options
+        -- vim.diagnostic.config({ virtual_text = false })
         require("tiny-inline-diagnostic").setup({
             options = {
                 -- If multiple diagnostics are under the cursor, display all of them.

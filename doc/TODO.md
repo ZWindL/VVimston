@@ -41,10 +41,10 @@
     * [x] oil.nvim file manager
     * [x] template.nvim https://github.com/nvimdev/template.nvim
     * [x] mini.nvim (icons and others)
-- [ ] Devs
+- [x] Devs
     * [x] formatter
-    * [ ] rust https://github.com/mrcjkb/rustaceanvim
-    * [ ] rust crate https://github.com/Saecki/crates.nvim
+    * [x] rust https://github.com/mrcjkb/rustaceanvim
+    * [x] rust crate https://github.com/Saecki/crates.nvim
 - [x] Issues
     * [x] treesitter error blocks lsp settings
     * [x] tree-sitter auto install missing filetypes
@@ -73,5 +73,5 @@
 * https://github.com/ThePrimeagen/harpoon/tree/harpoon2
 * https://github.com/letieu/harpoon-lualine
 * Database https://github.com/kristijanhusak/vim-dadbod-completion?tab=readme-ov-file
-* Some settings are resetted after the cmd floating window is invoked
 * https://github.com/olimorris/codecompanion.nvim
+* <localleader>

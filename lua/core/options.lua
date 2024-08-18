@@ -156,19 +156,19 @@ g.markdown_fenced_languages = {
     "json",
 }
 
-vim.diagnostic.config({
-    virtual_text = {
-        prefix = "●",
-    },
-    severity_sort = true,
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = icons.common.error,
-            [vim.diagnostic.severity.WARN] = icons.common.warn,
-            [vim.diagnostic.severity.INFO] = icons.common.info,
-            [vim.diagnostic.severity.HINT] = icons.common.hint,
-        },
-    },
-})
+-- NOTE: Moved to core.autocmds
+-- vim.diagnostic.config({
+--     -- virtual_text = { prefix = "●", },
+--     virtual_text = false,
+--     severity_sort = true,
+--     signs = {
+--         text = {
+--             [vim.diagnostic.severity.ERROR] = icons.common.error,
+--             [vim.diagnostic.severity.WARN] = icons.common.warn,
+--             [vim.diagnostic.severity.INFO] = icons.common.info,
+--             [vim.diagnostic.severity.HINT] = icons.common.hint,
+--         },
+--     },
+-- })
 
 -- vim: tw=4 sw=4

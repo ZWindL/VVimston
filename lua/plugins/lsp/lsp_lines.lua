@@ -4,10 +4,10 @@ local map = utils.safe_keymap_set
 return {
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function ()
-        -- Disable virtual_text since it's redundant due to lsp_lines.
-        vim.diagnostic.config({
-            virtual_text = false,
-        })
+        -- Di, }sable virtual_text since it's redundant due to lsp_lines.
+        -- vim.diagnostic.config({
+        --     virtual_text = false,
+        -- })
         require("lsp_lines").setup({})
 
         vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
