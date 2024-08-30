@@ -27,12 +27,12 @@ return {
             ls.setup({
                 link_children = true,
                 keep_roots = true,
-                link_roots = true, -- this with the super tab way will interfere tab totally
-                enable_autosnippets = false, -- disabled by default to minimize performance penalty
+                link_roots = true,              -- this with the super tab way will interfere tab totally
+                enable_autosnippets = false,    -- disabled by default to minimize performance penalty
                 parser_nested_assembler = true, -- maybe useful, behaves like vscode
             })
 
-            -- ls.activate_node() can jump to the roots are not linked 
+            -- ls.activate_node() can jump to the roots are not linked
         end,
     },
 
@@ -56,6 +56,13 @@ return {
                             indent = indent_nodes,
                         })
                     end,
+                },
+
+                buffer = {
+                    sources = {
+                        -- For dadbod database completion
+                        { name = "vim-dadbod-completion" }
+                    }
                 },
 
                 window = {
@@ -125,26 +132,26 @@ return {
                     ["<C-c>"] = cmp.mapping.abort(),
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
                     ["<C-f>"] = cmp.mapping(function(fallback)
-                        if ls.in_snippet() and ls.jumpable(1)  then
+                        if ls.in_snippet() and ls.jumpable(1) then
                             ls.jump(1)
                         else
                             fallback()
                         end
-                    end, {"i", "s"}),
+                    end, { "i", "s" }),
                     ["<C-b>"] = cmp.mapping(function(fallback)
-                        if ls.jumpable(-1)  then
+                        if ls.jumpable(-1) then
                             ls.jump(-1)
                         else
                             fallback()
                         end
-                    end, {"i", "s"}),
-                    ["<C-E>"] = cmp.mapping(function (fallback)
+                    end, { "i", "s" }),
+                    ["<C-E>"] = cmp.mapping(function(fallback)
                         if ls.choice_active() then
                             ls.change_choice(1)
                         else
                             fallback()
                         end
-                    end, {"i", "s"}),
+                    end, { "i", "s" }),
                     --[[ Safe enter
                     ["<CR>"] = cmp.mapping({
                         i = function(fallback)
@@ -180,7 +187,7 @@ return {
                         i = cmp.mapping.abort(),
                         c = cmp.mapping.close(),
                     }),
-                    ]]--
+                    ]] --
                 })
             })
 
@@ -218,7 +225,7 @@ return {
                     }
                 })
             })
-            ]]--
+            ]] --
 
             -- highlights for lspkind icons
             -- gray
