@@ -52,6 +52,9 @@ local function set_keymaps(client, bufnr)
     -- map({ "n", "v" }, "K", vim.lsp.buf.hover)
     -- map({ "n", "v" }, "<leader>lh", vim.lsp.buf.hover, { desc = "Hover" })
 
+    -- rename
+    map({ "n", "v" }, "<F2>", vim.lsp.buf.rename, { desc = "Rename" })
+
     -- format
     map({ "n", "v" }, "<leader>lf",
         function()

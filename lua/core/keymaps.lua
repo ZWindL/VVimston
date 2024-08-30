@@ -42,12 +42,11 @@ map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map(
-  "n",
-  "<leader>ur",
-  "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-  { desc = "Redraw / clear hlsearch / diff update" }
+	"n",
+	"<leader>ur",
+	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+	{ desc = "Redraw / clear hlsearch / diff update" }
 )
-
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 -- mixed with search and recenter
@@ -74,7 +73,7 @@ map("", "Q", "gq", {})
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-  return require("core.utils").escapePair()
+	return require("core.utils").escapePair()
 end)
 
 -- buffer
@@ -87,22 +86,22 @@ map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the curren
 map("n", "<leader>bd", "<cmd>BufferDelete<cr>", { desc = "Close buffer" })
 map("n", "<leader>bf", "<cmd>BufferPick<cr>", { desc = "Buffer Picker (Find)" })
 -- Goto buffer in position...
-map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>')
-map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>')
-map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>')
-map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>')
-map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>')
-map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>')
-map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>')
-map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>')
-map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>')
-map('n', '<A-0>', '<Cmd>BufferLast<CR>')
-map('n', '<A-p>', '<Cmd>BufferPick<CR>')
-map('n', '<leader>bob', '<Cmd>BufferOrderByBufferNumber<CR>', { desc = "Order by buffer number" })
-map('n', '<leader>bon', '<Cmd>BufferOrderByName<CR>', { desc = "Order by name" })
-map('n', '<leader>bod', '<Cmd>BufferOrderByDirectory<CR>', { desc = "Order by dir" })
-map('n', '<leader>bol', '<Cmd>BufferOrderByLanguage<CR>', { desc = "Order by lang" })
-map('n', '<leader>bow', '<Cmd>BufferOrderByWindowNumber<CR>', { desc = "Order by win num" })
+map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>")
+map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>")
+map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>")
+map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>")
+map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>")
+map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>")
+map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>")
+map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>")
+map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>")
+map("n", "<A-0>", "<Cmd>BufferLast<CR>")
+map("n", "<A-p>", "<Cmd>BufferPick<CR>")
+map("n", "<leader>bob", "<Cmd>BufferOrderByBufferNumber<CR>", { desc = "Order by buffer number" })
+map("n", "<leader>bon", "<Cmd>BufferOrderByName<CR>", { desc = "Order by name" })
+map("n", "<leader>bod", "<Cmd>BufferOrderByDirectory<CR>", { desc = "Order by dir" })
+map("n", "<leader>bol", "<Cmd>BufferOrderByLanguage<CR>", { desc = "Order by lang" })
+map("n", "<leader>bow", "<Cmd>BufferOrderByWindowNumber<CR>", { desc = "Order by win num" })
 
 -- tabs
 map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
@@ -121,3 +120,10 @@ map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
 -- file operations
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save File" })
+
+-- help
+-- TODO: figure out how to do this with lua
+-- vim.cmd([[nmap <F1> :help ]])
+map({"n", "v"}, "<F1>", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
+-- eval lua
+vim.cmd([[nmap <F12> :lua ]])

@@ -5,10 +5,9 @@
 colorscheme: `dayfox`
 
 ## Introduction
-A configuration inspired by [LazyVim](https://github.com/LazyVim/LazyVim) and [Sergio's config](https://bitbucket.org/sergio/mylazy-nvim).
-Also mixed with flavors from [Allaman's Nvim config](https://github.com/Allaman/nvim/tree/main).
+My personal `Neovim` configuration, nothing special.
 
-- Modern: Using Lua as the config language, and adopting as many fancy features as possible in the nightly version of `Neovim`.
+- Modern: Using Lua as the config language, adopting as many fancy features as possible in the nightly version of `Neovim`.
 - Modular: Each plugin has its dedicated config file.
 - Documented (TODO): The goal is to easily recall what this line/file does.
 
@@ -91,3 +90,9 @@ error. The workaround is to hardcode the value of `formatoptions` and remove the
 
 ### `noice` `cmdline` popup window resets certain options
 Some options like custom icons for diagnosis will be reset to default after invoking `noice` `cmdline` popup window.
+
+
+## Inspiration
+- [LazyVim](https://github.com/LazyVim/LazyVim)
+- [Sergio's config](https://bitbucket.org/sergio/mylazy-nvim)
+- [Allaman's Nvim config](https://github.com/Allaman/nvim/tree/main)

@@ -3,21 +3,41 @@
 Every keybinding should do its best stick to the principles.
 
 1. Most often used functions are mapped to single key or `M-[x]`.
-3. `<F1>` ~ `<F12>` are mapped to functions like LSP, compiler, etc.
-2. Functions that are rather rarely used are mapped to `<leader>` groups.
+2. `<F1>` ~ `<F12>` are mapped to functions like LSP, compiler, etc.
+3. Functions that are rather rarely used are mapped to `<leader>` groups.
     1. `<leader>t` for Toggles.
     2. `<leader>b` for Buffers.
     3. `[` and `]` stand for `prev/next`.
-
-Keybindings are grouped into 3 types
-1. Keys under `leader` key.
-2. Keys following other keys.
-3. Combined keys, which need to be pressed simultaneously.
-
+4. `g` stands for "go to" or "modify to"
 
 Mappings led by certain keys (e.g. `<space>`) don't need to be memorized, as they can be easily listed using [which-key](https://github.com/folke/which-key.nvim).
 
 **Leader key**: `<space>`
+
+-------------------------------------------------------------------------
+## Proposals
+`<f1>`: :help[space]
+`<f12>`: evaluate Lua exp
+`<a-b>`: search buffer (find buffer or telescope find buffer)
+
+### LSP
+| Key | Function |
+| --- | --- |
+| `<a-t>`   | Trouble |
+| `<f2>`    | Rename |
+| ``        | Incoming, outgoing calls |
+
+
+### Toggles
+
+### Buffers
+`<a-c>`: Close buffer
+
+### Tools
+`<a-o>`: Outline
+`<a-t>`: NeoTree
+
+### File
 
 -------------------------------------------------------------------------
 ## Bindings under `<leader>`
