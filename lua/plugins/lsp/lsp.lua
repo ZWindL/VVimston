@@ -95,12 +95,20 @@ return {
         vim.lsp.inlay_hint.enable(true)
 
         for _, lsp in ipairs(constants.lsp_servers) do
-            lspcfg[lsp].setup({
-                -- before_init = function(_, config)
-                capabilities = capabilities,
-                flags = { debounce_text_changes = 150 },
-                settings = server_settings[lsp],
-            })
+            if type(lsp) == "table" then
+                lspcfg[lsp["lang"]].setup({
+                    capabilities = capabilities,
+                    flags = { debounce_text_changes = 150 },
+                    settings = server_settings[lsp["lang"]],
+                })
+            else
+                lspcfg[lsp].setup({
+                    -- before_init = function(_, config)
+                    capabilities = capabilities,
+                    flags = { debounce_text_changes = 150 },
+                    settings = server_settings[lsp],
+                })
+            end
         end
     end
 }

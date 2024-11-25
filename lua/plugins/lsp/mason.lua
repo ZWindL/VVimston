@@ -1,6 +1,6 @@
 local utils = require("core.utils")
 local constants = require("core.constants")
-local lsp_servers = constants.lsp_servers
+local lsp_servers = constants.ls_servers_list()
 local map = utils.safe_keymap_set
 
 return {

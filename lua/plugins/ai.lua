@@ -17,6 +17,18 @@ return {
                 },
                 inline = {
                     adapter = "gemini",
+                    keymaps = {
+                        accept_change = {
+                            modes = {
+                                n = "ga"
+                            }
+                        },
+                        reject_change = {
+                            modes = {
+                                n = "gx"
+                            }
+                        },
+                    },
                 },
                 agent = {
                     adapter = "anthropic",

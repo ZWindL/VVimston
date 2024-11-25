@@ -37,7 +37,7 @@ local spinner_symbols = {
 }
 local spinner_symbols_len = 10
 
--- Initializer
+-- Extend codecompanion init function to display spinner
 function codecompanion:init(options)
     codecompanion.super.init(self, options)
 
@@ -114,6 +114,11 @@ return {
 							"filename",
 							max_length = vim.o.columns * 2 / 3,
 						},
+                        {
+                            function ()
+                                return require("toggler").ui_line_text()
+                            end
+                        }
 					},
 					lualine_x = {
 						{ codecompanion },

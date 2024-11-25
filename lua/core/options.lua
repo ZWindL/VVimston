@@ -30,6 +30,7 @@ local opts = {
 
     -- autochdir = true, -- When this on, some plugins may not work
     breakindent = true,                                  -- Every wrapped line will continue visually indented
+    linebreak = true,
     completeopt = { "noinsert", "menuone", "noselect" }, -- Show menu even for one item do not auto select/insert
     conceallevel = 2,   -- set it to 2 for obsidian.nvim
     copyindent = true,

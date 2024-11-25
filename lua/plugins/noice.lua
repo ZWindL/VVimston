@@ -102,10 +102,26 @@ return {
         },
         routes = {
             -- NOTE: this block will enable 'recording' message to be displayed
-            -- but also notify "INSERTING" all the time
+            -- but also notify "INSERTING" all the time.
             -- {
             --     view = "notify",
             --     filter = { event = "msg_showmode" },
+            -- },
+            -- {
+            --     filter = {
+            --         event = "msg_showmode",
+            --         kind = "",
+            --         find = "insert",
+            --     },
+            --     opts = { skip = true },
+            -- },
+            -- {
+            --     filter = {
+            --         event = "msg_show",
+            --         kind = "",
+            --         find = "written",
+            --     },
+            --     opts = { skip = true },
             -- },
         },
     },
@@ -124,4 +140,7 @@ return {
         --     desc = "Show last message"
         -- },
     },
+    config = function(_, opts)
+        require("noice").setup(opts)
+    end,
 }

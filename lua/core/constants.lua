@@ -68,6 +68,7 @@ M.icons = {
 	},
 }
 
+-- Language servers
 M.lsp_servers = {
 	-- use rustaceanvim
 	-- "rust_analyzer",
@@ -85,7 +86,7 @@ M.lsp_servers = {
 	"grammarly",
 	"html",
 	"jsonls",
-	"tsserver",
+	"ts_ls",
 	"jqls",
 	"ltex",
 	"autotools_ls",
@@ -100,6 +101,11 @@ M.lsp_servers = {
 	"vuels",
 	"yamlls",
 	"zls",
+	"phpactor",
+	-- {
+ --        name = "phpactor",
+ --        lang = "php",
+ --    },
 	-- "ocaml-lsp",
 	-- "java_language_server",
 	-- "hls",
@@ -107,6 +113,19 @@ M.lsp_servers = {
 	-- "pkgbuild_language_server",
 }
 
+M.ls_servers_list = function ()
+    local list = {}
+    for _, lsp in ipairs(M.lsp_servers) do
+        if type(lsp) == "string" then
+            table.insert(list, lsp)
+        else
+            table.insert(list, lsp.name)
+        end
+    end
+    return list
+end
+
+-- Treesitters
 M.ts_src = {
 	"bash",
 	"c",
