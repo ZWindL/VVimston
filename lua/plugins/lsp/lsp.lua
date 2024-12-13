@@ -1,6 +1,5 @@
 local utils = require("core.utils")
 local constants = require("core.constants")
-local server_settings = require("plugins.lsp.lang_settings")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local icons = constants.icons
 
@@ -99,14 +98,12 @@ return {
                 lspcfg[lsp["lang"]].setup({
                     capabilities = capabilities,
                     flags = { debounce_text_changes = 150 },
-                    settings = server_settings[lsp["lang"]],
                 })
             else
                 lspcfg[lsp].setup({
                     -- before_init = function(_, config)
                     capabilities = capabilities,
                     flags = { debounce_text_changes = 150 },
-                    settings = server_settings[lsp],
                 })
             end
         end
