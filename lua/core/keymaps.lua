@@ -42,10 +42,10 @@ map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map(
-	"n",
-	"<leader>ur",
-	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-	{ desc = "Redraw / clear hlsearch / diff update" }
+    "n",
+    "<leader>ur",
+    "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+    { desc = "Redraw / clear hlsearch / diff update" }
 )
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
@@ -73,7 +73,7 @@ map("", "Q", "gq", {})
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-	return require("core.utils").escapePair()
+    return require("core.utils").escapePair()
 end)
 
 -- buffer
@@ -121,9 +121,12 @@ map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save File" })
 
+-- productivity
+map({ "n", "v" }, "yc", "yygccp", { desc = "Yank and Comment" })
+
 -- help
 -- TODO: figure out how to do this with lua
 -- vim.cmd([[nmap <F1> :help ]])
-map({"n", "v"}, "<F1>", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
+map({ "n", "v" }, "<F1>", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
 -- eval lua
 vim.cmd([[nmap <F12> :lua ]])

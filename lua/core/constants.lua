@@ -83,7 +83,7 @@ M.lsp_servers = {
 	"dotls",
 	"emmet_ls",
 	"gopls",
-	"grammarly",
+	-- "grammarly",
 	"html",
 	"jsonls",
 	"ts_ls",

@@ -33,7 +33,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 -- end
 --
 -- Display navic on topbar
--- NOTE: Replaced by lspsaga
+-- NOTE: Replaced by another plugin
 -- local function display_navic(client, bufnr)
 --     local navic = require("nvim-navic")
 --
