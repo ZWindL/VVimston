@@ -10,7 +10,7 @@ return {
         --   `nvim-notify` is only needed, if you want to use the notification view.
         --   If not available, we use `mini` as the fallback
         "rcarriga/nvim-notify",
-        "hrsh7th/nvim-cmp",
+        -- "hrsh7th/nvim-cmp",
         "nvim-telescope/telescope.nvim", -- picker
     },
     opts = {
@@ -90,7 +90,7 @@ return {
             override = {
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                 ["vim.lsp.util.stylize_markdown"] = true,
-                ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+                -- ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
             }
         },
         presets = {

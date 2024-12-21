@@ -4,7 +4,7 @@ local server_settings = require("plugins.lsp.lang_settings")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local icons = constants.icons
 
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+capabilities = require('blink.cmp').get_lsp_capabilities()
 
 --------------------------------------------------------------------------------
 --                  Attached Functions Begins
