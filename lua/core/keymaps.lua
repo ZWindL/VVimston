@@ -130,3 +130,10 @@ map({ "n", "v" }, "yc", "yygccp", { desc = "Yank and Comment" })
 map({ "n", "v" }, "<F1>", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
 -- eval lua
 vim.cmd([[nmap <F12> :lua ]])
+
+-- develop
+-- reload plugin and execut `:luafile %`
+map("n", "<leader><leader>x", function ()
+    require("plenary.reload").reload_module("%")
+    vim.cmd("luafile %")
+end, { desc = "Reload current lua file" })

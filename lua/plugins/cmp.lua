@@ -23,7 +23,6 @@ return {
             accept = { auto_brackets = { enabled = false }, },
             menu = {
                 auto_show = true,
-
                 -- nvim-cmp style menu
                 draw = {
                     columns = {
@@ -35,7 +34,7 @@ return {
             list = {
                 cycle = {
                     from_top = true,
-                    from_bottom = false,
+                    from_bottom = true,
                 }
             },
             -- Show documentation when selecting a completion item
@@ -50,20 +49,17 @@ return {
             -- Adjusts spacing to ensure icons are aligned
             nerd_font_variant = 'mono'
         },
-        -- snippets = {
-        --     expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-        --     active = function(filter)
-        --         if filter and filter.direction then
-        --             return require('luasnip').jumpable(filter.direction)
-        --         end
-        --         return require('luasnip').in_snippet()
-        --     end,
-        --     jump = function(direction) require('luasnip').jump(direction) end,
-        -- },
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            default = { 'lsp', 'path', 'snippets', 'buffer', 'codecompanion' },
             -- optionally disable cmdline completions
             cmdline = {},
+            providers = {
+                codecompanion = {
+                    name = "CodeCompanion",
+                    module = "codecompanion.providers.completion.blink",
+                    enabled = true,
+                },
+            },
         },
         -- Experimental signature help support
         -- signature = { enabled = true },

@@ -8,6 +8,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         "nvim-telescope/telescope.nvim", -- Optional
         "stevearc/dressing.nvim",        -- Optional: Improves the default Neovim UI
+        { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
     },
     config = function()
         require("codecompanion").setup({
