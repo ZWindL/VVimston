@@ -102,6 +102,7 @@ M.lsp_servers = {
 	"yamlls",
 	"zls",
 	"phpactor",
+	"racket_langserver",
 	-- {
  --        name = "phpactor",
  --        lang = "php",

@@ -18,6 +18,9 @@ return {
             ['<C-f>'] = { 'snippet_forward', 'fallback' },
             ['<C-b>'] = { 'snippet_backward', 'fallback' },
         },
+        cmdline = {
+            -- sources = {},
+        },
         completion = {
             -- NOTE: some LSPs may add auto brackets themselves anyway
             accept = { auto_brackets = { enabled = false }, },
@@ -51,8 +54,6 @@ return {
         },
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer', 'codecompanion' },
-            -- optionally disable cmdline completions
-            cmdline = {},
             providers = {
                 codecompanion = {
                     name = "CodeCompanion",
