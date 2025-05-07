@@ -19,7 +19,11 @@ return {
             ['<C-b>'] = { 'snippet_backward', 'fallback' },
         },
         cmdline = {
-            -- sources = {},
+            keymap = { preset = 'inherit' },
+            completion = {
+                menu = { auto_show = false },
+                ghost_text = { enabled = false }
+            }
         },
         completion = {
             -- NOTE: some LSPs may add auto brackets themselves anyway
