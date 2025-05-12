@@ -1,7 +1,7 @@
 local map = require("core.utils").safe_keymap_set
 
 return {
-	"Exafunction/codeium.vim",
+	"Exafunction/windsurf.vim",
 	event = "BufEnter",
 	config = function()
 		-- Change '<C-e>' here to any keycode you like.
