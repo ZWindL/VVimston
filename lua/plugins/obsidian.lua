@@ -1,3 +1,5 @@
+local utils = require("core.utils")
+
 return {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
@@ -15,6 +17,9 @@ return {
         "nvim-lua/plenary.nvim",
     },
     config = function()
+        if utils.IS_MAC then
+            return
+        end
         require("obsidian").setup({
             workspaces = {
                 {

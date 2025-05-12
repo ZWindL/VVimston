@@ -49,6 +49,7 @@ local opts = {
 		lazy = false,
 		-- version = "*", -- enable this to try installing the latest stable versions of plugins
 	},
+	concurrency = utils.IS_MAC and (vim.uv.available_parallelism() * 2) or nil,
 	dev = {
 		---@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
 		path = utils.DEV_DIR,

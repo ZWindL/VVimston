@@ -7,6 +7,7 @@ local DEV_DIR = "$HOME/Projects/nvim"
 local M = {}
 
 M.IS_WINDOWS = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
+M.IS_MAC = vim.fn.has("mac") == 1
 
 local fast_event_aware_notify = function(msg, level, opts)
 	if vim.in_fast_event() then

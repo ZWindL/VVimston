@@ -34,6 +34,9 @@ return {
 	{
 		"keaising/im-select.nvim",
 		config = function()
+		    if utils.IS_MAC or utils.IS_WINDOWS then
+		        return
+		    end
 			require("im_select").setup({
 				default_im_select = "keyboard-us",
 				default_command = "fcitx5-remote",
