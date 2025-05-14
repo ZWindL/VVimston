@@ -6,6 +6,7 @@ local icons = constants.icons
 
 capabilities = require('blink.cmp').get_lsp_capabilities()
 
+-- TODO: blink.cmp works with lsp out of box, but lsp isn't enabled for the first file opened by nvim.
 --------------------------------------------------------------------------------
 --                  Attached Functions Begins
 --------------------------------------------------------------------------------
@@ -76,39 +77,39 @@ end
 --                  Attached Functions Ends
 --------------------------------------------------------------------------------
 
-return {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-        "williamboman/mason-lspconfig.nvim",
-        "williamboman/mason.nvim",
-    },
-
-    config = function()
-        local lspcfg = require("lspconfig")
-
-        utils.on_attach(function(client, buffer)
-            -- highlight_cursor(client, buffer)
-            -- display_navic(client, buffer)
-            set_keymaps(client, buffer)
-        end)
-
-        vim.lsp.inlay_hint.enable(true)
-
-        for _, lsp in ipairs(constants.lsp_servers) do
-            if type(lsp) == "table" then
-                lspcfg[lsp["lang"]].setup({
-                    capabilities = capabilities,
-                    flags = { debounce_text_changes = 150 },
-                    settings = server_settings[lsp["lang"]],
-                })
-            else
-                lspcfg[lsp].setup({
-                    -- before_init = function(_, config)
-                    capabilities = capabilities,
-                    flags = { debounce_text_changes = 150 },
-                    settings = server_settings[lsp],
-                })
-            end
-        end
-    end
-}
+--return {
+--    "neovim/nvim-lspconfig",
+--    dependencies = {
+--        "williamboman/mason-lspconfig.nvim",
+--        "williamboman/mason.nvim",
+--    },
+--
+--        local lspcfg = require("lspconfig")
+--    config = function()
+--
+--        utils.on_attach(function(client, buffer)
+--            -- highlight_cursor(client, buffer)
+--            -- display_navic(client, buffer)
+--            set_keymaps(client, buffer)
+--        end)
+--
+--        vim.lsp.inlay_hint.enable(true)
+--
+--        for _, lsp in ipairs(constants.lsp_servers) do
+--            if type(lsp) == "table" then
+--                lspcfg[lsp["lang"]].setup({
+--                    capabilities = capabilities,
+--                    flags = { debounce_text_changes = 150 },
+--                    settings = server_settings[lsp["lang"]],
+--                })
+--            else
+--                lspcfg[lsp].setup({
+--                    -- before_init = function(_, config)
+--                    capabilities = capabilities,
+--                    flags = { debounce_text_changes = 150 },
+--                    settings = server_settings[lsp],
+--                })
+--            end
+--        end
+--    end
+--}
