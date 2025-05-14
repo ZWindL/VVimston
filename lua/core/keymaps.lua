@@ -128,6 +128,7 @@ map({ "n", "v" }, "yc", "yygccp", { desc = "Yank and Comment" })
 -- TODO: figure out how to do this with lua
 -- vim.cmd([[nmap <F1> :help ]])
 map({ "n", "v" }, "<F1>", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
+
 -- eval lua
 vim.cmd([[nmap <F12> :lua ]])
 

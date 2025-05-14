@@ -1,4 +1,7 @@
-local settings = {
+return {
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
+    root_markers = { ".git" },
     Lua = {
         diagnostics = { globals = { "vim" } },
         workspace = {
@@ -19,5 +22,3 @@ local settings = {
         }
     },
 }
-
-return settings

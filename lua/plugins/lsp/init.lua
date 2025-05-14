@@ -1,6 +1,5 @@
 local M = {
     require("plugins.lsp.mason"),
-    require("plugins.lsp.lsp"),
     require("plugins.lsp.lspsaga"),
     require("plugins.lsp.signature"),
     require("plugins.lsp.lsp_lines"),
@@ -12,6 +11,7 @@ local M = {
     require("plugins.lsp.trouble"),
     require("plugins.lsp.illuminate"),
     require("plugins.lsp.dropbar"),
+    require("plugins.lsp.schema"),
 }
 
 return M
