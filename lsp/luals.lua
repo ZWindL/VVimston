@@ -1,6 +1,7 @@
 return {
+    cmd = { "lua-language-server" },
     filetypes = { "lua" },
-    root_markers = { '.git' },
+    root_markers = { ".git" },
     Lua = {
         diagnostics = { globals = { "vim" } },
         workspace = {

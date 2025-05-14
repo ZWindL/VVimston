@@ -135,6 +135,8 @@ return {
                     }
                 }
             })
+            vim.lsp.enable('luals')
+            vim.lsp.enable('lua_ls')
         end
     },
 }
