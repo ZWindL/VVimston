@@ -1,4 +1,6 @@
 return {
+    filetypes = { "lua" },
+    root_markers = { '.git' },
     Lua = {
         diagnostics = { globals = { "vim" } },
         workspace = {

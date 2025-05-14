@@ -7,7 +7,6 @@ local map = utils.safe_keymap_set
 -- Common keybindings
 -- most can be replaced by plugins
 local function set_keymaps(client, bufnr)
-    local map = utils.safe_keymap_set
     local map_group = utils.add_keymap_group
 
     -- hover
@@ -85,7 +84,10 @@ return {
 
     {
         "mason-org/mason-lspconfig.nvim",
-        dependencies = { "mason-org/mason.nvim" },
+        dependencies = {
+            "mason-org/mason.nvim",
+            "b0o/schemastore.nvim",
+        },
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = lsp_servers,
@@ -111,7 +113,7 @@ return {
                 set_keymaps(client, buffer)
             end)
             -- TODO: These configs are eventually being moved to <rtp>/lsp
-            vim.lsp.jsonls.setup({
+            vim.lsp.config('jsonls', {
                 settings = {
                     json = {
                         schemas = require('schemastore').json.schemas(),
@@ -119,7 +121,7 @@ return {
                     },
                 }
             })
-            vim.lsp.yamlls.setup({
+            vim.lsp.config("yamlls", {
                 settings = {
                     yaml = {
                         schemaStore = {

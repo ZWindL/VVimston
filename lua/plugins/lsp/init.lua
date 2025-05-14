@@ -11,6 +11,7 @@ local M = {
     require("plugins.lsp.trouble"),
     require("plugins.lsp.illuminate"),
     require("plugins.lsp.dropbar"),
+    require("plugins.lsp.schema"),
 }
 
 return M
