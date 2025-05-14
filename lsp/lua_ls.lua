@@ -1,4 +1,4 @@
-local settings = {
+return {
     Lua = {
         diagnostics = { globals = { "vim" } },
         workspace = {
@@ -19,5 +19,3 @@ local settings = {
         }
     },
 }
-
-return settings

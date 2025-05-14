@@ -26,10 +26,10 @@ local function set_keymaps(client, bufnr)
 
     -- incoming/outgoing calls
     map_group("n", "<leader>lc", "Lsp calls", icons.common.lambda)
-    map({"n", "v"}, "<leader>lci",
+    map({ "n", "v" }, "<leader>lci",
         vim.lsp.buf.incoming_calls,
         { desc = "Incoming calls" })
-    map({"n", "v"}, "<leader>lco",
+    map({ "n", "v" }, "<leader>lco",
         vim.lsp.buf.outgoing_calls,
         { desc = "Outgoing calls" })
 end
@@ -86,7 +86,7 @@ return {
     {
         "mason-org/mason-lspconfig.nvim",
         dependencies = { "mason-org/mason.nvim" },
-        config = function ()
+        config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = lsp_servers,
                 automatic_enable = true,
@@ -110,6 +110,29 @@ return {
             utils.on_attach(function(client, buffer)
                 set_keymaps(client, buffer)
             end)
+            -- TODO: These configs are eventually being moved to <rtp>/lsp
+            vim.lsp.jsonls.setup({
+                settings = {
+                    json = {
+                        schemas = require('schemastore').json.schemas(),
+                        validate = { enable = true },
+                    },
+                }
+            })
+            vim.lsp.yamlls.setup({
+                settings = {
+                    yaml = {
+                        schemaStore = {
+                            -- You must disable built-in schemaStore support if you want to use
+                            -- this plugin and its advanced options like `ignore`.
+                            enable = false,
+                            -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                            url = "",
+                        },
+                        schemas = require("schemastore").yaml.schemas(),
+                    }
+                }
+            })
         end
     },
 }
