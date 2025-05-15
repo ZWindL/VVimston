@@ -91,9 +91,8 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = lsp_servers,
-                automatic_enable = true,
                 automatic_installation = true,
-                -- or can be { exclude: string[] }
+                automatic_enable = true,
             })
             map("n", "<leader><leader>m", "<cmd>Mason<cr>", {
                 desc = "Mason (LSP)",
@@ -135,8 +134,6 @@ return {
                     }
                 }
             })
-            vim.lsp.enable('luals')
-            vim.lsp.enable('lua_ls')
         end
     },
 }

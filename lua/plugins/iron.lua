@@ -1,3 +1,5 @@
+-- https://github.com/Vigemus/iron.nvim
+-- A neovim plugin for python repls
 local utils = require("core.utils")
 local map = utils.safe_keymap_set
 
@@ -45,7 +47,7 @@ return {
                 cr = "<space>s<cr>",
                 interrupt = "<space>s<space>",
                 exit = "<space>sq",
-                clear = "<space>cl", ]]
+                clear = "<space>cl", ]]--
             },
             -- If the highlight is on, you can change how it looks
             -- For the available options, check nvim_set_hl
