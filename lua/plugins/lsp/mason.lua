@@ -84,10 +84,7 @@ return {
 
     {
         "mason-org/mason-lspconfig.nvim",
-        dependencies = {
-            "mason-org/mason.nvim",
-            "b0o/schemastore.nvim",
-        },
+        dependencies = { "mason-org/mason.nvim" },
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = lsp_servers,
@@ -111,29 +108,6 @@ return {
             utils.on_attach(function(client, buffer)
                 set_keymaps(client, buffer)
             end)
-            -- TODO: These configs are eventually being moved to <rtp>/lsp
-            vim.lsp.config('jsonls', {
-                settings = {
-                    json = {
-                        schemas = require('schemastore').json.schemas(),
-                        validate = { enable = true },
-                    },
-                }
-            })
-            vim.lsp.config("yamlls", {
-                settings = {
-                    yaml = {
-                        schemaStore = {
-                            -- You must disable built-in schemaStore support if you want to use
-                            -- this plugin and its advanced options like `ignore`.
-                            enable = false,
-                            -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-                            url = "",
-                        },
-                        schemas = require("schemastore").yaml.schemas(),
-                    }
-                }
-            })
         end
     },
 }
