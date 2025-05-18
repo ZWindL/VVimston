@@ -10,9 +10,9 @@ local ts_cfg = {
             lookahead = true,
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
-                ["la"] = { query = "@assignment.lhs", desc = "Select assignment lhs" },
-                ["ra"] = { query = "@assignment.rhs", desc = "Select assignment rhs" },
-                ["aa"] = { query = "@assignment.outer", desc = "Select a assignment" },
+                ["aal"] = { query = "@assignment.lhs", desc = "Select assignment lhs" },
+                ["aar"] = { query = "@assignment.rhs", desc = "Select assignment rhs" },
+                ["aaa"] = { query = "@assignment.outer", desc = "Select a assignment" },
                 ["ia"] = { query = "@assignment.inner", desc = "Select inner assignment" },
                 ["ac"] = { query = "@class.outer", desc = "Select a class" },
                 ["ic"] = { query = "@class.inner", desc = "Select inner class" },
@@ -24,8 +24,8 @@ local ts_cfg = {
                 ["id"] = { query = "@conditional.inner", desc = "Select inner conditional" },
                 ["ao"] = { query = "@loop.outer", desc = "Select a loop" },
                 ["io"] = { query = "@loop.inner", desc = "Select inner loop" },
-                ["a,"] = { query = "@parameter.outer", desc = "Select a parameter" },
-                ["i,"] = { query = "@parameter.inner", desc = "Select inner parameter" },
+                ["ap,"] = { query = "@parameter.outer", desc = "Select a parameter" },
+                ["ip,"] = { query = "@parameter.inner", desc = "Select inner parameter" },
                 ["ar"] = { query = "@return.outer", desc = "Select a return" },
                 ["ir"] = { query = "@return.inner", desc = "Select inner return" },
                 -- You can also use captures from other query groups like `locals.scm`
