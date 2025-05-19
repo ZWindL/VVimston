@@ -2,6 +2,7 @@ local utils = require("core.utils")
 local constants = require("core.constants")
 local icons = constants.icons
 local lsp_servers = constants.lsp_servers_ensure_to_install()
+local lsp_servers_force_enabled = constants.lsp_servers_force_enable()
 local map = utils.safe_keymap_set
 
 -- Common keybindings
@@ -91,6 +92,12 @@ return {
                 automatic_installation = true,
                 automatic_enable = true,
             })
+
+            -- enabled lsps that are not installed by mason
+            for _, server in pairs(lsp_servers_force_enabled) do
+                vim.lsp.enable(server)
+            end
+
             map("n", "<leader><leader>m", "<cmd>Mason<cr>", {
                 desc = "Mason (LSP)",
                 icon = " "

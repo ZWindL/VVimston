@@ -69,13 +69,13 @@ M.icons = {
 }
 
 --- List of LspInfos (language server info)
--- @class LspInfo
--- @field name string The name of the language server
--- @field mason_alias string The alias of the language server in mason
--- @field ensure_to_install bool Default is true
---
--- @type (LspInfo|string)[]
--- @field lsp_servers List of LspInfos
+---@class LspInfo
+---@field name string The name of the language server
+---@field mason_alias string The alias of the language server in mason
+---@field ensure_to_install boolean Default is true
+---@field force_enable boolean Default is true
+---
+---@field lsp_servers (LspInfo|string)[] List of LspInfos
 M.lsp_servers = {
     -- use rustaceanvim
     -- "rust_analyzer",
@@ -83,6 +83,7 @@ M.lsp_servers = {
     {
         name = "angularls",
         ensure_to_install = false,
+        force_enable = false,
     },
     "ansiblels",
     "bashls",
@@ -118,6 +119,7 @@ M.lsp_servers = {
     {
         name = "racket_langserver",
         ensure_to_install = false,
+        force_enable = true,
     },
     -- {
     --        name = "phpactor",
@@ -130,8 +132,8 @@ M.lsp_servers = {
     -- "pkgbuild_language_server",
 }
 
---- List of language servers that are ensured to install, used by mason.
--- @return string[]
+---List of language servers that are ensured to install, used by mason.
+---@return string[]
 M.lsp_servers_ensure_to_install = function()
     local list = {}
     for _, lsp in ipairs(M.lsp_servers) do
@@ -146,14 +148,26 @@ M.lsp_servers_ensure_to_install = function()
     return list
 end
 
---- List of language server names
--- @return string[]
+---List of language server names
+---@return string[]
 M.lsp_server_names = function()
     local list = {}
     for _, lsp in ipairs(M.lsp_servers) do
         if type(lsp) == "string" then
             table.insert(list, lsp)
         else
+            table.insert(list, lsp.name)
+        end
+    end
+    return list
+end
+
+---List of language servers that are forced to enable
+---@return string[]
+M.lsp_servers_force_enable = function()
+    local list = {}
+    for _, lsp in ipairs(M.lsp_servers) do
+        if type(lsp) == "table" and lsp.force_enable then
             table.insert(list, lsp.name)
         end
     end
