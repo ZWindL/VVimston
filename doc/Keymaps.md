@@ -1,6 +1,6 @@
 # Keybindings
 
-Every keybinding should do its best stick to the principles.
+Every keybinding should does its best sticking to the principles.
 
 1. Most often used functions are mapped to single key or `M-[x]`.
 2. `<F1>` ~ `<F12>` are mapped to functions like LSP, compiler, etc.
@@ -9,6 +9,7 @@ Every keybinding should do its best stick to the principles.
     2. `<leader>b` for Buffers.
     3. `[` and `]` stand for `prev/next`.
 4. `g` stands for "go to" or "modify to"
+5. For keybings in `insert mode`, use `<C-x>` as prefix.
 
 Mappings led by certain keys (e.g. `<space>`) don't need to be memorized, as they can be easily listed using [which-key](https://github.com/folke/which-key.nvim).
 
