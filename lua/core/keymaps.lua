@@ -73,7 +73,7 @@ map("", "Q", "gq", {})
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-    return require("core.utils").escapePair()
+    return require("core.utils").escape_pair()
 end)
 
 -- buffer
