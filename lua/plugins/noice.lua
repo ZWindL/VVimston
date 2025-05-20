@@ -1,4 +1,5 @@
--- Notification
+-- Notification and other UI elements
+-- TODO: refine the options
 
 return {
     "folke/noice.nvim",
@@ -6,12 +7,9 @@ return {
     dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
         "MunifTanjim/nui.nvim",
-        -- OPTIONAL:
-        --   `nvim-notify` is only needed, if you want to use the notification view.
-        --   If not available, we use `mini` as the fallback
         "rcarriga/nvim-notify",
         -- "hrsh7th/nvim-cmp",
-        "nvim-telescope/telescope.nvim", -- picker
+        "ibhagwan/fzf-lua", -- picker
     },
     opts = {
         views = {
@@ -131,7 +129,8 @@ return {
         { "<leader>ne", "<cmd>NoiceErrors<cr>",    desc = "Show errors" },
         { "<leader>nm", "<cmd>NoiceDisable<cr>",   desc = "Mute noice" },
         { "<leader>no", "<cmd>NoiceEnable<cr>",    desc = "Enable noice" },
-        { "<leader>nt", "<cmd>NoiceTelescope<cr>", desc = "Show message" },
+        -- TODO: use `:Noice fzf` could be better, and don't forget to refine the format
+        { "<leader>nt", "<cmd>NoiceFzf<cr>", desc = "Show message" },
         -- {
         --     "<leader>nl",
         --     function ()
