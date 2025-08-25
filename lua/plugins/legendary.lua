@@ -32,7 +32,6 @@ return {
                     -- are added at toplevel instead of in a group.
                     use_groups = true,
                 },
-                codecompanion = true,
             },
         })
     end,
