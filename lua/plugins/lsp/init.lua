@@ -1,7 +1,6 @@
 local M = {
     require("plugins.lsp.mason"),
     require("plugins.lsp.lspsaga"),
-    require("plugins.lsp.signature"),
     require("plugins.lsp.lsp_lines"),
     require("plugins.lsp.outline"),
     require("plugins.lsp.symbolusage"),
