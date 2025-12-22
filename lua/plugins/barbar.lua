@@ -1,4 +1,3 @@
--- Use tabby.nvim
 return {
     "romgrk/barbar.nvim",
     dependencies = {

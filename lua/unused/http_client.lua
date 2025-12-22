@@ -1,3 +1,5 @@
+-- NOTE: 2025/08/26 Not useful
+
 local utils = require("core.utils")
 local map = utils.safe_keymap_set
 local map_group = utils.add_keymap_group
