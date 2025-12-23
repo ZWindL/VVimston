@@ -101,3 +101,4 @@ Some options like custom icons for diagnosis will be reset to default after invo
 [ ] Signature.nvim
 [ ] https://github.com/stevearc/aerial.nvim
 [ ] Replace telescope with fzf-lua
+[ ] https://github.com/folke/snacks.nvim
