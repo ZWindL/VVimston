@@ -6,6 +6,10 @@ local map = utils.safe_keymap_set
 return {
 	"nvimdev/hlsearch.nvim",
 
+    -- Animate cursor
+    "sphamba/smear-cursor.nvim",
+
+
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -118,7 +122,7 @@ return {
 	},
 
 	-- toggle values (true/false)
-	{
+{
 		"nat-418/boole.nvim",
 		config = function()
 			require("boole").setup({
@@ -140,14 +144,17 @@ return {
 		end,
 	},
 
-	{
-		"okuuva/auto-save.nvim",
-		cmd = "ASToggle", -- optional for lazy loading on command
-		event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
-		opts = {
-            enabled = false,
-        },
-	},
+{ "wakatime/vim-wakatime", lazy = false },
 
-	{ "wakatime/vim-wakatime", lazy = false },
+{
+        "glepnir/template.nvim",
+        cmd = { "Template", "TemProject" },
+        config = function()
+            require("template").setup({
+                temp_dir = vim.fn.stdpath("config") .. "/templates",
+                author = "zwindl (Winston Li)",                 -- your name
+                email = "lizefeng1996@hotmail.com",             -- email address
+            })
+        end,
+    }
 }
