@@ -79,6 +79,7 @@ M.icons = {
 M.lsp_servers = {
     -- use rustaceanvim
     -- "rust_analyzer",
+
     "lua_ls",
     {
         name = "angularls",
@@ -117,10 +118,11 @@ M.lsp_servers = {
     "zls",
     "phpactor",
     {
-        name = "racket_langserver",
+        name = "racket-langserver",
         ensure_to_install = false,
         force_enable = true,
     },
+
     -- {
     --        name = "phpactor",
     --        lang = "php",

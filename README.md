@@ -11,7 +11,7 @@ My personal `Neovim` configuration, nothing special.
 - Modular: Each plugin has its dedicated config file.
 - Documented (TODO): The goal is to easily recall what this line/file does.
 
-**Neovim >= 0.10 is required**
+**Neovim >= 0.11 is required**
 
 ## Installation
 Backup your existing config with `mv ~/.config/nvim{,.bak}`
@@ -96,3 +96,8 @@ Some options like custom icons for diagnosis will be reset to default after invo
 - [LazyVim](https://github.com/LazyVim/LazyVim)
 - [Sergio's config](https://bitbucket.org/sergio/mylazy-nvim)
 - [Allaman's Nvim config](https://github.com/Allaman/nvim/tree/main)
+
+# TODOs
+[ ] Signature.nvim
+[ ] https://github.com/stevearc/aerial.nvim
+[ ] Replace telescope with fzf-lua
