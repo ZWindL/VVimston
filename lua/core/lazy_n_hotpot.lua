@@ -1,66 +1,61 @@
 local utils = require("core.utils")
 
--- Lazy requires nvim version >= 0.9.0
-if vim.fn.has("nvim-0.9.0") == 0 then
-	vim.api.nvim_echo({
-		{ "VVimston requires Neovim >= 0.9.0\n", "ErrorMsg" },
-		{ "Press any key to exit", "MoreMsg" },
-	}, true, {})
-	vim.fn.getchar()
-	vim.cmd([[quit]])
-	return {}
+local function ensure_installed(plugin, branch)
+    local plugin_name = string.match(plugin, ".+/(.+)")
+    local plugin_path = vim.fn.stdpath("data") .. "/lazy/" .. plugin_name
+    local plugin_git_url = "https://github.com/" .. plugin .. ".git"
+
+    local git_cmd = {
+        "git",
+        "clone",
+        "--filter=blob:none",
+        plugin_git_url,
+        plugin_path,
+    }
+
+    if branch ~= nil then
+        table.insert(git_cmd, 4, "--branch=" .. branch)
+    end
+
+    if not (vim.uv or vim.loop).fs_stat(plugin_path) then
+        vim.notify("Cloning " .. plugin .. "...\n")
+        local result = vim.fn.system(git_cmd)
+        if vim.v.shell_error ~= 0 then
+            vim.api.nvim_echo({
+                {"Failed to clone " .. plugin_name .. "\n", "ErrorMsg" },
+                { result, "WarningMsg" },
+                {"\nPress any key to exit.."}
+            }, true, {})
+            vim.fn.getchar()
+            os.exit(1)
+        end
+    end
+
+    return plugin_path
 end
 
--- install lazy
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
+local lazy_path = ensure_installed("folke/lazy.nvim", "stable")
+local hotpot_path = ensure_installed("rktjmp/hotpot.nvim", "main")
 
--- install hotpot
-local hotpotpath = vim.fn.stdpath("data") .. "/lazy/hotpot.nvim"
-if not vim.loop.fs_stat(hotpotpath) then
-	vim.notify("Bootstrapping hotpot.nvim...", vim.log.levels.INFO)
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/rktjmp/hotpot.nvim.git",
-		hotpotpath,
-	})
-end
-
-vim.opt.rtp:prepend({ hotpotpath, lazypath })
+vim.opt.rtp:prepend({ hotpot_path, lazy_path })
 
 -- lazy options
-local opts = {
+local lazy_opts = {
 	spec = {    -- locations of independent plugin config files
 		{ import = "plugins" },
 		{ import = "themes" },
 	},
 	defaults = {
 		lazy = false,
-		-- version = "*", -- enable this to try installing the latest stable versions of plugins
 	},
 	concurrency = utils.IS_MAC and (vim.uv.available_parallelism() * 2) or nil,
 	dev = {
-		---@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
 		path = utils.DEV_DIR,
-		---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
 		patterns = {}, -- For example {"folke"}
 		fallback = false, -- Fallback to git when local plugin doesn't exist
 	},
 	ui = {
-		-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
 		border = "rounded",
-		title = nil, ---@type string only works when border is not "none"
 	},
 	checker = {
 		-- automatically check for plugin updates
@@ -75,9 +70,7 @@ local opts = {
 		reset_packpath = true, -- reset the package path to improve startup time
 		rtp = {
 			reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
-			---@type string[] list any custom paths here that you want to includes in the rtp
 			paths = {},
-			---@type string[] list any plugins you want to disable here
 			disabled_plugins = {
 				-- "gzip",
 				-- "matchit",
@@ -92,6 +85,10 @@ local opts = {
 	},
 }
 
-require("hotpot")
+require("lazy").setup(lazy_opts)
 
-return require("lazy").setup(opts)
+-- You must call vim.loader.enable() before requiring hotpot unless you are
+-- passing {performance = {cache = false}} to Lazy.
+vim.loader.enable()
+
+require("hotpot")
