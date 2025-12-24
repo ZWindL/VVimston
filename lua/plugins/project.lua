@@ -2,7 +2,7 @@ return {
 	"coffebar/neovim-project",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-telescope/telescope.nvim" },
+		{ "ibhagwan/fzf-lua" },
 		{ "Shatur/neovim-session-manager" },
 	},
 	lazy = false,
@@ -16,9 +16,14 @@ return {
 			"~/.config/*",
 		},
 		last_session_on_startup = false,
+		dashboard_mode = false,
+		picker = {
+		    type = "fzf-lua",
+        },
 	},
 	init = function()
 		-- enable saving the state of plugins in the session
-		vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+        -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+		vim.opt.sessionoptions:append( 'globals')
 	end,
 }
