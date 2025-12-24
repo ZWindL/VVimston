@@ -113,3 +113,6 @@ trouble, the depedency is written in telescope's config
 [ ] https://github.com/folke/snacks.nvim
 [ ] It requires 'bat' now as previewer (fzf-lua)
 [ ] https://github.com/petertriho/nvim-scrollbar
+[ ] Harpoon
+[ ] Resolve the startup message.
+[ ] https://github.com/ph1losof/ecolog.nvim  .env manager

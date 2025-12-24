@@ -1,7 +1,10 @@
+local map = require("core.utils").safe_keymap_set
+
 return {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
+        -- fzf_bin = 'sk', -- You can also use skim
         winopts = {
             height = 0.9,
             width = 0.9,
@@ -62,7 +65,7 @@ return {
         actions = {
             files = {
                 -- NOTE: This section is only for further reference.
-                true,        -- uncomment to inherit all the default options
+                true, -- uncomment to inherit all the default options
                 -- Pickers inheriting these actions:
                 --   files, git_files, git_status, grep, lsp, oldfiles, quickfix, loclist,
                 --   tags, btags, args, buffers, tabs, lines, blines
@@ -90,4 +93,10 @@ return {
             },
         },
     },
+    config = function()
+        -- local FzfLua = require("fzf-lua")
+        -- map({ "n", "v", "i" }, "<C-x><C-f>",
+        --     function() FzfLua.complete_path() end,
+        --     { silent = true, desc = "Fuzzy complete path" })
+    end,
 }
