@@ -107,6 +107,9 @@ trouble, the depedency is written in telescope's config
 
 # TODOs
 [ ] Signature.nvim
-[ ] https://github.com/stevearc/aerial.nvim
 [ ] Replace telescope with fzf-lua
+[ ] Remove outline.nvim
+[ ] https://github.com/stevearc/aerial.nvim
 [ ] https://github.com/folke/snacks.nvim
+[ ] It requires 'bat' now as previewer (fzf-lua)
+[ ] https://github.com/petertriho/nvim-scrollbar
