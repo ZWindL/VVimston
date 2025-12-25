@@ -40,7 +40,7 @@ local ts_cfg = {
             -- mapping query_strings to modes.
             selection_modes = {
                 ['@parameter.outer'] = 'v', -- charwise
-                ['@function.outer'] = 'V', -- linewise
+                ['@function.outer'] = 'V',  -- linewise
                 ['@class.outer'] = '<c-v>', -- blockwise
             },
             -- If you set this to `true` (default is `false`) then any textobject is
@@ -245,40 +245,51 @@ local ts_cfg = {
 
 return {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
     dependencies = {
         "nvim-treesitter/nvim-treesitter"
     },
+    init = function()
+        -- Disable entire built-in ftplugin mappings to avoid conflicts.
+        -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+        vim.g.no_plugin_maps = true
+    end,
     config = function()
-        require("nvim-treesitter.configs").setup(ts_cfg)
-        local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+        require("nvim-treesitter-textobjects").setup {
+            move = {
+                -- whether to set jumps in the jumplist
+                set_jumps = true,
+            },
+        }
 
-        -- Repeat movement with ; and ,
-        -- ensure ; goes forward and , goes backward regardless of the last direction
-        map({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
-        map({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
-
-        -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
-        map({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
-        map({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
-        map({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
-        map({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
+        -- local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+        --
+        -- -- Repeat movement with ; and ,
+        -- -- ensure ; goes forward and , goes backward regardless of the last direction
+        -- map({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+        -- map({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+        --
+        -- -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+        -- map({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
+        -- map({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
+        -- map({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
+        -- map({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
         -- add groups for keymaps
-        -- NOTE: Keymap is occupied by leap.nvim
         -- map_group({"n", "x", "o"}, "gs", "Swap TS Objects")
         -- map_group({"n", "x", "o"}, "gs]", "Swap w/ next TS Object")
         -- map_group({"n", "x", "o"}, "gs[", "Swap w/ prev TS Object")
         -- map_group({"n", "x", "o"}, "gs]i", "Swap w/ next inner TS Object")
         -- map_group({"n", "x", "o"}, "gs[i", "Swap w/ prev inner TS Object")
 
-        map_group({"n", "x", "o"}, "[[", "Prev nearest TS Object")
-        map_group({"n", "x", "o"}, "]]", "Next nearest TS Object")
-        map_group({"n", "x", "o"}, "[i", "Prev inner TS Object")
-        map_group({"n", "x", "o"}, "]i", "Next inner TS Object")
+        map_group({ "n", "x", "o" }, "[[", "Prev nearest TS Object")
+        map_group({ "n", "x", "o" }, "]]", "Next nearest TS Object")
+        map_group({ "n", "x", "o" }, "[i", "Prev inner TS Object")
+        map_group({ "n", "x", "o" }, "]i", "Next inner TS Object")
 
-        map_group({"n", "x", "o"}, "]a", "Next assignment")
-        map_group({"n", "x", "o"}, "[a", "Prev assignment")
-        map_group({"n", "x", "o"}, "]/", "Next comment")
-        map_group({"n", "x", "o"}, "[/", "Prev comment")
+        map_group({ "n", "x", "o" }, "]a", "Next assignment")
+        map_group({ "n", "x", "o" }, "[a", "Prev assignment")
+        map_group({ "n", "x", "o" }, "]/", "Next comment")
+        map_group({ "n", "x", "o" }, "[/", "Prev comment")
     end,
 }

@@ -113,6 +113,9 @@ trouble, the depedency is written in telescope's config
 [ ] https://github.com/folke/snacks.nvim
 [x] https://github.com/petertriho/nvim-scrollbar
 [ ] Harpoon
-[ ] Resolve the startup message.
+[x] Resolve the startup message.
 [ ] https://github.com/ph1losof/ecolog.nvim  .env manager
 [ ] Support DAP (Use fzf-lua)
+[ ] tree-sitter
+[ ] https://github.com/ThePrimeagen/harpoon/tree/harpoon2
+[ ] https://github.com/letieu/harpoon-lualine
