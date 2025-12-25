@@ -107,8 +107,8 @@ trouble, the depedency is written in telescope's config
 
 # TODOs
 [ ] Signature.nvim
-[ ] Replace telescope with fzf-lua
-[ ] Remove outline.nvim
+[x] Replace telescope with fzf-lua
+[x] Remove outline.nvim
 [ ] https://github.com/stevearc/aerial.nvim
 [ ] https://github.com/folke/snacks.nvim
 [ ] It requires 'bat' now as previewer (fzf-lua)
@@ -116,3 +116,4 @@ trouble, the depedency is written in telescope's config
 [ ] Harpoon
 [ ] Resolve the startup message.
 [ ] https://github.com/ph1losof/ecolog.nvim  .env manager
+[ ] Support DAP (Use fzf-lua)

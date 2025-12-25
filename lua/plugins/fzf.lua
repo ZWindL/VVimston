@@ -1,8 +1,33 @@
-local map = require("core.utils").safe_keymap_set
+local map_group = require("core.utils").add_keymap_group
+local constants = require("core.constants")
 
 return {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+        -- Buffers
+        { '<leader>bf',  "<cmd>FzfLua buffers<cr>",                    { desc = "List buffers" } },
+        -- Files
+        { "<leader>ff",  "<cmd>FzfLua files<cr>",                      desc = "FZF files" },
+        { "<leader>fr",  "<cmd>FzfLua live_grep_native<cr>",           desc = "Live-grep files" },
+        -- Git
+        { "<leader>gs",  "<cmd>FzfLua git_status<cr>",                 desc = "Git status" },
+        { "<leader>gl",  "<cmd>FzfLua git_commits<cr>",                desc = "Git logs" },
+        -- LSP
+        { "grr",         "<cmd>FzfLua lsp_references<cr>",             desc = "References" },
+        { "grd",         "<cmd>FzfLua lsp_definitions<cr>",            desc = "Definitions" },
+        { "grt",         "<cmd>FzfLua lsp_typedefs<cr>",               desc = "Type definitions" },
+        { "gri",         "<cmd>FzfLua lsp_implementations<cr>",        desc = "Implementations" },
+        { "grf",         "<cmd>FzfLua lsp_finder<cr>",                 desc = "All LSP Locations" },
+        { "<leader>ls",  "<cmd>FzfLua lsp_document_symbols<cr>",       desc = "LSP document symbols" },
+        { "<leader>lS",  "<cmd>FzfLua lsp_live_workspace_symbols<cr>", desc = "LSP workspace symbols" },
+        { "<leader>ltb", "<cmd>FzfLua lsp_type_sub<cr>",               desc = "Sub Types" },
+        { "<leader>ltp", "<cmd>FzfLua lsp_type_super<cr>",             desc = "Super Types" },
+        -- Misc
+        { "<leader>sc",  "FzfLua spellcheck<cr>",                      desc = "FZF spellcheck" },
+        { "<leader>ss",  "FzfLua spell_suggest<cr>",                   desc = "FZF spell suggests" },
+        { "<C-p>",       "FzfLua global",                              desc = "FZF global finder" },
+    },
     opts = {
         -- fzf_bin = 'sk', -- You can also use skim
         winopts = {
@@ -98,5 +123,6 @@ return {
         -- map({ "n", "v", "i" }, "<C-x><C-f>",
         --     function() FzfLua.complete_path() end,
         --     { silent = true, desc = "Fuzzy complete path" })
+        map_group({ "n", "v" }, "<leader>s", "Spell check", constants.icons.vscode.String)
     end,
 }

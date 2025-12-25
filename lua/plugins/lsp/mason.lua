@@ -24,15 +24,6 @@ local function set_keymaps(client, bufnr)
             vim.lsp.buf.format({ async = true })
         end,
         { desc = "Format", icon = icons.common.format })
-
-    -- incoming/outgoing calls
-    map_group("n", "<leader>lc", "Lsp calls", icons.common.lambda)
-    map({ "n", "v" }, "<leader>lci",
-        vim.lsp.buf.incoming_calls,
-        { desc = "Incoming calls" })
-    map({ "n", "v" }, "<leader>lco",
-        vim.lsp.buf.outgoing_calls,
-        { desc = "Outgoing calls" })
 end
 
 return {

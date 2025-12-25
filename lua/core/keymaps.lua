@@ -1,5 +1,5 @@
 -- File: keymaps.lua
--- Desc: Only enhancements of default keybindings and shortcuts not within any group are allowed here
+-- Desc: Keymaps can be managed together
 -- Last update:
 
 local utils = require("core.utils")
@@ -18,12 +18,12 @@ map("v", ">", ">gv")
 -- Move selected line / block of text in visual mode
 map("x", "K", "<cmd>move '<-2<cr>gv-gv")
 map("x", "J", "<cmd>move '>+1<cr>gv-gv")
--- map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
--- map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
--- map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
--- map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
--- map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
--- map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
@@ -84,8 +84,12 @@ map("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Prev buffer" })
 map("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
 map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
 map("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
+-- NOTE: this map requires fzf-lua
+map('n', '<leader>bf', "<cmd>FzfLua buffers<cr>", { desc = "List buffers" })
+
 
 -- NOTE: The Buffer* commands are provided by barbar.nvim
+
 -- map("n", "<leader>bf", "<cmd>BufferPick<cr>", { desc = "Buffer Picker (Find)" })
 -- Goto buffer in position...
 -- map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>")
@@ -136,7 +140,8 @@ vim.cmd([[nmap <F12> :lua ]])
 
 -- develop
 -- reload plugin and execut `:luafile %`
-map("n", "<leader><leader>x", function ()
+-- NOTE: Requires plenary
+map("n", "<leader><leader>x", function()
     require("plenary.reload").reload_module("%")
     vim.cmd("luafile %")
 end, { desc = "Reload current lua file" })
