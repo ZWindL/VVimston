@@ -163,4 +163,14 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
         opts = {},
     },
+
+    {
+        "onsails/lspkind.nvim",
+        opts = {
+            -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+            mode = 'symbol_text',
+            -- default: 'default'
+            preset = 'codicons',
+        }
+    },
 }
