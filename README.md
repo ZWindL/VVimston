@@ -107,14 +107,8 @@ trouble, the depedency is written in telescope's config
 
 # TODOs
 [ ] Signature.nvim
-[x] Replace telescope with fzf-lua
-[x] Remove outline.nvim
-[x] https://github.com/stevearc/aerial.nvim
 [ ] https://github.com/folke/snacks.nvim
-[x] https://github.com/petertriho/nvim-scrollbar
-[x] Resolve the startup message.
 [ ] https://github.com/ph1losof/ecolog.nvim  .env manager
 [ ] Support DAP (Use fzf-lua)
 [ ] tree-sitter
-[ ] https://github.com/ThePrimeagen/harpoon/tree/harpoon2
-[ ] https://github.com/letieu/harpoon-lualine
+[ ] https://github.com/kevinhwang91/nvim-bqf

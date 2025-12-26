@@ -6,7 +6,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
         -- Buffers
-        { '<leader>bf',  "<cmd>FzfLua buffers<cr>",                    { desc = "List buffers" } },
+        { '<leader>bf',  "<cmd>FzfLua buffers<cr>",                    desc = "List buffers" },
         -- Files
         -- Use FFF
         -- { "<leader>ff",  "<cmd>FzfLua files<cr>",                      desc = "FZF files" },
@@ -25,9 +25,10 @@ return {
         { "<leader>ltb", "<cmd>FzfLua lsp_type_sub<cr>",               desc = "Sub Types" },
         { "<leader>ltp", "<cmd>FzfLua lsp_type_super<cr>",             desc = "Super Types" },
         -- Misc
-        { "<leader>sc",  "<cmd>FzfLua spellcheck<cr>",                      desc = "FZF spellcheck" },
-        { "<leader>ss",  "<cmd>FzfLua spell_suggest<cr>",                   desc = "FZF spell suggests" },
-        { "<C-p>",       "<cmd>FzfLua global<cr>",                              desc = "FZF global finder" },
+        { "<leader>ut",  "<cmd>FzfLua undotree",                       desc = "Undotree" },
+        { "<leader>sc",  "<cmd>FzfLua spellcheck<cr>",                 desc = "FZF spellcheck" },
+        { "<leader>ss",  "<cmd>FzfLua spell_suggest<cr>",              desc = "FZF spell suggests" },
+        { "<C-p>",       "<cmd>FzfLua global<cr>",                     desc = "FZF global finder" },
     },
     opts = {
         -- fzf_bin = 'sk', -- You can also use skim
