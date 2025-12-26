@@ -3,7 +3,6 @@ local constants = require("core.constants")
 local icons = constants.icons
 local lsp_servers_to_install = constants.lsp_servers_ensure_to_install()
 local lsp_servers_force_enabled = constants.lsp_servers_force_enable()
-local lsp_servers = constants.lsp_server_names()
 local map = utils.safe_keymap_set
 
 -- Common keybindings

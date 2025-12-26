@@ -25,9 +25,9 @@ return {
         { "<leader>ltb", "<cmd>FzfLua lsp_type_sub<cr>",               desc = "Sub Types" },
         { "<leader>ltp", "<cmd>FzfLua lsp_type_super<cr>",             desc = "Super Types" },
         -- Misc
-        { "<leader>sc",  "FzfLua spellcheck<cr>",                      desc = "FZF spellcheck" },
-        { "<leader>ss",  "FzfLua spell_suggest<cr>",                   desc = "FZF spell suggests" },
-        { "<C-p>",       "FzfLua global",                              desc = "FZF global finder" },
+        { "<leader>sc",  "<cmd>FzfLua spellcheck<cr>",                      desc = "FZF spellcheck" },
+        { "<leader>ss",  "<cmd>FzfLua spell_suggest<cr>",                   desc = "FZF spell suggests" },
+        { "<C-p>",       "<cmd>FzfLua global<cr>",                              desc = "FZF global finder" },
     },
     opts = {
         -- fzf_bin = 'sk', -- You can also use skim
@@ -124,6 +124,6 @@ return {
         -- map({ "n", "v", "i" }, "<C-x><C-f>",
         --     function() FzfLua.complete_path() end,
         --     { silent = true, desc = "Fuzzy complete path" })
-        map_group({ "n", "v" }, "<leader>s", "Spell check", constants.icons.vscode.String)
+        map_group({ "n", "v" }, "<leader>s", "Spellcheck", constants.icons.common.spelling)
     end,
 }

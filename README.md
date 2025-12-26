@@ -112,7 +112,6 @@ trouble, the depedency is written in telescope's config
 [x] https://github.com/stevearc/aerial.nvim
 [ ] https://github.com/folke/snacks.nvim
 [x] https://github.com/petertriho/nvim-scrollbar
-[ ] Harpoon
 [x] Resolve the startup message.
 [ ] https://github.com/ph1losof/ecolog.nvim  .env manager
 [ ] Support DAP (Use fzf-lua)

@@ -65,6 +65,7 @@ M.icons = {
         warn = " ",
         info = " ",
         hint = "󰌵",
+        anchor = "󰀱",
     },
 }
 
