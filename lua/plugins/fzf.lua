@@ -8,7 +8,8 @@ return {
         -- Buffers
         { '<leader>bf',  "<cmd>FzfLua buffers<cr>",                    { desc = "List buffers" } },
         -- Files
-        { "<leader>ff",  "<cmd>FzfLua files<cr>",                      desc = "FZF files" },
+        -- Use FFF
+        -- { "<leader>ff",  "<cmd>FzfLua files<cr>",                      desc = "FZF files" },
         { "<leader>fr",  "<cmd>FzfLua live_grep_native<cr>",           desc = "Live-grep files" },
         -- Git
         { "<leader>gs",  "<cmd>FzfLua git_status<cr>",                 desc = "Git status" },
