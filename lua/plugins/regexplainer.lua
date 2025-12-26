@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"MunifTanjim/nui.nvim",
-    },
+	},
 	config = function()
 		require("regexplainer").setup({
 			filetypes = {

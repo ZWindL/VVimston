@@ -1,37 +1,37 @@
 local utils = require("core.utils")
 
 local function ensure_installed(plugin, branch)
-    local plugin_name = string.match(plugin, ".+/(.+)")
-    local plugin_path = vim.fn.stdpath("data") .. "/lazy/" .. plugin_name
-    local plugin_git_url = "https://github.com/" .. plugin .. ".git"
+	local plugin_name = string.match(plugin, ".+/(.+)")
+	local plugin_path = vim.fn.stdpath("data") .. "/lazy/" .. plugin_name
+	local plugin_git_url = "https://github.com/" .. plugin .. ".git"
 
-    local git_cmd = {
-        "git",
-        "clone",
-        "--filter=blob:none",
-        plugin_git_url,
-        plugin_path,
-    }
+	local git_cmd = {
+		"git",
+		"clone",
+		"--filter=blob:none",
+		plugin_git_url,
+		plugin_path,
+	}
 
-    if branch ~= nil then
-        table.insert(git_cmd, 4, "--branch=" .. branch)
-    end
+	if branch ~= nil then
+		table.insert(git_cmd, 4, "--branch=" .. branch)
+	end
 
-    if not (vim.uv or vim.loop).fs_stat(plugin_path) then
-        vim.notify("Cloning " .. plugin .. "...\n")
-        local result = vim.fn.system(git_cmd)
-        if vim.v.shell_error ~= 0 then
-            vim.api.nvim_echo({
-                {"Failed to clone " .. plugin_name .. "\n", "ErrorMsg" },
-                { result, "WarningMsg" },
-                {"\nPress any key to exit.."}
-            }, true, {})
-            vim.fn.getchar()
-            os.exit(1)
-        end
-    end
+	if not (vim.uv or vim.loop).fs_stat(plugin_path) then
+		vim.notify("Cloning " .. plugin .. "...\n")
+		local result = vim.fn.system(git_cmd)
+		if vim.v.shell_error ~= 0 then
+			vim.api.nvim_echo({
+				{ "Failed to clone " .. plugin_name .. "\n", "ErrorMsg" },
+				{ result, "WarningMsg" },
+				{ "\nPress any key to exit.." },
+			}, true, {})
+			vim.fn.getchar()
+			os.exit(1)
+		end
+	end
 
-    return plugin_path
+	return plugin_path
 end
 
 local lazy_path = ensure_installed("folke/lazy.nvim", "stable")
@@ -41,7 +41,7 @@ vim.opt.rtp:prepend({ hotpot_path, lazy_path })
 
 -- lazy options
 local lazy_opts = {
-	spec = {    -- locations of independent plugin config files
+	spec = { -- locations of independent plugin config files
 		{ import = "plugins" },
 		{ import = "themes" },
 	},

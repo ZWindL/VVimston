@@ -2,24 +2,24 @@ local utils = require("core.utils")
 local on_attach = utils.on_attach
 
 return {
-    "p00f/clangd_extensions.nvim",
-    config = function()
-        require("clangd_extensions").setup({
-            memory_usage = {
-                border = "rounded",
-            },
-            symbol_info = {
-                border = "rounded",
-            },
-        })
+	"p00f/clangd_extensions.nvim",
+	config = function()
+		require("clangd_extensions").setup({
+			memory_usage = {
+				border = "rounded",
+			},
+			symbol_info = {
+				border = "rounded",
+			},
+		})
 
-        -- enable clangd inlay_hints
-        on_attach(function(client, _)
-            if client.name ~= 'clangd' then
-                return
-            end
-            -- disable the default inlay_hints
-            -- vim.lsp.inlay_hint.enable(false)
-        end)
-    end
+		-- enable clangd inlay_hints
+		on_attach(function(client, _)
+			if client.name ~= "clangd" then
+				return
+			end
+			-- disable the default inlay_hints
+			-- vim.lsp.inlay_hint.enable(false)
+		end)
+	end,
 }

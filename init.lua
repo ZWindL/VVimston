@@ -15,7 +15,7 @@ require("core.options")
 
 -- we don't use plugins as root
 if not utils.is_root() then
-  require("core.lazy_n_hotpot")
+	require("core.lazy_n_hotpot")
 end
 
 -- keybindings

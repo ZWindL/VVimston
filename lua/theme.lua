@@ -6,6 +6,6 @@ vim.cmd([[echo " "]])
 -- vim.cmd.colorscheme "oxocarbon"
 
 -- vim.cmd.colorscheme "nightfox"
-vim.cmd.colorscheme "dayfox"
+vim.cmd.colorscheme("dayfox")
 -- vim.cmd.colorscheme "dawnfox"
 -- vim.cmd.colorscheme "duskfox"

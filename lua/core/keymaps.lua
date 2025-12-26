@@ -42,10 +42,10 @@ map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map(
-    "n",
-    "<leader>ur",
-    "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-    { desc = "Redraw / clear hlsearch / diff update" }
+	"n",
+	"<leader>ur",
+	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+	{ desc = "Redraw / clear hlsearch / diff update" }
 )
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
@@ -73,7 +73,7 @@ map("", "Q", "gq", {})
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-    return require("core.utils").escapePair()
+	return require("core.utils").escapePair()
 end)
 
 -- buffer
@@ -85,8 +85,7 @@ map("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
 map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
 map("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
 -- NOTE: this map requires fzf-lua
-map('n', '<leader>bf', "<cmd>FzfLua buffers<cr>", { desc = "List buffers" })
-
+map("n", "<leader>bf", "<cmd>FzfLua buffers<cr>", { desc = "List buffers" })
 
 -- NOTE: The Buffer* commands are provided by barbar.nvim
 
@@ -142,6 +141,6 @@ vim.cmd([[nmap <F12> :lua ]])
 -- reload plugin and execut `:luafile %`
 -- NOTE: Requires plenary
 map("n", "<leader><leader>x", function()
-    require("plenary.reload").reload_module("%")
-    vim.cmd("luafile %")
+	require("plenary.reload").reload_module("%")
+	vim.cmd("luafile %")
 end, { desc = "Reload current lua file" })

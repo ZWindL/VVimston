@@ -7,100 +7,100 @@ local command = vim.api.nvim_command
 local fn = vim.fn
 
 local opts = {
-    -- backup file location
-    backup = true,
-    undofile = true,
-    backupdir = os.getenv("HOME") .. "/.cache/nvim/backup//",
-    directory = os.getenv("HOME") .. "/.cache/nvim/swap//",
-    undodir = os.getenv("HOME") .. "/.cache/nvim/undo//",
+	-- backup file location
+	backup = true,
+	undofile = true,
+	backupdir = os.getenv("HOME") .. "/.cache/nvim/backup//",
+	directory = os.getenv("HOME") .. "/.cache/nvim/swap//",
+	undodir = os.getenv("HOME") .. "/.cache/nvim/undo//",
 
-    -- indents/tabs
-    expandtab = true,
-    smartindent = true, -- Add <tab> depending on syntax (C/C++)
-    shiftround = true,
-    shiftwidth = 4,
-    softtabstop = 4,
-    tabstop = 4,
+	-- indents/tabs
+	expandtab = true,
+	smartindent = true, -- Add <tab> depending on syntax (C/C++)
+	shiftround = true,
+	shiftwidth = 4,
+	softtabstop = 4,
+	tabstop = 4,
 
-    -- wild options
-    wildignorecase = true, -- Ignored case when completing file names and directories
-    wildmode = "longest:full,full",
-    wildoptions = "pum",   -- Show completion items using the pop-up-menu (pum)
-    pumblend = 15,         -- Completion menu transparency
+	-- wild options
+	wildignorecase = true, -- Ignored case when completing file names and directories
+	wildmode = "longest:full,full",
+	wildoptions = "pum", -- Show completion items using the pop-up-menu (pum)
+	pumblend = 15, -- Completion menu transparency
 
-    -- autochdir = true, -- When this on, some plugins may not work
-    breakindent = true,                                  -- Every wrapped line will continue visually indented
-    linebreak = true,
-    completeopt = { "noinsert", "menuone", "noselect" }, -- Show menu even for one item do not auto select/insert
-    conceallevel = 2,   -- set it to 2 for obsidian.nvim
-    copyindent = true,
-    -- cpoptions = o.cpoptions .. "x", -- stay on search item when <esc>
-    cursorline = true,
-    diffopt = "filler,internal,algorithm:histogram,indent-heuristic",
-    fileencodings = "utf-8,gbk",
-    foldcolumn = "1",
-    foldlevel = 99,
-    foldlevelstart = 99, -- No folds closed on start
-    guicursor = {
-        "n-v:block",
-        "i-c-ci-ve:ver25",
-        "r-cr:hor20",
-        "o:hor50",
-        "i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
-        "sm:block-blinkwait175-blinkoff150-blinkon175",
-    },
-    history = 150,     -- Keep 150 lines of command line history
-    ignorecase = true,
-    joinspaces = true, -- Add <space> after '.?!' when joining lines
-    -- lazyredraw = true -- do not redraw screen while running macros
-    laststatus = 3,
-    listchars = {
-        eol      = "↲",
-        tab      = "→ ",
-        nbsp     = "␣",
-        lead     = "␣",
-        space    = "␣",
-        trail    = "•",
-        extends  = "⟩",
-        precedes = "⟨",
-    },
-    matchpairs = { "(:)", "{:}", "[:]", "<:>" },
-    mouse = "nv", -- Only enable mouse in normal and visual modes
-    number = true,
-    relativenumber = true,
-    scrolloff = 3,     -- Min number of lines to keep between cursor and screen edge
-    sidescrolloff = 5, -- Min number of cols to keep between cursor and screen edge
-    showmatch = true,
-    -- showmode = false
-    smartcase = true,
-    splitright = true,
-    splitbelow = true,
-    termguicolors = true,
-    -- textwidth = 80, -- Max inserted text width for paste operations
-    -- timeoutlen = 500,
-    -- ttimeoutlen = 10, -- https://vi.stackexchange.com/a/4471/7339
-    updatetime = 250,
-    virtualedit = "block", -- Allow to move cursor out of the actual text in v mode
-    fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
+	-- autochdir = true, -- When this on, some plugins may not work
+	breakindent = true, -- Every wrapped line will continue visually indented
+	linebreak = true,
+	completeopt = { "noinsert", "menuone", "noselect" }, -- Show menu even for one item do not auto select/insert
+	conceallevel = 2, -- set it to 2 for obsidian.nvim
+	copyindent = true,
+	-- cpoptions = o.cpoptions .. "x", -- stay on search item when <esc>
+	cursorline = true,
+	diffopt = "filler,internal,algorithm:histogram,indent-heuristic",
+	fileencodings = "utf-8,gbk",
+	foldcolumn = "1",
+	foldlevel = 99,
+	foldlevelstart = 99, -- No folds closed on start
+	guicursor = {
+		"n-v:block",
+		"i-c-ci-ve:ver25",
+		"r-cr:hor20",
+		"o:hor50",
+		"i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
+		"sm:block-blinkwait175-blinkoff150-blinkon175",
+	},
+	history = 150, -- Keep 150 lines of command line history
+	ignorecase = true,
+	joinspaces = true, -- Add <space> after '.?!' when joining lines
+	-- lazyredraw = true -- do not redraw screen while running macros
+	laststatus = 3,
+	listchars = {
+		eol = "↲",
+		tab = "→ ",
+		nbsp = "␣",
+		lead = "␣",
+		space = "␣",
+		trail = "•",
+		extends = "⟩",
+		precedes = "⟨",
+	},
+	matchpairs = { "(:)", "{:}", "[:]", "<:>" },
+	mouse = "nv", -- Only enable mouse in normal and visual modes
+	number = true,
+	relativenumber = true,
+	scrolloff = 3, -- Min number of lines to keep between cursor and screen edge
+	sidescrolloff = 5, -- Min number of cols to keep between cursor and screen edge
+	showmatch = true,
+	-- showmode = false
+	smartcase = true,
+	splitright = true,
+	splitbelow = true,
+	termguicolors = true,
+	-- textwidth = 80, -- Max inserted text width for paste operations
+	-- timeoutlen = 500,
+	-- ttimeoutlen = 10, -- https://vi.stackexchange.com/a/4471/7339
+	updatetime = 250,
+	virtualedit = "block", -- Allow to move cursor out of the actual text in v mode
+	fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
 }
 
 for k, v in pairs(opts) do
-    if fn.has("nvim-0.10") == 1 then
-        o.smoothscroll = true
-        o.foldmethod = "expr"
-        -- use foldexp provided by TS instead
-        -- o.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
-    else
-        o.foldmethod = "indent"
-    end
-    o[k] = v
+	if fn.has("nvim-0.10") == 1 then
+		o.smoothscroll = true
+		o.foldmethod = "expr"
+		-- use foldexp provided by TS instead
+		-- o.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+	else
+		o.foldmethod = "indent"
+	end
+	o[k] = v
 end
 
 -- use ':grep' to send resulsts to quickfix
 -- use ':lgrep' to send resulsts to loclist
 if vim.fn.executable("rg") == 1 then
-    o.grepprg = "rg --vimgrep --no-heading --smart-case --hidden"
-    o.grepformat = "%f:%l:%c:%m"
+	o.grepprg = "rg --vimgrep --no-heading --smart-case --hidden"
+	o.grepformat = "%f:%l:%c:%m"
 end
 
 -- NOTE: It doesn't work properly either by modifying vim.opt or by using autocmd
@@ -131,30 +131,30 @@ vim.opt.formatoptions = "cqrnjl1"
 vim.opt.cpoptions:append("x") -- stay on search item when <esc>
 
 -- Set mapleader to <space>
-g.mapleader                 = " "
-g.maplocalleader            = " "
+g.mapleader = " "
+g.maplocalleader = " "
 
-g.tex_flavor                = "latex"
+g.tex_flavor = "latex"
 
 -- https://vi.stackexchange.com/a/5318/7339
-g.matchparen_timeout        = 20
+g.matchparen_timeout = 20
 g.matchparen_insert_timeout = 20
 -- g.python3_host_prog = vim.loop.os_homedir() .. "/.virtualenvs/neovim/bin/python3"
 
 g.markdown_fenced_languages = {
-    "vim",
-    "lua",
-    "cpp",
-    "sql",
-    "python",
-    "bash=sh",
-    "console=sh",
-    "javascript",
-    "typescript",
-    "js=javascript",
-    "ts=typescript",
-    "yaml",
-    "json",
+	"vim",
+	"lua",
+	"cpp",
+	"sql",
+	"python",
+	"bash=sh",
+	"console=sh",
+	"javascript",
+	"typescript",
+	"js=javascript",
+	"ts=typescript",
+	"yaml",
+	"json",
 }
 
 -- NOTE: Moved to core.autocmds

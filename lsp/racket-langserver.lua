@@ -1,4 +1,4 @@
 return {
-    cmd = { "racket", "-l", "racket-langserver" },
-    filetypes = { "racket", "scheme" },
+	cmd = { "racket", "-l", "racket-langserver" },
+	filetypes = { "racket", "scheme" },
 }

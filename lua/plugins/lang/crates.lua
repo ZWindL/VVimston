@@ -6,4 +6,3 @@ return {
 		require("crates").setup()
 	end,
 }
-
