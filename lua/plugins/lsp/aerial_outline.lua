@@ -39,7 +39,7 @@ return {
 				"Struct",
 			},
 		})
-		map({ "n", "v", "o" }, "<leader>gO", function()
+		map({ "n", "v", "o" }, "gO", function()
 			require("aerial").fzf_lua_picker()
 		end, { desc = "Aerial symbols" })
 	end,
