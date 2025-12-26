@@ -134,12 +134,35 @@ M.day_or_night = function()
 	end
 end
 
-M.is_git_dir = function (path)
-    if path == nil then
-        path = vim.fn.getcwd()
-    end
-    local result = vim.system({'git', '-C', path, 'rev-parse', '--is-inside-work-tree'}):wait()
-    return result.code == 0
+M.is_git_dir = function(path)
+	if path == nil then
+		path = vim.fn.getcwd()
+	end
+	local result = vim.system({ "git", "-C", path, "rev-parse", "--is-inside-work-tree" }):wait()
+	return result.code == 0
+end
+
+M.get_git_top_level_dir = function(path)
+	if path == nil then
+		return nil
+	end
+
+	if not M.is_git_dir(path) then
+		return nil
+	end
+
+	local result = vim.system({ "git", "-C", path, "rev-parse", "--show-toplevel" }, { text = true }):wait()
+
+	if result.code ~= 0 then
+		return nil
+	end
+
+	return vim.trim(result.stdout)
+end
+
+M.file_exists = function(path)
+	local stat = uv.fs_stat(path)
+	return stat and stat.type == "file" or false
 end
 
 return M

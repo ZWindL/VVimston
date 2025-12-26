@@ -1,32 +1,84 @@
--- Utilities for creating configurations
--- local fmt_util = require( "formatter.util")
+local utils = require("core.utils")
+local map = utils.safe_keymap_set
 
 return {
-    "mhartington/formatter.nvim",
-    config = function ()
-        require("formatter").setup({
-            logging = true,
-            log_level = vim.log.levels.WARN,
-            filetype = {
-                lua = { require("formatter.filetypes.lua").stylua, },
-                cmake = require("formatter.filetypes.cmake").cmakeformat,
-                c = require("formatter.filetypes.c").clangformat,
-                cpp = require("formatter.filetypes.cpp").clangformat,
-                fish = require("formatter.filetypes.fish").fishindent,
-                go = {
-                    require("formatter.filetypes.go").gofmt,
-                    -- require("formatter.filetypes.go").goimports,
-                    -- require("formatter.filetypes.go").gofumpt,
-                    -- require("formatter.filetypes.go").gofumports,
-                    -- require("formatter.filetypes.go").golines,
-                },
-                graphql = require("formatter.filetypes.graphql").prettier,
-                --lua = require("formatter.filetypes.").,
-                --lua = require("formatter.filetypes.").,
-                ["*"] = {
-                    require("formatter.filetypes.any").remove_trailing_whitespace,
-                },
-            },
-        })
-    end,
+	"stevearc/conform.nvim",
+	opts = {},
+	config = function()
+		local conform = require("conform")
+
+		conform.setup({
+			format_on_save = function(bufnr)
+				-- Disable auto format on save by default
+				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+					return
+				end
+				return { timeout_ms = 500, lsp_format = "fallback" }
+			end,
+			formatters_by_ft = {
+				lua = { "stylua" },
+				php = { "php_cs_fixer" },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+			},
+			default_format_opts = {
+				lsp_format = "fallback",
+			},
+		})
+
+		-- Set auto format before save
+		-- vim.api.nvim_create_autocmd("BufWritePre", {})
+
+		-- Setup formatters
+		-- PHP: use PHP CS Fixer from vendor path
+		conform.formatters.php_cs_fixer = function(bufnr)
+			-- local path = vim.api.nvim_buf_get_name(bufnr)
+			-- local git_top_level = utils.get_git_top_level_dir(path)
+			-- if git_top_level == nil then
+			-- 	return {}
+			-- end
+			-- local php_cs_fixer_bin = git_top_level .. "/vendor/friendsofphp/php-cs-fixer/php-cs-fixer"
+			-- if not utils.file_exists(php_cs_fixer_bin) then
+			-- 	return {}
+			-- end
+			return {
+				command = require("conform.util").find_executable({ "vendor/friendsofphp/php-cs-fixer/php-cs-fixer" }),
+				args = { "fix", "--ansi", "$FILENAME" },
+			}
+		end
+
+		-- replace the native formatexpr for `gq` operator
+		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
+		-- Commands to enable/disable auto format on save
+		vim.api.nvim_create_user_command("ConformDisableAutoFormat", function(args)
+			if args.bang then
+				-- FormatDisable! will disable formatting just for this buffer
+				vim.b.disable_autoformat = true
+			else
+				vim.g.disable_autoformat = true
+			end
+		end, {
+			desc = "Disable autoformat-on-save",
+			bang = true,
+		})
+
+		vim.api.nvim_create_user_command("ConformEnableAutoFormat", function()
+			vim.b.disable_autoformat = false
+			vim.g.disable_autoformat = false
+		end, {
+			desc = "Re-enable autoformat-on-save",
+		})
+
+		-- keybindings
+		map({ "n", "x", "o" }, "<leader>fm", function()
+			conform.format({ async = true }, function(err)
+				if not err then
+					local mode = vim.api.nvim_get_mode().mode
+					if vim.startswith(string.lower(mode), "v") then
+						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+					end
+				end
+			end)
+		end, { desc = "Format code" })
+	end,
 }
