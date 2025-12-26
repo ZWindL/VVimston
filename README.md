@@ -11,7 +11,7 @@ My personal `Neovim` configuration, nothing special.
 - Modular: Each plugin has its dedicated config file.
 - Documented (TODO): The goal is to easily recall what this line/file does.
 
-**Neovim >= 0.10 is required**
+**Neovim >= 0.11 is required**
 
 ## Installation
 Backup your existing config with `mv ~/.config/nvim{,.bak}`
@@ -96,3 +96,19 @@ Some options like custom icons for diagnosis will be reset to default after invo
 - [LazyVim](https://github.com/LazyVim/LazyVim)
 - [Sergio's config](https://bitbucket.org/sergio/mylazy-nvim)
 - [Allaman's Nvim config](https://github.com/Allaman/nvim/tree/main)
+
+# Remove Telescope
+## Dependencies
+[x] lua/plugins/lsp/dropbar.lua (the picker)
+[x] lua/plugins/telescope-undo.lua
+[x] lua/plugins/noice.lua (the picker)
+[x] lua/plugins/project.lua
+trouble, the depedency is written in telescope's config
+
+# TODOs
+[ ] Signature.nvim
+[ ] https://github.com/folke/snacks.nvim
+[ ] https://github.com/ph1losof/ecolog.nvim  .env manager
+[ ] Support DAP (Use fzf-lua)
+[ ] tree-sitter
+[ ] https://github.com/kevinhwang91/nvim-bqf

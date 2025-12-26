@@ -24,7 +24,7 @@ return {
             workspaces = {
                 {
                     name = "Notes",
-                    path = "~/OneDrive/应用/remotely-save/Notes",
+                    path = "~/Documents/Notes/",
                     overrides = {
                         notes_subdir = "6 - Full Notes",
                     },

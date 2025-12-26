@@ -1,5 +1,5 @@
 -- File: keymaps.lua
--- Desc: Only enhancements of default keybindings and shortcuts not within any group are allowed here
+-- Desc: Keymaps can be managed together
 -- Last update:
 
 local utils = require("core.utils")
@@ -18,12 +18,12 @@ map("v", ">", ">gv")
 -- Move selected line / block of text in visual mode
 map("x", "K", "<cmd>move '<-2<cr>gv-gv")
 map("x", "J", "<cmd>move '>+1<cr>gv-gv")
--- map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
--- map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
--- map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
--- map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
--- map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
--- map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
@@ -83,25 +83,31 @@ map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Prev buffer" })
 map("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
 map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
-map("n", "<leader>bd", "<cmd>BufferDelete<cr>", { desc = "Close buffer" })
-map("n", "<leader>bf", "<cmd>BufferPick<cr>", { desc = "Buffer Picker (Find)" })
+map("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
+-- NOTE: this map requires fzf-lua
+map('n', '<leader>bf', "<cmd>FzfLua buffers<cr>", { desc = "List buffers" })
+
+
+-- NOTE: The Buffer* commands are provided by barbar.nvim
+
+-- map("n", "<leader>bf", "<cmd>BufferPick<cr>", { desc = "Buffer Picker (Find)" })
 -- Goto buffer in position...
-map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>")
-map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>")
-map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>")
-map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>")
-map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>")
-map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>")
-map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>")
-map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>")
-map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>")
-map("n", "<A-0>", "<Cmd>BufferLast<CR>")
-map("n", "<A-p>", "<Cmd>BufferPick<CR>")
-map("n", "<leader>bob", "<Cmd>BufferOrderByBufferNumber<CR>", { desc = "Order by buffer number" })
-map("n", "<leader>bon", "<Cmd>BufferOrderByName<CR>", { desc = "Order by name" })
-map("n", "<leader>bod", "<Cmd>BufferOrderByDirectory<CR>", { desc = "Order by dir" })
-map("n", "<leader>bol", "<Cmd>BufferOrderByLanguage<CR>", { desc = "Order by lang" })
-map("n", "<leader>bow", "<Cmd>BufferOrderByWindowNumber<CR>", { desc = "Order by win num" })
+-- map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>")
+-- map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>")
+-- map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>")
+-- map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>")
+-- map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>")
+-- map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>")
+-- map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>")
+-- map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>")
+-- map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>")
+-- map("n", "<A-0>", "<Cmd>BufferLast<CR>")
+-- map("n", "<A-p>", "<Cmd>BufferPick<CR>")
+-- map("n", "<leader>bob", "<Cmd>BufferOrderByBufferNumber<CR>", { desc = "Order by buffer number" })
+-- map("n", "<leader>bon", "<Cmd>BufferOrderByName<CR>", { desc = "Order by name" })
+-- map("n", "<leader>bod", "<Cmd>BufferOrderByDirectory<CR>", { desc = "Order by dir" })
+-- map("n", "<leader>bol", "<Cmd>BufferOrderByLanguage<CR>", { desc = "Order by lang" })
+-- map("n", "<leader>bow", "<Cmd>BufferOrderByWindowNumber<CR>", { desc = "Order by win num" })
 
 -- tabs
 map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
@@ -122,19 +128,20 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save File" })
 
 -- productivity
-map({ "n", "v" }, "yc", "yygccp", { desc = "Yank and Comment" })
+-- NOTE: weird... only the raw command works
+-- map({ "n", "v" }, "yc", "yygccp", { desc = "Yank and Comment" })
+vim.cmd([[nmap yc yygccp]])
 
 -- help
--- TODO: figure out how to do this with lua
--- vim.cmd([[nmap <F1> :help ]])
-map({ "n", "v" }, "<F1>", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
+vim.cmd([[nmap <F1> :help ]])
 
 -- eval lua
 vim.cmd([[nmap <F12> :lua ]])
 
 -- develop
 -- reload plugin and execut `:luafile %`
-map("n", "<leader><leader>x", function ()
+-- NOTE: Requires plenary
+map("n", "<leader><leader>x", function()
     require("plenary.reload").reload_module("%")
     vim.cmd("luafile %")
 end, { desc = "Reload current lua file" })

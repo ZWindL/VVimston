@@ -6,6 +6,8 @@ local DEV_DIR = "$HOME/Projects/nvim"
 
 local M = {}
 
+local uv = (vim.uv or vim.loop)
+
 M.IS_WINDOWS = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
 M.IS_MAC = vim.fn.has("mac") == 1
 
@@ -36,7 +38,7 @@ function M.has_neovim_v08()
 end
 
 function M.is_root()
-	return not M.IS_WINDOWS and vim.loop.getuid() == 0
+	return not M.IS_WINDOWS and uv.getuid() == 0
 end
 
 -- @author LazyVim
@@ -130,6 +132,14 @@ M.day_or_night = function()
 	else
 		return "night"
 	end
+end
+
+M.is_git_dir = function (path)
+    if path == nil then
+        path = vim.fn.getcwd()
+    end
+    local result = vim.system({'git', '-C', path, 'rev-parse', '--is-inside-work-tree'}):wait()
+    return result.code == 0
 end
 
 return M

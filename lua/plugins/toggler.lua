@@ -12,7 +12,7 @@ return {
                 {
                     number = 2,
                     icon = '󰙅',
-                    callback = "<cmd>Outline<cr>",
+                    callback = "<cmd>AerialToggle!<cr>",
                 },
             },
         })

@@ -53,6 +53,7 @@ return {
                         }
                     },
                     lualine_x = {
+                        { "aerial" },
                         { "fancy_macro" },
                         { "fancy_diagnostics" },
                         { "fancy_searchcount" },

@@ -1,7 +1,7 @@
 local utils = require("core.utils")
 local constants = require("core.constants")
 local icons = constants.icons
-local lsp_servers = constants.lsp_servers_ensure_to_install()
+local lsp_servers_to_install = constants.lsp_servers_ensure_to_install()
 local lsp_servers_force_enabled = constants.lsp_servers_force_enable()
 local map = utils.safe_keymap_set
 
@@ -23,73 +23,18 @@ local function set_keymaps(client, bufnr)
             vim.lsp.buf.format({ async = true })
         end,
         { desc = "Format", icon = icons.common.format })
-
-    -- incoming/outgoing calls
-    map_group("n", "<leader>lc", "Lsp calls", icons.common.lambda)
-    map({ "n", "v" }, "<leader>lci",
-        vim.lsp.buf.incoming_calls,
-        { desc = "Incoming calls" })
-    map({ "n", "v" }, "<leader>lco",
-        vim.lsp.buf.outgoing_calls,
-        { desc = "Outgoing calls" })
 end
 
 return {
     {
-        "mason-org/mason.nvim",
-        opts = {
-            PATH = "prepend",
-            max_concurrent_installers = 4,
-
-            registries = {
-                "github:mason-org/mason-registry",
-            },
-
-            providers = {
-                "mason.providers.registry-api",
-                "mason.providers.client",
-            },
-
-            ui = {
-                check_outdated_packages_on_open = true,
-                border = "rounded",
-                -- border = "double",
-                width = 0.8,
-                height = 0.9,
-
-                icons = {
-                    package_installed = "✅",
-                    -- package_installed = "󰄵",
-                    package_pending = "➜",
-                    package_uninstalled = "❌"
-                    -- package_uninstalled = ""
-                    -- package_uninstalled = ""
-                },
-
-                keymaps = {
-                    toggle_package_expand = "<CR>",
-                    install_package = "i",
-                    update_package = "u",
-                    check_package_version = "c",
-                    update_all_packages = "U",
-                    check_outdated_packages = "C",
-                    uninstall_package = "X",
-                    cancel_installation = "<C-c>",
-                    apply_language_filter = "<C-f>",
-                    toggle_package_install_log = "<CR>",
-                    toggle_help = "g?",
-                },
-            },
-        },
-    },
-
-    {
         "mason-org/mason-lspconfig.nvim",
-        dependencies = { "mason-org/mason.nvim" },
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = lsp_servers,
-                automatic_installation = true,
+                ensure_installed = lsp_servers_to_install,
                 automatic_enable = true,
             })
 
@@ -102,6 +47,10 @@ return {
                 desc = "Mason (LSP)",
                 icon = " "
             })
+
+            -- NOTE: LSPs are automatically configured by lsp-config
+            -- Manually add extra options to certain LSPs in .config/nvim/lsp/LSP_NAME.lua
+
             vim.lsp.config('*', {
                 capabilities = {
                     textDocument = {

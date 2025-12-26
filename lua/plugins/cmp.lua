@@ -57,17 +57,13 @@ return {
             nerd_font_variant = 'normal'
         },
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer', 'codecompanion' },
-            providers = {
-                codecompanion = {
-                    name = "CodeCompanion",
-                    module = "codecompanion.providers.completion.blink",
-                    enabled = true,
-                },
-            },
+            default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
         -- Experimental signature help support
-        -- signature = { enabled = true },
+        signature = {
+            enabled = true,
+            window = { show_documentation = true },
+        },
         fuzzy = { implementation = "prefer_rust_with_warning" }
     },
     opts_extend = { "sources.default" }
