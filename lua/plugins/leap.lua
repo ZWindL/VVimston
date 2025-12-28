@@ -13,8 +13,8 @@ return {
 			map({ "n", "x", "o" }, "<C-;>", "<Plug>(leap-forward)")
 			map({ "n", "x", "o" }, "<C-,>", "<Plug>(leap-backward)")
 			-- vim.keymap.set('n', 'gs', '<Plug>(leap-from-window)')
-			map({ "x", "o" }, "x", "<Plug>(leap-forward-till)")
-			map({ "x", "o" }, "X", "<Plug>(leap-backward-till)")
+			map({ "x", "o" }, "s", "<Plug>(leap-forward-till)")
+			map({ "x", "o" }, "S", "<Plug>(leap-backward-till)")
 			map({ "n", "x", "o" }, "<C-/>", "<Plug>(leap-anywhere)", { desc = "Leap to anywhere" })
 			map({ "x", "o" }, "R", function()
 				require("leap.treesitter").select({
