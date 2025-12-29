@@ -4,12 +4,8 @@ return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
 	dependencies = {
-		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 		"MunifTanjim/nui.nvim",
-		-- OPTIONAL:
 		"rcarriga/nvim-notify",
-		-- "hrsh7th/nvim-cmp",
-		-- "nvim-telescope/telescope.nvim", -- picker
 	},
 	opts = {
 		views = {
@@ -124,19 +120,13 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>nl", "<cmd>NoiceLast<cr>", desc = "Show last message" },
-		{ "<leader>nd", "<cmd>NoiceDismiss<cr>", desc = "Dismiss" },
-		{ "<leader>ne", "<cmd>NoiceErrors<cr>", desc = "Show errors" },
-		{ "<leader>nm", "<cmd>NoiceDisable<cr>", desc = "Mute noice" },
-		{ "<leader>no", "<cmd>NoiceEnable<cr>", desc = "Enable noice" },
-		{ "<leader>nt", "<cmd>NoiceTelescope<cr>", desc = "Show message" },
-		-- {
-		--     "<leader>nl",
-		--     function ()
-		--         require("noice").cmd("last")
-		--     end
-		--     desc = "Show last message"
-		-- },
+		{ "<leader>nh", "<cmd>Noice history<cr>", desc = "Show notification history" },
+		{ "<leader>nl", "<cmd>Noice last<cr>", desc = "Show last message" },
+		{ "<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Dismiss" },
+		{ "<leader>ne", "<cmd>Noice errors<cr>", desc = "Show errors" },
+		{ "<leader>nm", "<cmd>Noice disable<cr>", desc = "Mute noice" },
+		{ "<leader>no", "<cmd>Noice enable<cr>", desc = "Enable noice" },
+		{ "<leader>nf", "<cmd>Noice fzf<cr>", desc = "Show message in fzf" },
 	},
 	config = function(_, opts)
 		require("noice").setup(opts)

@@ -127,7 +127,7 @@ end
 -- and other plugins rely on that property
 M.day_or_night = function()
 	local h = tonumber(os.date("%H"))
-	if h > 8 and h < 18 then
+	if h > 8 and h < 17 then
 		return "day"
 	else
 		return "night"
