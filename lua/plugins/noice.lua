@@ -120,6 +120,7 @@ return {
 		},
 	},
 	keys = {
+		{ "<leader>nn", "<cmd>Noice<cr>", desc = "Show notifications" },
 		{ "<leader>nh", "<cmd>Noice history<cr>", desc = "Show notification history" },
 		{ "<leader>nl", "<cmd>Noice last<cr>", desc = "Show last message" },
 		{ "<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Dismiss" },
