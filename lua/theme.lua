@@ -13,7 +13,8 @@ local day_or_night = require("core.utils").day_or_night()
 -- vim.cmd.colorscheme("duskfox")
 
 if day_or_night == "day" then
-	vim.cmd.colorscheme("tokyonight-moon")
+	-- vim.cmd.colorscheme("tokyonight-moon")
+	vim.cmd.colorscheme("dayfox")
 else
 	vim.cmd.colorscheme("nightfox")
 end

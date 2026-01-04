@@ -78,7 +78,7 @@ M.icons = {
 ---
 ---@field lsp_servers (LspInfo|string)[] List of LspInfos
 M.lsp_servers = {
-	"rust-analyzer",
+	"rust_analyzer",
 	"lua_ls",
 	{
 		name = "angularls",
