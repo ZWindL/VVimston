@@ -10,10 +10,9 @@ return {
 		conform.setup({
 			format_on_save = function(bufnr)
 				-- Disable auto format on save by default
-				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-					return
+				if vim.g.enable_autoformat or vim.b[bufnr].enable_autoformat then
+					return { timeout_ms = 500, lsp_format = "fallback" }
 				end
-				return { timeout_ms = 500, lsp_format = "fallback" }
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
@@ -53,9 +52,9 @@ return {
 		vim.api.nvim_create_user_command("ConformDisableAutoFormat", function(args)
 			if args.bang then
 				-- FormatDisable! will disable formatting just for this buffer
-				vim.b.disable_autoformat = true
+				vim.b.enable_autoformat = false
 			else
-				vim.g.disable_autoformat = true
+				vim.g.enable_autoformat = false
 			end
 		end, {
 			desc = "Disable autoformat-on-save",
@@ -63,8 +62,8 @@ return {
 		})
 
 		vim.api.nvim_create_user_command("ConformEnableAutoFormat", function()
-			vim.b.disable_autoformat = false
-			vim.g.disable_autoformat = false
+			vim.b.enable_autoformat = true
+			vim.g.enable_autoformat = true
 		end, {
 			desc = "Re-enable autoformat-on-save",
 		})
