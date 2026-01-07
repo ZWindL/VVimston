@@ -12,7 +12,7 @@ api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight on yank",
 })
 
--- The options set in `options.lua` seem don't work properly, need to combine with this
+-- For files with a file type, overwrite the options here.
 --  - "a"                                   -- Auto formatting is BAD.
 --  - "t"                                   -- Don't auto format my code. I got linters for that.
 --  + "c"                                   -- In general, I like it when comments respect textwidth
@@ -23,9 +23,12 @@ api.nvim_create_autocmd("TextYankPost", {
 --  + "j"                                   -- Auto-remove comments if possible.
 --  - "2"                                   -- I'm not in gradeschool anymore
 --  + "l"
-api.nvim_create_autocmd("BufEnter", {
+api.nvim_create_autocmd("FileType", {
 	callback = function()
-		vim.opt.formatoptions:remove({ "a", "t", "o", "2" })
+		-- Use vim.schedule to run after ftplugins have set their options
+		vim.schedule(function()
+			vim.opt_local.formatoptions:remove({ "a", "t", "o", "2" })
+		end)
 	end,
 	desc = "Disable New Line Comment",
 })

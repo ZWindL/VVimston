@@ -103,7 +103,7 @@ if vim.fn.executable("rg") == 1 then
 	o.grepformat = "%f:%l:%c:%m"
 end
 
--- NOTE: It doesn't work properly either by modifying vim.opt or by using autocmd
+-- Set formatoptions for files without a filetype.
 -- c: auto-wrap comments using textwidth
 -- r: auto-insert the current comment leader after hitting <Enter>
 -- o: auto-insert the current comment leader after hitting 'o' or 'O'
@@ -111,6 +111,7 @@ end
 -- n: recognize numbered lists
 -- 1: don't break a line after a one-letter word
 -- j: remove comment leader when it makes sense
+
 -- this gets overwritten by ftplugins (:verb set fo)
 -- we use autocmd to remove 'o' in '/lua/autocmd.lua'
 -- borrowed from tjdevries
@@ -125,7 +126,6 @@ end
 --     + "n"                                   -- Indent past the formatlistpat, not underneath it.
 --     + "j"                                   -- Auto-remove comments if possible.
 --     - "2"                                   -- I'm not in gradeschool anymore
--- So hardcode this option
 vim.opt.formatoptions = "cqrnjl1"
 
 vim.opt.cpoptions:append("x") -- stay on search item when <esc>
