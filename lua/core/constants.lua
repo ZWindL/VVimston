@@ -80,21 +80,12 @@ M.icons = {
 M.lsp_servers = {
 	"rust_analyzer",
 	"lua_ls",
-	{
-		name = "angularls",
-		ensure_to_install = false,
-		force_enable = false,
-	},
 	"ansiblels",
 	"bashls",
 	"clangd",
 	"neocmake",
 	"cssmodules_ls",
 	"dockerls",
-	{
-		name = "dotls",
-		ensure_to_install = false,
-	},
 	"emmet_ls",
 	"gopls",
 	-- "grammarly",
@@ -121,11 +112,6 @@ M.lsp_servers = {
 		ensure_to_install = false,
 		force_enable = true,
 	},
-
-	-- {
-	--        name = "phpactor",
-	--        lang = "php",
-	--    },
 	-- "ocaml-lsp",
 	-- "java_language_server",
 	-- "hls",
@@ -141,7 +127,7 @@ M.lsp_servers_ensure_to_install = function()
 		if type(lsp) == "string" then
 			table.insert(list, lsp)
 		else
-			if lsp.ensure_to_install then
+			if lsp.ensure_to_install == true then
 				table.insert(list, lsp.name)
 			end
 		end
