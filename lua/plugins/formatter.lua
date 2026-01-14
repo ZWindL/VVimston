@@ -30,11 +30,11 @@ return {
 		-- Setup formatters
 		-- PHP: use PHP CS Fixer from vendor path
 		conform.formatters.php_cs_fixer = function(bufnr)
-			-- local path = vim.api.nvim_buf_get_name(bufnr)
-			-- local git_top_level = utils.get_git_top_level_dir(path)
-			-- if git_top_level == nil then
-			-- 	return {}
-			-- end
+			local path = vim.api.nvim_buf_get_name(bufnr)
+			local git_top_level = utils.get_git_top_level_dir(path)
+			if git_top_level == nil then
+				return {}
+			end
 			-- local php_cs_fixer_bin = git_top_level .. "/vendor/friendsofphp/php-cs-fixer/php-cs-fixer"
 			-- if not utils.file_exists(php_cs_fixer_bin) then
 			-- 	return {}

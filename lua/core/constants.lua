@@ -106,7 +106,8 @@ M.lsp_servers = {
 	"vuels",
 	"yamlls",
 	"zls",
-	"phpactor",
+	-- "phpactor",
+	"intelephense",
 	{
 		name = "racket-langserver",
 		ensure_to_install = false,
