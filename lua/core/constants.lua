@@ -108,6 +108,7 @@ M.lsp_servers = {
 	"zls",
 	-- "phpactor",
 	"intelephense",
+	"arduino_language_server",
 	{
 		name = "racket-langserver",
 		ensure_to_install = false,
