@@ -3,7 +3,7 @@ local map = utils.safe_keymap_set
 
 return {
 	{
-		"ggandor/leap.nvim",
+	    url = "https://codeberg.org/andyg/leap.nvim",
 		dependencies = { "tpope/vim-repeat" },
 		config = function()
 			require("leap").setup({})
