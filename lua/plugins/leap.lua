@@ -3,7 +3,7 @@ local map = utils.safe_keymap_set
 
 return {
 	{
-	    url = "https://codeberg.org/andyg/leap.nvim",
+		url = "https://codeberg.org/andyg/leap.nvim",
 		dependencies = { "tpope/vim-repeat" },
 		config = function()
 			require("leap").setup({})
@@ -26,7 +26,7 @@ return {
 	{
 		"ggandor/leap-spooky.nvim",
 		dependencies = {
-			"ggandor/leap.nvim",
+			url = "https://codeberg.org/andyg/leap.nvim",
 		},
 		opts = true,
 	},
