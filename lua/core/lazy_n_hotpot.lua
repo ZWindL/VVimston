@@ -35,9 +35,12 @@ local function ensure_installed(plugin, branch)
 end
 
 local lazy_path = ensure_installed("folke/lazy.nvim", "stable")
-local hotpot_path = ensure_installed("rktjmp/hotpot.nvim", "main")
+local hotpot_path = ensure_installed("rktjmp/hotpot.nvim", "v2.0.0")
 
 vim.opt.rtp:prepend({ hotpot_path, lazy_path })
+
+-- Hotpot must be required before lazy.setup() in v2
+require("hotpot")
 
 -- lazy options
 local lazy_opts = {
@@ -70,7 +73,10 @@ local lazy_opts = {
 		reset_packpath = true, -- reset the package path to improve startup time
 		rtp = {
 			reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
-			paths = {},
+			paths = {
+				-- hotpot v2 AOT compiler output directory
+				vim.fn.stdpath("cache") .. "/hotpot",
+			},
 			disabled_plugins = {
 				-- "gzip",
 				-- "matchit",
@@ -86,9 +92,3 @@ local lazy_opts = {
 }
 
 require("lazy").setup(lazy_opts)
-
--- You must call vim.loader.enable() before requiring hotpot unless you are
--- passing {performance = {cache = false}} to Lazy.
-vim.loader.enable()
-
-require("hotpot")
