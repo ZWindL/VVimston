@@ -35,7 +35,11 @@ api.nvim_create_autocmd("FileType", {
 	callback = function()
 		-- Use vim.schedule to run after ftplugins have set their options
 		vim.schedule(function()
-			vim.opt_local.formatoptions:remove({ "a", "t", "o", "2" })
+			-- NOTE: remove() with a table silently fails for flag-style options
+			-- on Nvim nightly (0.13-dev); remove flags one by one instead
+			for _, flag in ipairs({ "a", "t", "o", "2" }) do
+				vim.opt_local.formatoptions:remove(flag)
+			end
 		end)
 	end,
 	desc = "Disable New Line Comment",

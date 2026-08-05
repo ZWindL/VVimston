@@ -88,6 +88,10 @@ option as `vim.opt.formatoptions += "r"`, because options are table type. And if
 error. The workaround is to hardcode the value of `formatoptions` and remove the unwanted options by
 `formatoptions:remove` inside`autoCmd`, although it's not recommended, see `:help formatoptions`.
 
+Note: on Nvim nightly (0.13-dev) `formatoptions:remove({ "a", "t", "o", "2" })` with a table silently
+does nothing for this flag-style option. Remove the flags one by one in a loop instead
+(see `lua/core/autocmds.lua`).
+
 ### `noice` `cmdline` popup window resets certain options
 Some options like custom icons for diagnosis will be reset to default after invoking `noice` `cmdline` popup window.
 
