@@ -76,7 +76,7 @@ Run `git clone https://github.com/ZWindL/VVimston.git ~/.config/nvim`
 ## Dependencies
 `fswatch` for better performance while watching files.
 `ttf-nerd-fonts-symbols` for symbols.
-
+`go` and `yarn` for corrsponding LSPs.
 
 
 ## Known issues

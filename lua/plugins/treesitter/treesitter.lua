@@ -1,4 +1,3 @@
-local map_group = require("core.utils").add_keymap_group
 local ts_src = require("core.constants").ts_src
 
 return {
@@ -7,28 +6,15 @@ return {
 		lazy = false,
 		build = ":TSUpdate",
 		config = function()
-			local treesitter_config = require("nvim-treesitter.configs")
-			local treesitter_path = vim.fn.stdpath("data") .. "/site"
+			local ts = require("nvim-treesitter")
 
-			vim.opt.runtimepath:append(treesitter_path)
-
-			treesitter_config.setup({
-				parser_install_dir = treesitter_path,
-				ensure_installed = ts_src,
-				sync_install = false,
-				auto_install = true,
-				highlight = { enable = true },
-				textobjects = { enable = true },
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "gnn",
-						node_incremental = "grn",
-						scope_incremental = "grc",
-						node_decremental = "grm",
-					},
-				},
+			-- `install_dir` is prepended to `runtimepath` by setup()
+			ts.setup({
+				install_dir = vim.fn.stdpath("data") .. "/site",
 			})
+
+			-- install missing parsers asynchronously (no-op if already installed)
+			ts.install(ts_src)
 
 			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
