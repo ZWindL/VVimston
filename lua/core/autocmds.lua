@@ -7,7 +7,15 @@ local api = vim.api
 
 api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
-		vim.highlight.on_yank()
+		-- vim.hl.hl_op replaces the deprecated vim.hl.on_yank (Nvim 0.13+);
+		-- fall back for older versions
+		if vim.hl.hl_op then
+			vim.hl.hl_op()
+		elseif vim.hl then
+			vim.hl.on_yank()
+		else
+			vim.highlight.on_yank()
+		end
 	end,
 	desc = "highlight on yank",
 })
