@@ -37,7 +37,15 @@ return {
 	{
 		"keaising/im-select.nvim",
 		config = function()
-			if utils.IS_MAC or utils.IS_WINDOWS then
+			if utils.IS_WINDOWS then
+				return
+			end
+			if utils.IS_MAC then
+				require("im_select").setup({
+					default_im_select = "com.apple.keylayout.ABC",
+					default_command = "macism",
+					async_switch_im = true,
+				})
 				return
 			end
 			require("im_select").setup({
